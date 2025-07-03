@@ -1,0 +1,41 @@
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.dashboard-icons-avtar {
+  font-size: 21px;
+    padding: 5px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    align-items: center;
+}
+
+.dashboard-active-cards {
+  display: flex;
+  width: 100%;
+  border: 1px solid #ddd;
+  padding: 14px;
+  border-radius: 10px;
+}
+
+.Dashboard_loggeduser {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 40px;
+  padding: 10px 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.stickyheader-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
