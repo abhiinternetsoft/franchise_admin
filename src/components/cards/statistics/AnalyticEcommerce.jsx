@@ -12,6 +12,7 @@ import MainCard from "components/MainCard";
 // assets
 import RiseOutlined from "@ant-design/icons/RiseOutlined";
 import FallOutlined from "@ant-design/icons/FallOutlined";
+import { ArrowUpOutlined, ArrowDownOutlined } from "@ant-design/icons";
 
 const iconSX = {
   fontSize: "0.75rem",
@@ -50,9 +51,9 @@ export default function AnalyticEcommerce({
                   color={color}
                   icon={
                     isLoss ? (
-                      <FallOutlined style={iconSX} />
+                      <ArrowDownOutlined style={iconSX} />
                     ) : (
-                      <RiseOutlined style={iconSX} />
+                      <ArrowUpOutlined style={iconSX} />
                     )
                   }
                   label={`${percentage}%`}

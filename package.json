@@ -1,7 +1,8 @@
 {
   "name": "mantis-material-free-react",
   "version": "1.5.0",
-  "homepage": "https://yashwaghale0/github.io/franchise_admin",
+  "homepage": "https://yashwaghale0.github.io/franchise_admin",
+  
   "author": {
     "name": "CodedThemes",
     "email": "codedthemes@gmail.com",
@@ -15,7 +16,9 @@
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint:fix": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\"",
     "prettier": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
-    "knip": "knip"
+    "knip": "knip",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@ant-design/colors": "8.0.0",

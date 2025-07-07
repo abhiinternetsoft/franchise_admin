@@ -15,12 +15,13 @@ export default function Footer() {
       }}
     >
       <Typography variant="caption">
-        &copy; All rights reserved{" "}
+        &copy; 2025
         <Link href="#" target="_blank" underline="hover">
-          FranchiseListing
+          FranchiseListings.com
         </Link>
+        All rights reserved{" "}
       </Typography>
-      <Stack
+      {/* <Stack
         direction="row"
         sx={{ gap: 1.5, alignItems: "center", justifyContent: "space-between" }}
       >
@@ -30,7 +31,7 @@ export default function Footer() {
         <Link href="#" target="_blank" variant="caption" color="text.primary">
           Terms
         </Link>
-      </Stack>
+      </Stack> */}
     </Stack>
   );
 }

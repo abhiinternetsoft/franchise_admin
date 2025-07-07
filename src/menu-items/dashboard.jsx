@@ -1,9 +1,17 @@
 // assets
-import { DashboardOutlined } from "@ant-design/icons";
+import {
+  SearchOutlined,
+  HomeOutlined,
+  FileTextOutlined,
+  FilterOutlined,
+} from "@ant-design/icons";
 
 // icons
 const icons = {
-  DashboardOutlined,
+  SearchOutlined,
+  HomeOutlined,
+  FileTextOutlined,
+  FilterOutlined,
 };
 
 // ==============================|| MENU ITEMS - DASHBOARD ||============================== //
@@ -17,8 +25,8 @@ const dashboard = {
       id: "dashboard",
       title: "Home",
       type: "item",
-      url: "/dashboard/default",
-      icon: icons.DashboardOutlined,
+      url: "/",
+      icon: icons.HomeOutlined,
       breadcrumbs: false,
     },
     {
@@ -26,7 +34,7 @@ const dashboard = {
       title: "Search Directory",
       type: "item",
       url: "#",
-      icon: icons.DashboardOutlined,
+      icon: icons.SearchOutlined,
       breadcrumbs: false,
     },
     {
@@ -34,7 +42,7 @@ const dashboard = {
       title: "Franchise Listing",
       type: "item",
       url: "#",
-      icon: icons.DashboardOutlined,
+      icon: icons.FileTextOutlined,
       breadcrumbs: false,
     },
     {
@@ -42,7 +50,7 @@ const dashboard = {
       title: "Sales Lead",
       type: "item",
       url: "#",
-      icon: icons.DashboardOutlined,
+      icon: icons.FilterOutlined,
       breadcrumbs: false,
     },
   ],

@@ -27,8 +27,10 @@ export default function Search({ user }) {
   return (
     <Box sx={{ width: "90%", ml: { xs: 0, md: 1 } }}>
       <div className="Dashboard_loggeduser mr-3">
-        <h5 className="m-0">Hello {user?.name || "User"}</h5>
-        <p className="m-0">
+        <h5 className="m-0 user-name">
+          Hello <span>{user?.name || "User"}</span>
+        </h5>
+        <p className="m-0 User-date">
           {formattedDate} - {formattedTime}
         </p>
       </div>

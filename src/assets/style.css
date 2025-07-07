@@ -3,30 +3,58 @@
 }
 
 .dashboard-icons-avtar {
-  font-size: 21px;
-    padding: 5px;
+  font-size: 24px;
+    padding: 10px;
     border-radius: 50%;
     border: 1px solid #ddd;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     text-align: center;
     align-items: center;
+    color: #6D758F;
 }
 
-.dashboard-active-cards {
-  display: flex;
-  width: 100%;
-  border: 1px solid #ddd;
-  padding: 14px;
+.css-pvj91o-MuiTypography-root {
+  font-size: 12px;
+  color: #6D758F;
+}
+
+.css-197kj58-MuiTypography-root {
+  font-size: 40px;
+  color: #535364;
+}
+
+.css-51r0pn-MuiPaper-root-MuiCard-root {
   border-radius: 10px;
 }
+
+.css-10yzedz-MuiTypography-root {
+  font-size: 20px;
+  color: #535364;
+  font-weight: 600;
+}
+
+.view-all-btn {
+  padding: 8px 20px;
+  border: 1px solid #E1E4ED;
+  border-radius: 20px;
+  font-size: 14px;
+  color: #6D758F;
+}
+
+.css-fhjy21-MuiTableCell-root {
+  font-size: 14px;
+  color: #535364;
+  font-weight: 400;
+}
+
 
 .Dashboard_loggeduser {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-right: 40px;
-  padding: 10px 20px;
+  margin-right: 30px;
+  padding: 20px;
   border: 1px solid #ddd;
   border-radius: 10px;
 }
@@ -35,7 +63,94 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 20px;
+  padding: 8px 20px;
   border: 1px solid #ddd;
   border-radius: 10px;
 }
+
+.Mainlogo_text {
+  font-size: 18px; 
+  margin: 0px; 
+}
+
+.user-role {
+  font-size: 14px;
+  margin: 0px;
+}
+
+.upgrade-link {
+  padding: 8px 20px;
+  background: linear-gradient(to right, #00DB62, #0DA2FF);
+  border-radius: 30px;
+  width: 100%;
+  text-align: center;
+}
+
+.upgrade-link button {
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.css-15f4cbe-MuiTypography-root {
+  font-size: 14px;
+  color: #535364;
+  font-family: 'inter';
+}
+
+.anticon {
+  color: #535364;
+  font-size: 16px !important;
+}
+
+.css-we2gc-MuiChip-root.MuiChip-combinedPrimary {
+  color: #00DB9D;
+  background-color: #fff;
+  border: none;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.css-hjdg1k-MuiChip-root.MuiChip-combinedWarning {
+  background-color: #fff;
+  border: none;
+  font-weight: 600;
+  font-size: 18px;
+  color: #FE5C77;
+}
+
+.dashboard-title {
+  font-size: 14px;
+  padding: 8px 20px;
+  font-weight: 400;
+  color: #535364;
+  border-radius: 20px;
+}
+
+.overview-title {
+   border: 1px solid #E1E4ED;
+}
+
+.dashboard-title-container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.user-name {
+  color: #2A2A33;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.user-name span {
+  font-weight: 400 !important;
+}
+
+.User-date {
+  font-size: 12px;
+  color: #6D758F;
+}
+
+
+

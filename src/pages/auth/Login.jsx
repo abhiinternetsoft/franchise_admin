@@ -23,7 +23,7 @@ const SignIn = () => {
         // Handle successful login
         alert("Login successful!");
         localStorage.setItem("token", res.data.token);
-        window.location.href = "/dashboard"; // or your home/dashboard route
+        window.location.href = "/franchise_admin/"; // or your home/dashboard route
         console.log("Login successful", res.data);
       }
     } catch (error) {
@@ -44,7 +44,7 @@ const SignIn = () => {
       if (res.status === 201 || res.status === 200) {
         alert("Signup successful!");
         localStorage.setItem("token", res.data.token);
-        window.location.href = "/dashboard"; // or your home/dashboard route
+        window.location.href = "/franchise_admin/"; // or your home/dashboard route
       }
     } catch (error) {
       console.error("Signup failed", error);
