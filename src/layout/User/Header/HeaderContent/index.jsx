@@ -21,7 +21,7 @@ export default function HeaderContent() {
 
   return (
     <>
-      {!downLG && <Search user={{ name: "Admin" }} />}
+      {!downLG && <Search user={{ name: "John" }} />}
       {/* {downLG && <Box sx={{ width: "100%", ml: 1 }} />} */}
       {/* <IconButton
         component={Link}
@@ -33,7 +33,7 @@ export default function HeaderContent() {
         sx={{ color: "text.primary", bgcolor: "grey.100" }}
       ></IconButton> */}
       <div className="stickyheader-icons">
-        {/* <IoCalendarClearOutline /> */}
+        <IoCalendarClearOutline />
         <Notification />
         {!downLG && <Profile />}
         {downLG && <MobileSection />}

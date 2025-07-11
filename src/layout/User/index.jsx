@@ -16,7 +16,7 @@ import { handlerDrawerOpen, useGetMenuMaster } from "api/menu";
 
 // ==============================|| MAIN LAYOUT ||============================== //
 
-export default function DashboardLayout() {
+export default function UserLayout() {
   const { pathname } = useLocation();
   const { menuMasterLoading } = useGetMenuMaster();
   const downXL = useMediaQuery((theme) => theme.breakpoints.down("xl"));

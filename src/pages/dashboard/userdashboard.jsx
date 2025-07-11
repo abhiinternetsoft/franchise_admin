@@ -9,6 +9,7 @@ import Typography from "@mui/material/Typography";
 // project imports
 import AnalyticEcommerce from "components/cards/statistics/AnalyticEcommerce";
 import UniqueVisitorCard from "sections/dashboard/default/UniqueVisitorCard";
+import UserListing from "../../sections/dashboard/usercomponent/ListingTable";
 
 // avatar style
 const avatarSX = {
@@ -29,10 +30,19 @@ const actionSX = {
 
 // ==============================|| DASHBOARD - DEFAULT ||============================== //
 
-export default function DashboardDefault() {
+export default function DashboardUser() {
   return (
     <Grid container rowSpacing={4.5} columnSpacing={2.75}>
       {/* row 1 */}
+
+      <Grid sx={{ mb: -2.25 }} size={12} className="dashboard-title-container">
+        <Typography className="dashboard-title overview-title" variant="h5">
+          Overview
+        </Typography>
+        <Typography className="dashboard-title performance-title" variant="h5">
+          Performance
+        </Typography>
+      </Grid>
 
       <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
         <AnalyticEcommerce
@@ -79,7 +89,7 @@ export default function DashboardDefault() {
 
       {/* row 2 */}
       <Grid size={{ xs: 12, md: 12, lg: 12 }}>
-        <UniqueVisitorCard />
+        <UserListing />
       </Grid>
     </Grid>
   );

@@ -152,5 +152,31 @@
   color: #6D758F;
 }
 
+.css-fhjy21-MuiTableCell-root {
+  line-height: 3;
+  font-size: 14px;
+  color: #535364;
+}
+
+.css-run3j7-MuiTypography-root{
+  font-size: 14px;
+  font-weight: normal;
+  color: #0DA2FF;
+}
+
+.css-cx0ixn-MuiTableCell-root{
+  color: #6D758F;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.css-axw7ok svg {
+  font-size: 18px;
+}
+
+.css-qmwq9b-MuiChip-label {
+  width: 80px;
+  text-align: center;
+}
 
 

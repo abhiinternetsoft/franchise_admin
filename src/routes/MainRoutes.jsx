@@ -1,44 +1,60 @@
 import { lazy } from "react";
-
-// project imports
 import Loadable from "components/Loadable";
-import DashboardLayout from "layout/Dashboard";
 
-// render- Dashboard
+// Layouts
+import DashboardLayout from "layout/Dashboard"; // for admin
+import UserLayout from "layout/User"; // for user
+import RoleBasedLayout from "layout/Auth/RoleBasedLayout"; // for role-based layout
+
+// Pages
 const DashboardDefault = Loadable(
   lazy(() => import("pages/dashboard/default"))
 );
-
-// render - color
+const DashboardUser = Loadable(
+  lazy(() => import("pages/dashboard/userdashboard"))
+);
 const Color = Loadable(lazy(() => import("pages/component-overview/color")));
+const Opportunities = Loadable(
+  lazy(() => import("pages/component-overview/FranchiseOpportunities"))
+);
 const Typography = Loadable(
   lazy(() => import("pages/component-overview/typography"))
 );
 const Shadow = Loadable(lazy(() => import("pages/component-overview/shadows")));
-
-// render - sample page
 const SamplePage = Loadable(
   lazy(() => import("pages/extra-pages/sample-page"))
 );
 
-// ==============================|| MAIN ROUTING ||============================== //
+// Get role from localStorage
+const role = localStorage.getItem("userRole");
 
+// Define route children
 const MainRoutes = {
   path: "/",
-  element: <DashboardLayout />,
+  element: <RoleBasedLayout />, // ✅ always use this wrapper
   children: [
-    {
-      path: "/",
-      element: <DashboardDefault />,
-    },
+    role === "franchisee"
+      ? {
+          path: "/",
+          element: <DashboardUser />, // This is for franchisee
+        }
+      : {
+          path: "/",
+          element: <DashboardDefault />, // This is for franchisor
+        },
     {
       path: "dashboard",
       children: [
         {
           path: "default",
-          element: <DashboardDefault />,
+          element:
+            role === "franchisee" ? <DashboardUser /> : <DashboardDefault />,
         },
       ],
+    },
+    {
+      path: "FranchiseOpportunities",
+      element: <Opportunities />,
     },
     {
       path: "typography",

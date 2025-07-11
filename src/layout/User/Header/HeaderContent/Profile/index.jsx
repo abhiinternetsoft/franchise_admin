@@ -23,7 +23,6 @@ import Avatar from "components/@extended/Avatar";
 import MainCard from "components/MainCard";
 import Transitions from "components/@extended/Transitions";
 import IconButton from "components/@extended/IconButton";
-import { useUser } from "../../../../../contexts/UserContext";
 
 // assets
 import LogoutOutlined from "@ant-design/icons/LogoutOutlined";
@@ -57,10 +56,9 @@ function a11yProps(index) {
 
 export default function Profile() {
   const theme = useTheme();
-  const { user } = useUser();
+
   const anchorRef = useRef(null);
   const [open, setOpen] = useState(false);
-
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
   };
@@ -160,9 +158,9 @@ export default function Profile() {
                             sx={{ width: 32, height: 32 }}
                           />
                           <Stack>
-                            <Typography variant="h6">{user?.email}</Typography>
+                            <Typography variant="h6">John Doe</Typography>
                             <Typography variant="body2" color="text.secondary">
-                              {user?.role || "User"}
+                              UI/UX Designer
                             </Typography>
                           </Stack>
                         </Stack>

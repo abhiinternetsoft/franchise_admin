@@ -3,6 +3,7 @@ import { useState } from "react";
 import { FaGoogle, FaApple, FaFacebookF } from "react-icons/fa";
 import "./SignIn.css";
 import { BASE_URL } from "../../../env";
+import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
   const [tab, setTab] = useState("signin");
@@ -13,23 +14,36 @@ const SignIn = () => {
   const [signupPassword, setSignupPassword] = useState("");
   const [signupRole, setSignupRole] = useState("");
 
+  const navigate = useNavigate();
+
   const handleLogin = async () => {
     try {
       const res = await axios.post(`${BASE_URL}/api/auth/login`, {
         email,
         password,
       });
+
       if (res.status === 200) {
-        // Handle successful login
         alert("Login successful!");
-        localStorage.setItem("token", res.data.token);
-        window.location.href = "/franchise_admin/"; // or your home/dashboard route
-        console.log("Login successful", res.data);
+
+        const token = res.data.token;
+        // const email = res.data.user?.email;
+        const role = res.data.user?.role;
+
+        // Save token and role
+        localStorage.setItem("token", token);
+        // localhost.setItem("userEmail", email); // Store email for display
+        localStorage.setItem("userRole", role); // Now store role locally
+
+        // Navigate based on role
+        if (role === "franchisor") {
+          navigate("/");
+        } else {
+          navigate("/");
+        }
       }
     } catch (error) {
-      console.error("Login failed", error);
       alert("Login failed: " + (error.response?.data?.msg || "Server error"));
-      // Handle login failure
     }
   };
 
@@ -38,13 +52,25 @@ const SignIn = () => {
       const res = await axios.post(`${BASE_URL}/api/auth/register`, {
         email: signupEmail,
         password: signupPassword,
-        role: signupRole, // optional if you're storing role in DB
+        role: signupRole, // sent to backend, stored in DB
       });
 
       if (res.status === 201 || res.status === 200) {
         alert("Signup successful!");
+
+        // Store auth token
         localStorage.setItem("token", res.data.token);
-        window.location.href = "/franchise_admin/"; // or your home/dashboard route
+
+        // Store user role (if returned)
+        const userRole = res.data.user?.role || signupRole;
+        localStorage.setItem("userRole", userRole);
+
+        // Redirect based on role (optional)
+        if (userRole === "franchisor") {
+          window.location.href = "/";
+        } else {
+          window.location.href = "/";
+        }
       }
     } catch (error) {
       console.error("Signup failed", error);
