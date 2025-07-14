@@ -152,17 +152,8 @@ const SignIn = () => {
                   className="form-select mb-3"
                 >
                   <option value="">I am:</option>
-                  <option value="buyer">Looking to Buy Franchise</option>
                   <option value="franchisor">Franchisor</option>
                   <option value="franchisee">Franchisee</option>
-                  <option value="agent">Commercial Real Estate Agent</option>
-                  <option value="broker">Franchise Broker</option>
-                  <option value="business-broker">Business Broker</option>
-                  <option value="attorney">Franchise Attorney</option>
-                  <option value="immigration">Immigration Attorney</option>
-                  <option value="pro">
-                    Other Franchise Service Professional
-                  </option>
                 </select>
                 <label>Email</label>
                 <input
@@ -207,7 +198,7 @@ const SignIn = () => {
             )}
 
             {/* Social Login */}
-            <div className="text-center mt-4 text-muted small ">
+            {/* <div className="text-center mt-4 text-muted small ">
               Or sign in with
             </div>
             <div className="d-flex justify-content-center gap-3 mt-2 social-login-btn">
@@ -232,7 +223,7 @@ const SignIn = () => {
                   width={20}
                 />
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
 
