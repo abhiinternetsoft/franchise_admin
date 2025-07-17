@@ -19,7 +19,7 @@ const responseTimes = [
 
 const Step15 = ({ formik, onBack, onNext }) => {
   return (
-    <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }}>
+    <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }} className="shadow-none">
       <Box mb={3} display="flex" alignItems="center">
         <Box
           sx={{
@@ -91,14 +91,14 @@ const Step15 = ({ formik, onBack, onNext }) => {
         </Grid>
       </Grid>
 
-      <Box mt={4} display="flex" justifyContent="space-between">
+      {/* <Box mt={4} display="flex" justifyContent="space-between">
         <Button variant="outlined" onClick={onBack}>
           ← Previous
         </Button>
         <Button variant="contained" type="submit">
           Complete Listing ✔
         </Button>
-      </Box>
+      </Box> */}
     </Paper>
   );
 };

@@ -3,8 +3,6 @@ import Loadable from "components/Loadable";
 
 // Layouts
 import DashboardLayout from "layout/Dashboard"; // for admin
-import UserLayout from "layout/User"; // for user
-import RoleBasedLayout from "layout/Auth/RoleBasedLayout"; // for role-based layout
 
 // Pages
 const DashboardDefault = Loadable(
@@ -17,6 +15,19 @@ const Color = Loadable(lazy(() => import("pages/component-overview/color")));
 const Opportunities = Loadable(
   lazy(() => import("pages/component-overview/FranchiseOpportunities"))
 );
+
+const UserManagement = Loadable(
+  lazy(() => import("pages/component-overview/UserManagement"))
+);
+
+const LeadManagement = Loadable(
+  lazy(() => import("pages/component-overview/Leadmanagement"))
+);
+
+const Disclosures = Loadable(
+  lazy(() => import("pages/component-overview/Disclosures"))
+);
+
 const Typography = Loadable(
   lazy(() => import("pages/component-overview/typography"))
 );
@@ -31,42 +42,27 @@ const role = localStorage.getItem("userRole");
 // Define route children
 const MainRoutes = {
   path: "/",
-  element: <RoleBasedLayout />, // ✅ always use this wrapper
+  element: <DashboardLayout />, // ✅ always use this wrapper
   children: [
-    role === "franchisee"
-      ? {
-          path: "/",
-          element: <DashboardUser />, // This is for franchisee
-        }
-      : {
-          path: "/",
-          element: <DashboardDefault />, // This is for franchisor
-        },
     {
-      path: "dashboard",
-      children: [
-        {
-          path: "default",
-          element:
-            role === "franchisee" ? <DashboardUser /> : <DashboardDefault />,
-        },
-      ],
+      path: "/",
+      element: <DashboardDefault />, // This is for franchisee
     },
     {
-      path: "FranchiseOpportunities",
+      path: "franchiseopportunities",
       element: <Opportunities />,
     },
     {
-      path: "typography",
-      element: <Typography />,
+      path: "usermanagement",
+      element: <UserManagement />,
     },
     {
-      path: "color",
-      element: <Color />,
+      path: "LeadManagement",
+      element: <LeadManagement />,
     },
     {
-      path: "shadow",
-      element: <Shadow />,
+      path: "Disclosures",
+      element: <Disclosures />,
     },
     {
       path: "sample-page",

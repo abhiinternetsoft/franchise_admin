@@ -7,7 +7,7 @@ const Step14 = ({ formik, onBack, onNext }) => {
   };
 
   return (
-    <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }}>
+    <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }} className="shadow-none">
       <Box mb={3} display="flex" alignItems="center">
         <Box
           sx={{
@@ -96,11 +96,11 @@ const Step14 = ({ formik, onBack, onNext }) => {
       </Grid>
 
       <Box mt={4} display="flex" justifyContent="space-between">
-        <Button variant="outlined" onClick={onBack}>
+        {/* <Button variant="outlined" onClick={onBack}>
           ← Previous
-        </Button>
+        </Button> */}
         <Button variant="contained" onClick={onNext}>
-          Continue to Lead Management →
+          Skip Button
         </Button>
       </Box>
     </Paper>

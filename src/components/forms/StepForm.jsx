@@ -1,5 +1,14 @@
 import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import {
+  Box,
+  TextField,
+  Typography,
+  Grid,
+  Paper,
+  Button,
+  FormHelperText,
+} from "@mui/material";
 import * as Yup from "yup";
 import axios from "axios";
 import Step1_FileUpload from "./steps/Step1_FileUpload";
@@ -552,10 +561,10 @@ const StepForm = () => {
   };
 
   return (
-    <div className="p-6 max-w-xl mx-auto bg-white rounded shadow">
-      <h2 className="text-xl font-bold mb-4">
+    <div className="p-6 max-w-xl mx-auto bg-white ">
+      {/* <h2 className="text-l font-bold mb-4 Stepsubmain-heading">
         Step {step + 1}: {steps[step]}
-      </h2>
+      </h2> */}
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchemas[step]}
@@ -567,19 +576,16 @@ const StepForm = () => {
 
             {/* Buttons (except on Step 0 because handled in custom component) */}
             {step > 0 && (
-              <div className="flex justify-between mt-6">
+              <div className="d-flex justify-content-between mt-6 p-3">
                 <button
                   type="button"
                   onClick={() => setStep((prev) => prev - 1)}
-                  className="px-4 py-2 bg-gray-300 rounded"
+                  className="px-4 py-2 rounded steps-previous-btn"
                 >
-                  Back
+                  Previous
                 </button>
-                <button
-                  type="submit"
-                  className="px-6 py-2 bg-purple-600 text-white rounded"
-                >
-                  {isLastStep ? "Submit" : "Next"}
+                <button type="submit" className="px-6 py-0 step-next-button ">
+                  {isLastStep ? "Submit" : "Continue to Branding →"}
                 </button>
               </div>
             )}

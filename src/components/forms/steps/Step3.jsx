@@ -7,13 +7,13 @@ const Step3 = ({ formik, onBack, onNext }) => {
   };
 
   return (
-    <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }}>
+    <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }} className="shadow-none">
       {/* Step Info */}
       <Box mb={3} display="flex" alignItems="center">
         <Box
           sx={{
-            width: 32,
-            height: 32,
+            width: 38,
+            height: 38,
             borderRadius: "50%",
             bgcolor: "primary.main",
             color: "#fff",
@@ -50,7 +50,7 @@ const Step3 = ({ formik, onBack, onNext }) => {
         </Grid>
 
         {/* Brand Logo Upload */}
-        <Grid sx={{ flexBasis: { xs: "100%", md: "50%" } }}>
+        <Grid sx={{ flexBasis: { xs: "100%", md: "49%" } }}>
           <Box
             onClick={() => document.getElementById("brandLogo").click()}
             sx={{
@@ -75,7 +75,7 @@ const Step3 = ({ formik, onBack, onNext }) => {
         </Grid>
 
         {/* Brand Banner Upload */}
-        <Grid sx={{ flexBasis: { xs: "100%", md: "50%" } }}>
+        <Grid sx={{ flexBasis: { xs: "100%", md: "49%" } }}>
           <Box
             onClick={() => document.getElementById("brandBanner").click()}
             sx={{
@@ -104,11 +104,11 @@ const Step3 = ({ formik, onBack, onNext }) => {
 
       {/* Navigation Buttons */}
       <Box mt={4} display="flex" justifyContent="space-between">
-        <Button variant="outlined" onClick={onBack}>
+        {/* <Button variant="outlined" onClick={onBack}>
           ← Previous
-        </Button>
+        </Button> */}
         <Button variant="contained" onClick={onNext}>
-          Continue to Brand Overview →
+          Skip Button
         </Button>
       </Box>
     </Paper>

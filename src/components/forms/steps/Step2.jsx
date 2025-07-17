@@ -13,14 +13,14 @@ const Step2 = ({ formik, onBack, onNext }) => {
   const baseURL = "https://franchisehub.com/opportunities/";
 
   return (
-    <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }}>
+    <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }} className="shadow-none">
       {/* Header */}
 
       <Box mb={3} display="flex" alignItems="center">
         <Box
           sx={{
-            width: 32,
-            height: 32,
+            width: 38,
+            height: 38,
             borderRadius: "50%",
             bgcolor: "primary.main",
             color: "#fff",
@@ -44,7 +44,7 @@ const Step2 = ({ formik, onBack, onNext }) => {
       </Box>
 
       <Grid container spacing={3}>
-        <Grid sx={{ flexBasis: { xs: "100%", md: "50%" } }}>
+        <Grid sx={{ flexBasis: { xs: "100%", md: "49%" } }}>
           <TextField
             fullWidth
             label="Franchise Listing System Number (FLS #)"
@@ -56,7 +56,7 @@ const Step2 = ({ formik, onBack, onNext }) => {
           />
         </Grid>
 
-        <Grid sx={{ flexBasis: { xs: "100%", md: "50%" } }}>
+        <Grid sx={{ flexBasis: { xs: "100%", md: "49%" } }}>
           <TextField
             fullWidth
             label="Custom URL Slug"
@@ -90,9 +90,9 @@ const Step2 = ({ formik, onBack, onNext }) => {
 
       {/* Navigation Buttons */}
       <Box mt={4} display="flex" justifyContent="space-between">
-        <Button variant="outlined" color="secondary" onClick={onBack}>
+        {/* <Button variant="outlined" color="secondary" onClick={onBack}>
           ← Previous
-        </Button>
+        </Button> */}
         <Button
           variant="contained"
           color="primary"
@@ -101,7 +101,7 @@ const Step2 = ({ formik, onBack, onNext }) => {
             !formik.values.customSlug || Boolean(formik.errors.customSlug)
           }
         >
-          Continue to Branding →
+          Skip Button
         </Button>
       </Box>
     </Paper>

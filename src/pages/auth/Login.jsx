@@ -4,15 +4,19 @@ import { FaGoogle, FaApple, FaFacebookF } from "react-icons/fa";
 import "./SignIn.css";
 import { BASE_URL } from "../../../env";
 import { useNavigate } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
+import { BsArrowLeft } from "react-icons/bs";
 
 const SignIn = () => {
-  const [tab, setTab] = useState("signin");
   const [role, setRole] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [signupEmail, setSignupEmail] = useState("");
   const [signupPassword, setSignupPassword] = useState("");
   const [signupRole, setSignupRole] = useState("");
+  const [searchParams] = useSearchParams();
+  const defaultTab = searchParams.get("tab");
+  const [tab, setTab] = useState(defaultTab === "signup" ? "signup" : "signin");
 
   const navigate = useNavigate();
 
@@ -36,11 +40,7 @@ const SignIn = () => {
         localStorage.setItem("userRole", role); // Now store role locally
 
         // Navigate based on role
-        if (role === "franchisor") {
-          navigate("/");
-        } else {
-          navigate("/");
-        }
+        navigate("/");
       }
     } catch (error) {
       alert("Login failed: " + (error.response?.data?.msg || "Server error"));
@@ -65,12 +65,8 @@ const SignIn = () => {
         const userRole = res.data.user?.role || signupRole;
         localStorage.setItem("userRole", userRole);
 
-        // Redirect based on role (optional)
-        if (userRole === "franchisor") {
-          window.location.href = "/";
-        } else {
-          window.location.href = "/";
-        }
+        // Navigate based on role
+        navigate("/");
       }
     } catch (error) {
       console.error("Signup failed", error);
@@ -84,6 +80,9 @@ const SignIn = () => {
         {/* Left Column - SignIn Form */}
         <div className="col-lg-3 d-flex align-items-center justify-content-center bg-white p-4 signin-column">
           <div className="w-100" style={{ maxWidth: "400px" }}>
+            <p onClick={() => navigate(-1)} className="py-4 back-arrow">
+              <BsArrowLeft size={20} />
+            </p>
             <h3 className="signup-title  mb-4">
               Welcome to Franchise Listings
             </h3>
@@ -172,9 +171,15 @@ const SignIn = () => {
                   onChange={(e) => setSignupPassword(e.target.value)}
                 />
                 <div className="small text-muted mb-3">
-                  <p>
-                    At least 8 characters, with letters, numbers, and symbols
-                  </p>
+                  <ul className="password-validations">
+                    <li>At least 8 characters</li>
+                    <li>Validation neutral Mix of letters and numbers</li>
+                    <li>Validation neutral At least 1 special character</li>
+                    <li>
+                      Validation neutral At least 1 lowercase letter and 1
+                      uppercase letter
+                    </li>
+                  </ul>
                 </div>
                 <button
                   className="btn btn-primary w-100 mb-3 create-account-btn"
@@ -183,14 +188,19 @@ const SignIn = () => {
                   Create Account
                 </button>
                 <div className="form-check small d-flex align-items-center">
-                  <input className="form-check-input" type="checkbox" />
-                  <label className="form-check-label ms-2">
-                    I accept the{" "}
+                  <span className="checkbox-outer-box">
+                    <input
+                      className="form-check-input checkbox-input"
+                      type="checkbox"
+                    />
+                  </span>
+                  <label className="form-check-label ms-2 termsandconditions">
+                    By Submitting, I accept Franchise Listings{" "}
                     <a
                       href="#"
                       className="text-primary text-decoration-underline"
                     >
-                      terms of use
+                      terms of use.
                     </a>
                   </label>
                 </div>

@@ -179,4 +179,132 @@
   text-align: center;
 }
 
+.franchisestepsform-mainheading {
+  font-size: 26px;
+  background: linear-gradient(to right, #00DB62, #0DA2FF); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+}
+
+.nextstep-buttons {
+  border-radius: 30px !important;
+  padding: 4px 20px;
+  color: #535364;
+  font-size: 14px;
+}
+
+.upload-save-button button {
+  border: 1px solid #9BA4C3;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 500;
+  gap: 10px;
+}
+
+.css-uxn6cr {
+  border: 2px dashed #BAE5FF;
+}
+
+.upload-icon {
+  color: #BAE5FF;
+}
+
+.text-blue {
+  color: #6BBDEF;
+}
+
+.upload-file-btn {
+  border:1px solid  #6BBDEF;
+}
+
+.css-uxn6cr {
+  height: 394px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.franchisestepsform-maincontent {
+  font-size: 18px;
+}
+
+.formsstep_buttons {
+  gap: 10px;
+  display: flex;
+  
+}
+
+.formsstep_buttons button{
+  background-color: #6D758F;
+  color: #fff;
+  font-size: 14px;
+  padding: 8px 20px;
+  border-radius: 4px;
+  border: 1px solid #6D758F
+}
+
+.steps-heading {
+  font-size: 28px !important;
+  font-weight: 600;
+  color: #535364;
+}
+
+.text-grey {
+  color: #6D758F;
+}
+
+.Stepsubmain-heading{
+  font-size: 14px;
+  color: #535364;
+  font-weight: 400;
+}
+
+.css-1unz3xj {
+  background: linear-gradient(to right, #00DB62 , #0DA2FF) ;
+}
+
+.steps-previous-btn {
+  background-color: #fff;
+  border: 1px solid #E1E4ED;
+  color: #6D758F;
+}
+
+.button {
+  background: linear-gradient(to right, #00DB62, #0DA2FF);
+  padding: 7px 24px;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+
+.step-next-button {
+  background: linear-gradient(to right, #00DB62, #0DA2FF);
+  padding: 7px 24px;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+
+.fs-24 {
+  font-size: 24px;
+}
+
+.fs-14 {
+  font-size: 14px;
+}
+
+.w-30 {
+  width: 30%;
+}
+
+.gap-10 {
+  gap: 10px;
+}
+
+.horizontal-line {
+  margin: 30px 0px;
+  color: #CDCDD3;
+}
 
