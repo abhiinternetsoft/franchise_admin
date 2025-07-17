@@ -8,9 +8,7 @@ import DashboardLayout from "layout/Dashboard"; // for admin
 const DashboardDefault = Loadable(
   lazy(() => import("pages/dashboard/default"))
 );
-const DashboardUser = Loadable(
-  lazy(() => import("pages/dashboard/userdashboard"))
-);
+
 const Color = Loadable(lazy(() => import("pages/component-overview/color")));
 const Opportunities = Loadable(
   lazy(() => import("pages/component-overview/FranchiseOpportunities"))
