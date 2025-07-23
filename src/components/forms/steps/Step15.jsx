@@ -8,6 +8,7 @@ import {
   Button,
   Paper,
 } from "@mui/material";
+import Lead from "../../../assets/images/users/lead.svg";
 
 const responseTimes = [
   "Within 1 hour",
@@ -20,74 +21,70 @@ const responseTimes = [
 const Step15 = ({ formik, onBack, onNext }) => {
   return (
     <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }} className="shadow-none">
-      <Box mb={3} display="flex" alignItems="center">
+      <Box mb={3}>
         <Box
           sx={{
-            width: 32,
-            height: 32,
             borderRadius: "50%",
-            bgcolor: "primary.main",
-            color: "#fff",
+            // bgcolor: "primary.main",
+            color: "#535364",
             display: "flex",
             alignItems: "center",
-            justifyContent: "center",
             mr: 2,
+            gap: "10px",
           }}
         >
-          15
+          <img src={Lead} alt="Media Content + Uploads icon" />
+          <Typography variant="h6 steps-heading">Lead Management</Typography>
         </Box>
         <Box>
-          <Typography variant="h6">Lead Management</Typography>
-          <Typography variant="subtitle2" color="text.secondary">
+          <Typography
+            variant="subtitle2"
+            color="text.secondary"
+            className="fs-14 steps-short-desc"
+          >
             Contact preferences and lead handling information.
           </Typography>
         </Box>
       </Box>
 
       <Grid container spacing={3}>
-        <Grid item sx={{ flexBasis: { xs: "100%", md: "49%" } }}>
+        <Grid
+          item
+          sx={{ flexBasis: { xs: "100%", md: "50%" } }}
+          className="my-4"
+        >
+          <label htmlFor="Lead Contact Email" className="listing-form-label">
+            Lead Contact Email
+          </label>
           <TextField
             fullWidth
-            label="Lead Contact Email"
             name="leadEmail"
             value={formik.values.leadEmail}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             placeholder="leads@yourbrand.com"
-            helperText="Email address for receiving leads"
           />
         </Grid>
 
-        <Grid item sx={{ flexBasis: { xs: "100%", md: "49%" } }}>
+        <Grid
+          item
+          sx={{ flexBasis: { xs: "100%", md: "50%" } }}
+          className="my-4"
+        >
+          <label
+            htmlFor="Calendly Scheduling URL"
+            className="listing-form-label"
+          >
+            Calendly Scheduling URL
+          </label>
           <TextField
             fullWidth
-            label="Calendly Scheduling URL"
             name="calendlyUrl"
             value={formik.values.calendlyUrl}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             placeholder="https://calendly.com/yourbrand"
-            helperText="Calendly or scheduling link for prospects"
           />
-        </Grid>
-
-        <Grid item sx={{ flexBasis: { xs: "100%", md: "100%" } }}>
-          <TextField
-            select
-            fullWidth
-            label="Response Time Commitment"
-            name="responseTime"
-            value={formik.values.responseTime}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            helperText="How quickly you respond to leads"
-          >
-            {responseTimes.map((time) => (
-              <MenuItem key={time} value={time}>
-                {time}
-              </MenuItem>
-            ))}
-          </TextField>
         </Grid>
       </Grid>
 

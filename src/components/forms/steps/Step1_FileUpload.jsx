@@ -5,6 +5,7 @@ import { BsCloudArrowUpFill } from "react-icons/bs";
 import { LuFileText } from "react-icons/lu";
 import { RxCross1 } from "react-icons/rx";
 import { IoSaveOutline } from "react-icons/io5";
+import { FaArrowRightLong } from "react-icons/fa6";
 // import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 
 const Step1_FileUpload = ({ formik, onSkip, onNext }) => {
@@ -23,25 +24,27 @@ const Step1_FileUpload = ({ formik, onSkip, onNext }) => {
     >
       {/* Title */}
 
-      <Box mb={3} display="flex" alignItems="center">
+      <Box mb={3}>
         <Box
           sx={{
-            width: 38,
-            height: 38,
             borderRadius: "50%",
             // bgcolor: "primary.main",
             color: "#535364",
             display: "flex",
             alignItems: "center",
-            justifyContent: "center",
             mr: 2,
+            gap: "10px",
           }}
         >
-          <LuFileText size={30} />
+          <LuFileText size={20} />
+          <Typography variant="h6 steps-heading">FDD Upload</Typography>
         </Box>
         <Box>
-          <Typography variant="h6 steps-heading">Step 1: FDD Upload</Typography>
-          <Typography variant="subtitle2" color="text.secondary">
+          <Typography
+            variant="subtitle2"
+            color="text.secondary"
+            className="fs-14 steps-short-desc"
+          >
             Upload your Franchise Disclosure Document or skip to complete
             manually.
           </Typography>
@@ -93,17 +96,17 @@ const Step1_FileUpload = ({ formik, onSkip, onNext }) => {
           <Button variant="outlined" color="secondary" onClick={onSkip}>
             Save <IoSaveOutline />
           </Button>
-          <Button variant="outlined" color="secondary" onClick={onSkip}>
+          {/* <Button variant="outlined" color="secondary" onClick={onSkip}>
             Skip FDD Upload
-          </Button>
+          </Button> */}
         </div>
         <Button
           variant="contained"
           color="primary"
           onClick={onNext}
-          className="step-next-button"
+          className="step-next-button gap-10"
         >
-          Continue to Custom URL & Identification →
+          Next Step <FaArrowRightLong />
         </Button>
       </Box>
     </Paper>

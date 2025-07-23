@@ -8,6 +8,7 @@ import {
   Button,
   Paper,
 } from "@mui/material";
+import Chart from "../../../assets/images/users/chart.svg";
 
 const financialDisclosureOptions = [
   { label: "Yes", value: "yes" },
@@ -17,25 +18,27 @@ const financialDisclosureOptions = [
 const Step11 = ({ formik, onBack, onNext }) => {
   return (
     <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }} className="shadow-none">
-      <Box mb={3} display="flex" alignItems="center">
+      <Box mb={3}>
         <Box
           sx={{
-            width: 32,
-            height: 32,
             borderRadius: "50%",
-            bgcolor: "primary.main",
-            color: "#fff",
+            // bgcolor: "primary.main",
+            color: "#535364",
             display: "flex",
             alignItems: "center",
-            justifyContent: "center",
             mr: 2,
+            gap: "10px",
           }}
         >
-          11
+          <img src={Chart} alt="Intellectual Property icon" />
+          <Typography variant="h6 steps-heading">Financials</Typography>
         </Box>
         <Box>
-          <Typography variant="h6">Financials</Typography>
-          <Typography variant="subtitle2" color="text.secondary">
+          <Typography
+            variant="subtitle2"
+            color="text.secondary"
+            className="fs-14 steps-short-desc"
+          >
             Financial performance disclosure information.
           </Typography>
         </Box>
@@ -43,15 +46,24 @@ const Step11 = ({ formik, onBack, onNext }) => {
 
       <Grid container spacing={3}>
         {/* Item 19 Financial Performance Disclosure */}
-        <Grid item sx={{ flexBasis: { xs: "100%", md: "49%" } }}>
+        <Grid
+          item
+          sx={{ flexBasis: { xs: "100%", md: "25%" } }}
+          className="my-4"
+        >
+          <label
+            htmlFor="Item 19 Financial Performance Disclosure"
+            className="listing-form-label"
+          >
+            Item 19 Financial Performance Disclosure
+          </label>
           <TextField
             select
             fullWidth
-            label="Item 19 Financial Performance Disclosure"
             name="financialDisclosure"
             value={formik.values.financialDisclosure}
             onChange={formik.handleChange}
-            helperText="Do you provide financial performance representations?"
+            placeholder="Select Option"
           >
             {financialDisclosureOptions.map((option) => (
               <MenuItem key={option.value} value={option.value}>
@@ -62,16 +74,25 @@ const Step11 = ({ formik, onBack, onNext }) => {
         </Grid>
 
         {/* Financial Performance Details */}
-        <Grid item sx={{ flexBasis: { xs: "100%", md: "49%" } }}>
+        <Grid
+          item
+          sx={{ flexBasis: { xs: "100%", md: "100%" } }}
+          className="my-4"
+        >
+          <label
+            htmlFor="Financial Performance Details"
+            className="listing-form-label"
+          >
+            Financial Performance Details
+          </label>
           <TextField
             fullWidth
             multiline
             rows={4}
-            label="Financial Performance Details"
             name="financialDetails"
             value={formik.values.financialDetails}
             onChange={formik.handleChange}
-            helperText="Details about financial performance (if applicable)"
+            placeholder="Provide details about your financials performance representations..."
           />
         </Grid>
       </Grid>

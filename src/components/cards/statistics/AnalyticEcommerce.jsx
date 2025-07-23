@@ -5,6 +5,7 @@ import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import fileIcon from "../../../assets/images/users/file-icon.svg";
 
 // project imports
 import MainCard from "components/MainCard";
@@ -32,13 +33,15 @@ export default function AnalyticEcommerce({
 }) {
   return (
     <MainCard contentSX={{ p: 2.25 }}>
-      <div className="d-flex align-items-center justify-content-around">
-        <span className="dashboard-icons-avtar">{icon}</span>
-        <Stack sx={{ gap: 0.5 }}>
+      <div className=" ">
+        <div className="d-flex align-items-center justify-content-start gap-10 mb-2 ">
+          <span className="dashboard-icons-avtar">{icon}</span>
           <Typography variant="h6" color="text.secondary">
             {title}
           </Typography>
-          <Grid container alignItems="center">
+        </div>
+        <Stack sx={{ gap: 0.5 }}>
+          <Grid container className="d-flex flex-column ">
             <Grid>
               <Typography variant="h2" color="inherit">
                 {count}
@@ -57,7 +60,6 @@ export default function AnalyticEcommerce({
                     )
                   }
                   label={`${percentage}%`}
-                  sx={{ ml: 1.25, pl: 1 }}
                   size="small"
                 />
               </Grid>

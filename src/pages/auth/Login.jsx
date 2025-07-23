@@ -173,12 +173,9 @@ const SignIn = () => {
                 <div className="small text-muted mb-3">
                   <ul className="password-validations">
                     <li>At least 8 characters</li>
-                    <li>Validation neutral Mix of letters and numbers</li>
-                    <li>Validation neutral At least 1 special character</li>
-                    <li>
-                      Validation neutral At least 1 lowercase letter and 1
-                      uppercase letter
-                    </li>
+                    <li> Mix of letters and numbers</li>
+                    <li> At least 1 special character</li>
+                    <li>At least 1 lowercase letter and 1 uppercase letter</li>
                   </ul>
                 </div>
                 <button

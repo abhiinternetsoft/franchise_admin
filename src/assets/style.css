@@ -1,26 +1,27 @@
 * {
   -webkit-tap-highlight-color: transparent;
+  font-family: 'Inter' !important;
 }
 
 .dashboard-icons-avtar {
   font-size: 24px;
-    padding: 10px;
+    padding: 0px;
     border-radius: 50%;
     border: 1px solid #ddd;
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     text-align: center;
     align-items: center;
     color: #6D758F;
 }
 
 .css-pvj91o-MuiTypography-root {
-  font-size: 12px;
-  color: #6D758F;
+  font-size: 14px;
+  color: #535364;
 }
 
 .css-197kj58-MuiTypography-root {
-  font-size: 40px;
+  font-size: 32px;
   color: #535364;
 }
 
@@ -71,11 +72,13 @@
 .Mainlogo_text {
   font-size: 18px; 
   margin: 0px; 
+  font-family: 'certia' !important;
 }
 
 .user-role {
-  font-size: 14px;
+  font-size: 10px;
   margin: 0px;
+  font-family: 'certia' !important;
 }
 
 .upgrade-link {
@@ -141,10 +144,12 @@
   color: #2A2A33;
   font-weight: 600;
   font-size: 16px;
+  font-family: 'Poppins' !important;
 }
 
 .user-name span {
   font-weight: 400 !important;
+  font-family: 'Poppins' !important;
 }
 
 .User-date {
@@ -175,8 +180,9 @@
 }
 
 .css-qmwq9b-MuiChip-label {
-  width: 80px;
+  width: 45px;
   text-align: center;
+  font-size: 12px !important;
 }
 
 .franchisestepsform-mainheading {
@@ -184,6 +190,19 @@
   background: linear-gradient(to right, #00DB62, #0DA2FF); 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; 
+}
+
+.css-dcfwkv-MuiChip-root.MuiChip-combinedPrimary, .css-18b53yu-MuiChip-root.MuiChip-combinedWarning {
+  border: none;
+  background-color: #fff;
+}
+
+.css-dcfwkv-MuiChip-root.MuiChip-combinedPrimary {
+  color: #00DB9D;
+}
+
+.css-18b53yu-MuiChip-root.MuiChip-combinedWarning {
+  color: red !important;
 }
 
 .nextstep-buttons {
@@ -265,11 +284,42 @@
   background: linear-gradient(to right, #00DB62 , #0DA2FF) ;
 }
 
+.outline-btn {
+  border-radius: 30px;
+}
+
+.brandLogo-icon {
+  padding: 40px;
+  border: 1px solid #0DA2FF;
+  border-style: dashed;
+  border-radius: 50%;
+}
+
+.input {
+  border-radius: 10px !important;
+}
+
+.stepform-section {
+  border-radius: 10px;
+}
+
+.brandBanner-icon {
+  padding: 40px;
+}
+
+
+.css-1v1y0ct-MuiPickersSectionList-root-MuiPickersInputBase-sectionsContainer-MuiPickersOutlinedInput-sectionsContainer {
+  padding: 10px;
+}
+
 .steps-previous-btn {
   background-color: #fff;
   border: 1px solid #E1E4ED;
   color: #6D758F;
+  border-radius: 30px;
 }
+
+
 
 .button {
   background: linear-gradient(to right, #00DB62, #0DA2FF);
@@ -284,7 +334,7 @@
   padding: 7px 24px;
   color: #fff;
   border: none;
-  border-radius: 4px;
+  border-radius: 30px;
 }
 
 .fs-24 {
@@ -308,3 +358,99 @@
   color: #CDCDD3;
 }
 
+/* ============= Home Dashboard Css =========== */
+
+.homeSection-dashboard {
+  position: relative;
+  padding: 20px;
+  border-radius: 8px;
+
+  background: linear-gradient(to right,
+                              #fff 0%,
+                              #fff 40%,
+                              rgba(189, 252, 217, 0.8) 50%,
+                              #72C9FF 100%);
+  
+  border: 1px solid transparent;
+  background-clip: padding-box, border-box;
+  background-origin: border-box;
+  background-image:
+    linear-gradient(to right, 
+                    #fff 0%, 
+                    #fff 40%, 
+                    rgba(189, 252, 217, 0.8) 50%, 
+                    #72CEF7 100%),
+    linear-gradient(to right, #72CEF7, #BDFCD9);
+}
+
+.fs-16 {
+  font-size: 16px;
+}
+
+/* ====================== steps Form Css ==================== */
+
+.steps-short-desc {
+  color: #535364;
+  font-weight: 400;
+}
+
+.stepform-container {
+  height: 350px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  padding: 4px;
+}
+
+
+
+.Gallry-Images-section {
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #6BBDEF;
+  border-style: dashed;
+  border-radius: 10px;  
+}
+
+.upload-brochure {
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #6BBDEF;
+  border-style: dashed;
+  border-radius: 10px;
+}
+
+.Listing-form {
+  border-radius: 10px;
+}
+
+.listing-form-label {
+  font-size: 12px;
+  color: #535364;
+  font-family: 'Inter';
+  margin-bottom: 5px;
+}
+
+.upload-blue {
+  color: #6BBDEF;
+}
+
+.upload-description {
+  color: #6D758F;
+  font-weight: 400;
+}
+
+.upload-button {
+  display: none;
+}
+
+.upload-caption {
+  padding: 4px 15px;
+  border: 1px solid #6BBDEF;
+  font-size: 12px;
+  border-radius: 4px;
+}
+
+.upload-title {
+  color: #6D758F;
+}

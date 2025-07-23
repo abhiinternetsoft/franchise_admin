@@ -8,6 +8,7 @@ import {
   Button,
   FormHelperText,
 } from "@mui/material";
+import { CiLink } from "react-icons/ci";
 
 const Step2 = ({ formik, onBack, onNext }) => {
   const baseURL = "https://franchisehub.com/opportunities/";
@@ -16,50 +17,43 @@ const Step2 = ({ formik, onBack, onNext }) => {
     <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }} className="shadow-none">
       {/* Header */}
 
-      <Box mb={3} display="flex" alignItems="center">
+      <Box mb={3}>
         <Box
           sx={{
-            width: 38,
-            height: 38,
             borderRadius: "50%",
-            bgcolor: "primary.main",
-            color: "#fff",
+            // bgcolor: "primary.main",
+            color: "#535364",
             display: "flex",
             alignItems: "center",
-            justifyContent: "center",
             mr: 2,
+            gap: "10px",
           }}
         >
-          2
+          <CiLink size={20} />
+          <Typography variant="h6 steps-heading">
+            {" "}
+            Custom URL & Identification
+          </Typography>
         </Box>
         <Box>
-          <Typography variant="h6">
-            {" "}
-            Step 2: Custom URL & Identification
-          </Typography>
-          <Typography variant="subtitle2" color="text.secondary">
-            Set up your franchise listing URL and identification.
+          <Typography
+            variant="subtitle2"
+            color="text.secondary"
+            className="fs-14 steps-short-desc"
+          >
+            Set up your unique franchise listing identifier and custom URL for
+            easy discovery.
           </Typography>
         </Box>
       </Box>
 
       <Grid container spacing={3}>
-        <Grid sx={{ flexBasis: { xs: "100%", md: "49%" } }}>
+        <Grid sx={{ flexBasis: { xs: "100%", md: "100%" } }}>
+          <label htmlFor="Custom URL Slug" className="listing-form-label">
+            Custom URL Slug
+          </label>
           <TextField
             fullWidth
-            label="Franchise Listing System Number (FLS #)"
-            name="flsNumber"
-            value={formik.values.flsNumber}
-            InputProps={{ readOnly: true }}
-            helperText="Auto-generated unique identifier"
-            disabled
-          />
-        </Grid>
-
-        <Grid sx={{ flexBasis: { xs: "100%", md: "49%" } }}>
-          <TextField
-            fullWidth
-            label="Custom URL Slug"
             name="customSlug"
             value={formik.values.customSlug}
             onChange={formik.handleChange}
@@ -76,14 +70,31 @@ const Step2 = ({ formik, onBack, onNext }) => {
           />
         </Grid>
 
-        <Grid sx={{ flexBasis: "100%" }}>
+        <Grid sx={{ flexBasis: { xs: "100%", md: "49%" } }}>
+          <label
+            htmlFor="Franchise Listing System Number (FLS #)"
+            className="listing-form-label"
+          >
+            Franchise Listing System Number (FLS #)
+          </label>
           <TextField
             fullWidth
-            label="Preview URL"
+            name="flsNumber"
+            value={formik.values.flsNumber}
+            InputProps={{ readOnly: true }}
+            disabled
+          />
+        </Grid>
+
+        <Grid sx={{ flexBasis: { xs: "100%", md: "49%" } }}>
+          <label htmlFor="Preview URL" className="listing-form-label">
+            Preview URL
+          </label>
+          <TextField
+            fullWidth
             name="previewURL"
             value={`https://franchisehub.com/opportunities/${formik.values.customSlug}`}
             InputProps={{ readOnly: true }}
-            helperText="This is how your listing URL will appear"
           />
         </Grid>
       </Grid>
@@ -93,7 +104,7 @@ const Step2 = ({ formik, onBack, onNext }) => {
         {/* <Button variant="outlined" color="secondary" onClick={onBack}>
           ← Previous
         </Button> */}
-        <Button
+        {/* <Button
           variant="contained"
           color="primary"
           onClick={onNext}
@@ -102,7 +113,7 @@ const Step2 = ({ formik, onBack, onNext }) => {
           }
         >
           Skip Button
-        </Button>
+        </Button> */}
       </Box>
     </Paper>
   );

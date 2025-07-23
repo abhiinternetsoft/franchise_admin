@@ -8,6 +8,8 @@ import {
   Button,
   Paper,
 } from "@mui/material";
+import Training from "../../../assets/images/users/training.svg";
+import Program from "../../../assets/images/users/program.svg";
 
 const trainingLocations = [
   { label: "On-Site", value: "on-site" },
@@ -16,28 +18,37 @@ const trainingLocations = [
   { label: "Other", value: "other" },
 ];
 
+const yesNoOptions = [
+  { label: "Yes", value: "yes" },
+  { label: "No", value: "no" },
+];
+
 const Step8 = ({ formik, onBack, onNext }) => {
   return (
     <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }} className="shadow-none">
-      <Box mb={3} display="flex" alignItems="center">
+      <Box mb={3}>
         <Box
           sx={{
-            width: 32,
-            height: 32,
             borderRadius: "50%",
-            bgcolor: "primary.main",
-            color: "#fff",
+            // bgcolor: "primary.main",
+            color: "#535364",
             display: "flex",
             alignItems: "center",
-            justifyContent: "center",
             mr: 2,
+            gap: "10px",
           }}
         >
-          8
+          <img src={Training} alt=" Training and Support icon" />
+          <Typography variant="h6 steps-heading">
+            Training and Support
+          </Typography>
         </Box>
         <Box>
-          <Typography variant="h6">Training and Support</Typography>
-          <Typography variant="subtitle2" color="text.secondary">
+          <Typography
+            variant="subtitle2"
+            color="text.secondary"
+            className="fs-14 steps-short-desc"
+          >
             Training programs and ongoing support services.
           </Typography>
         </Box>
@@ -46,34 +57,66 @@ const Step8 = ({ formik, onBack, onNext }) => {
       <Grid container spacing={3}>
         {/* Training Hours */}
 
-        <Grid sx={{ flexBasis: { xs: "100%", md: "100%" } }}>
-          <Typography variant="subtitle1" gutterBottom>
-            Corporate Address
+        <Grid
+          sx={{ flexBasis: { xs: "100%", md: "100%" } }}
+          className="d-flex gap-10 align-items-center my-4"
+        >
+          <img src={Program} alt=" initial Investment icon" />
+          <Typography variant="subtitle1" gutterBottom className="m-0">
+            Training Program
           </Typography>
         </Grid>
 
-        <Grid item sx={{ flexBasis: { xs: "100%", md: "49%" } }}>
+        <Grid item sx={{ flexBasis: { xs: "100%", md: "30%" } }}>
+          <label
+            htmlFor="Classroom Training Hours"
+            className="listing-form-label"
+          >
+            Classroom Training Hours
+          </label>
           <TextField
             fullWidth
             type="number"
-            label="Initial Training Hours"
             name="trainingHours"
             value={formik.values.trainingHours}
             onChange={formik.handleChange}
+            placeholder="Input Numerical Character"
+          />
+        </Grid>
+
+        <Grid item sx={{ flexBasis: { xs: "100%", md: "30%" } }}>
+          <label
+            htmlFor="On the Job Training Hours"
+            className="listing-form-label"
+          >
+            On the Job Training Hours
+          </label>
+          <TextField
+            fullWidth
+            type="number"
+            name="jobtrainighours"
+            value={formik.values.jobtrainighours}
+            onChange={formik.handleChange}
+            placeholder="Input Numerical Character"
           />
         </Grid>
 
         {/* Training Location */}
-        <Grid item sx={{ flexBasis: { xs: "100%", md: "49%" } }}>
+        <Grid item sx={{ flexBasis: { xs: "100%", md: "30%" } }}>
+          <label
+            htmlFor="Do You Offer Onsite Grand Opening Support"
+            className="listing-form-label"
+          >
+            Do You Offer Onsite Grand Opening Support
+          </label>
           <TextField
             select
             fullWidth
-            label="Training Location"
-            name="trainingLocation"
-            value={formik.values.trainingLocation}
+            name="openingsupport"
+            value={formik.values.openingsupport}
             onChange={formik.handleChange}
           >
-            {trainingLocations.map((option) => (
+            {yesNoOptions.map((option) => (
               <MenuItem key={option.value} value={option.value}>
                 {option.label}
               </MenuItem>
@@ -83,43 +126,21 @@ const Step8 = ({ formik, onBack, onNext }) => {
 
         {/* Training Description */}
 
-        <Grid sx={{ flexBasis: { xs: "100%", md: "100%" } }}>
-          <Typography variant="subtitle1" gutterBottom>
-            Corporate Address
-          </Typography>
-        </Grid>
-
         <Grid item sx={{ flexBasis: { xs: "100%", md: "100%" } }}>
+          <label
+            htmlFor="Training Program Description"
+            className="listing-form-label"
+          >
+            Training Program Description
+          </label>
           <TextField
             fullWidth
             multiline
             rows={4}
-            label="Training Program Description"
             name="trainingDescription"
             value={formik.values.trainingDescription}
             onChange={formik.handleChange}
-            helperText="Describe the training program, curriculum, and what franchisees will learn..."
-          />
-        </Grid>
-
-        {/* Ongoing Support */}
-
-        <Grid sx={{ flexBasis: { xs: "100%", md: "100%" } }}>
-          <Typography variant="subtitle1" gutterBottom>
-            Corporate Address
-          </Typography>
-        </Grid>
-
-        <Grid item sx={{ flexBasis: { xs: "100%", md: "100%" } }}>
-          <TextField
-            fullWidth
-            multiline
-            rows={4}
-            label="Ongoing Support Services"
-            name="ongoingSupport"
-            value={formik.values.ongoingSupport}
-            onChange={formik.handleChange}
-            helperText="Marketing support, operations assistance, technology support, field visits, etc."
+            placeholder="Input Character"
           />
         </Grid>
       </Grid>

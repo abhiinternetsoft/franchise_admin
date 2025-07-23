@@ -1,5 +1,8 @@
 import React from "react";
 import { Box, Typography, TextField, Grid, Button, Paper } from "@mui/material";
+import brandLogo from "../../../assets/images/users/brandLogo.svg";
+import brandBanner from "../../../assets/images/users/brandbanner.svg";
+import { FaRegUserCircle } from "react-icons/fa";
 
 const Step3 = ({ formik, onBack, onNext }) => {
   const handleFileChange = (e, field) => {
@@ -9,25 +12,27 @@ const Step3 = ({ formik, onBack, onNext }) => {
   return (
     <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }} className="shadow-none">
       {/* Step Info */}
-      <Box mb={3} display="flex" alignItems="center">
+      <Box mb={3}>
         <Box
           sx={{
-            width: 38,
-            height: 38,
             borderRadius: "50%",
-            bgcolor: "primary.main",
-            color: "#fff",
+            // bgcolor: "primary.main",
+            color: "#535364",
             display: "flex",
             alignItems: "center",
-            justifyContent: "center",
             mr: 2,
+            gap: "10px",
           }}
         >
-          3
+          <FaRegUserCircle size={20} />
+          <Typography variant="h6 steps-heading">Branding</Typography>
         </Box>
         <Box>
-          <Typography variant="h6">Branding</Typography>
-          <Typography variant="subtitle2" color="text.secondary">
+          <Typography
+            variant="subtitle2"
+            color="text.secondary"
+            className="fs-14 steps-short-desc"
+          >
             Upload your brand assets and essential brand information.
           </Typography>
         </Box>
@@ -35,16 +40,17 @@ const Step3 = ({ formik, onBack, onNext }) => {
 
       <Grid container spacing={3}>
         {/* Brand Name */}
-        <Grid sx={{ flexBasis: "100%" }}>
+        <Grid sx={{ flexBasis: "50%" }}>
+          <label htmlFor="Brand Name" className="listing-form-label">
+            Brand Name
+          </label>
           <TextField
             fullWidth
-            label="Brand Name"
             name="brandName"
             value={formik.values.brandName}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             placeholder="Enter your brand name"
-            helperText="Official brand name"
             error={formik.touched.brandName && Boolean(formik.errors.brandName)}
           />
         </Grid>
@@ -54,23 +60,40 @@ const Step3 = ({ formik, onBack, onNext }) => {
           <Box
             onClick={() => document.getElementById("brandLogo").click()}
             sx={{
-              border: "2px dashed #ccc",
               padding: 4,
-              textAlign: "center",
+
               cursor: "pointer",
               borderRadius: 2,
             }}
+            className="d-flex align-items-center gap-10"
           >
-            <input
-              type="file"
-              id="brandLogo"
-              name="brandLogo"
-              accept=".png,.jpg,.jpeg,.svg"
-              hidden
-              onChange={(e) => handleFileChange(e, "brandLogo")}
-            />
-            <Typography>🖼 Upload Brand Logo</Typography>
-            <Typography variant="caption">PNG, JPG, SVG - Max 2MB</Typography>
+            <img src={brandLogo} alt="brand Logo" className="brandLogo-icon" />
+            <div>
+              <Typography className="fs-14 my-2 upload-title">
+                {" "}
+                Upload Brand Logo
+              </Typography>
+              <Typography
+                variant="subtitle2"
+                gutterBottom
+                className="fs-12 my-2 upload-description"
+              >
+                <span className="upload-blue">Click to upload</span> or drag and
+                drop
+              </Typography>
+              <input
+                type="file"
+                id="brandLogo"
+                name="brandLogo"
+                accept=".png,.jpg,.jpeg,.svg"
+                hidden
+                onChange={(e) => handleFileChange(e, "brandLogo")}
+                className=" upload-button "
+              />
+              <Typography variant="caption" className="upload-caption">
+                PNG, JPG, SVG - Max 2MB
+              </Typography>
+            </div>
           </Box>
         </Grid>
 
@@ -79,25 +102,43 @@ const Step3 = ({ formik, onBack, onNext }) => {
           <Box
             onClick={() => document.getElementById("brandBanner").click()}
             sx={{
-              border: "2px dashed #a78bfa",
+              border: "2px dashed #62C2FF",
               padding: 4,
-              textAlign: "center",
               cursor: "pointer",
               borderRadius: 2,
             }}
+            className="d-flex align-items-center gap-10"
           >
-            <input
-              type="file"
-              id="brandBanner"
-              name="brandBanner"
-              accept=".png,.jpg,.jpeg"
-              hidden
-              onChange={(e) => handleFileChange(e, "brandBanner")}
+            <img
+              src={brandBanner}
+              alt="brand Logo"
+              className="brandBanner-icon"
             />
-            <Typography>🖼 Upload Brand Banner</Typography>
-            <Typography variant="caption">
-              PNG, JPG - 1200x400px recommended
-            </Typography>
+            <div>
+              <Typography className="fs-14 my-2 upload-title">
+                Upload Brand Banner
+              </Typography>
+              <Typography
+                variant="subtitle2"
+                gutterBottom
+                className="fs-12 my-2 upload-description"
+              >
+                <span className="upload-blue">Click to upload</span> or drag and
+                drop
+              </Typography>
+              <input
+                type="file"
+                id="brandBanner"
+                name="brandBanner"
+                accept=".png,.jpg,.jpeg"
+                hidden
+                onChange={(e) => handleFileChange(e, "brandBanner")}
+                className=" upload-button "
+              />
+              <Typography variant="caption" className="upload-caption">
+                PNG, JPG - 1200x400px recommended
+              </Typography>
+            </div>
           </Box>
         </Grid>
       </Grid>

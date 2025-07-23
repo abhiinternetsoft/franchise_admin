@@ -9,6 +9,8 @@ import {
   Paper,
 } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers";
+import { GoInfo } from "react-icons/go";
+import countries from "world-countries";
 
 const usStates = [
   "AL",
@@ -66,25 +68,27 @@ const usStates = [
 const Step5 = ({ formik, onBack, onNext }) => {
   return (
     <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }} className="shadow-none">
-      <Box mb={3} display="flex" alignItems="center">
+      <Box mb={3}>
         <Box
           sx={{
-            width: 32,
-            height: 32,
             borderRadius: "50%",
-            bgcolor: "primary.main",
-            color: "#fff",
+            // bgcolor: "primary.main",
+            color: "#535364",
             display: "flex",
             alignItems: "center",
-            justifyContent: "center",
             mr: 2,
+            gap: "10px",
           }}
         >
-          5
+          <GoInfo size={20} />
+          <Typography variant="h6 steps-heading">Company Overview</Typography>
         </Box>
         <Box>
-          <Typography variant="h6">Company Overview</Typography>
-          <Typography variant="subtitle2" color="text.secondary">
+          <Typography
+            variant="subtitle2"
+            color="text.secondary"
+            className="fs-14 steps-short-desc"
+          >
             Essential company details and contact information.
           </Typography>
         </Box>
@@ -92,9 +96,11 @@ const Step5 = ({ formik, onBack, onNext }) => {
 
       <Grid container spacing={3}>
         <Grid sx={{ flexBasis: { xs: "100%", md: "49%" } }}>
+          <label htmlFor="Entity Name" className="listing-form-label">
+            Entity Name
+          </label>
           <TextField
             fullWidth
-            label="Entity Name"
             name="entityName"
             value={formik.values.entityName}
             onChange={formik.handleChange}
@@ -103,7 +109,7 @@ const Step5 = ({ formik, onBack, onNext }) => {
           />
         </Grid>
 
-        <Grid sx={{ flexBasis: { xs: "100%", md: "49%" } }}>
+        {/* <Grid sx={{ flexBasis: { xs: "100%", md: "49%" } }}>
           <TextField
             fullWidth
             label="Website URL"
@@ -113,37 +119,39 @@ const Step5 = ({ formik, onBack, onNext }) => {
             onBlur={formik.handleBlur}
             helperText="Company website URL"
           />
-        </Grid>
+        </Grid> */}
 
-        <Grid sx={{ flexBasis: { xs: "100%", md: "32%" } }}>
+        <Grid sx={{ flexBasis: { xs: "100%", md: "22%" } }}>
+          <label htmlFor="Founded Date" className="listing-form-label">
+            Founded Date
+          </label>
           <DatePicker
-            label="Founded Date"
             value={formik.values.foundedDate}
             onChange={(date) => formik.setFieldValue("foundedDate", date)}
             slotProps={{
               textField: {
                 fullWidth: true,
-                helperText: "When the company was founded",
               },
             }}
           />
         </Grid>
 
-        <Grid sx={{ flexBasis: { xs: "100%", md: "32%" } }}>
+        <Grid sx={{ flexBasis: { xs: "100%", md: "22%" } }}>
+          <label htmlFor="Franchising Since" className="listing-form-label">
+            Franchising Since
+          </label>
           <DatePicker
-            label="Franchising Since"
             value={formik.values.franchisingSince}
             onChange={(date) => formik.setFieldValue("franchisingSince", date)}
             slotProps={{
               textField: {
                 fullWidth: true,
-                helperText: "When franchising began",
               },
             }}
           />
         </Grid>
 
-        <Grid sx={{ flexBasis: { xs: "100%", md: "32%" } }}>
+        {/* <Grid sx={{ flexBasis: { xs: "100%", md: "32%" } }}>
           <TextField
             fullWidth
             label="Corporate Phone"
@@ -153,25 +161,34 @@ const Step5 = ({ formik, onBack, onNext }) => {
             onBlur={formik.handleBlur}
             helperText="Main corporate phone number"
           />
-        </Grid>
+        </Grid> */}
 
         <Grid sx={{ flexBasis: { xs: "100%", md: "49%" } }}>
+          <label
+            htmlFor="# of Corporate Owned Locations"
+            className="listing-form-label"
+          >
+            # of Corporate Owned Locations
+          </label>
           <TextField
             fullWidth
-            label="# of Corporate Owned Locations"
             name="corporateLocations"
             type="number"
             value={formik.values.corporateLocations}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            helperText="Company-owned locations"
           />
         </Grid>
 
         <Grid sx={{ flexBasis: { xs: "100%", md: "49%" } }}>
+          <label
+            htmlFor="# of Franchise Locations"
+            className="listing-form-label"
+          >
+            # of Franchise Locations
+          </label>
           <TextField
             fullWidth
-            label="# of Franchise Locations"
             name="franchiseLocations"
             type="number"
             value={formik.values.franchiseLocations}
@@ -181,13 +198,13 @@ const Step5 = ({ formik, onBack, onNext }) => {
           />
         </Grid>
 
-        <Grid sx={{ flexBasis: { xs: "100%", md: "100%" } }}>
+        {/* <Grid sx={{ flexBasis: { xs: "100%", md: "100%" } }}>
           <Typography variant="subtitle1" gutterBottom>
             Corporate Address
           </Typography>
-        </Grid>
+        </Grid> */}
 
-        <Grid sx={{ flexBasis: { xs: "100%", md: "100%" } }}>
+        {/* <Grid sx={{ flexBasis: { xs: "100%", md: "100%" } }}>
           <TextField
             fullWidth
             label="Street Address"
@@ -196,43 +213,51 @@ const Step5 = ({ formik, onBack, onNext }) => {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
+        </Grid> */}
+
+        <Grid sx={{ flexBasis: { xs: "100%", md: "32%" } }}>
+          <label htmlFor="Country" className="listing-form-label">
+            Country
+          </label>
+          <TextField
+            select
+            fullWidth
+            name="Country"
+            value={formik.values.Country}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          >
+            {countries
+              .sort((a, b) => a.name.common.localeCompare(b.name.common))
+              .map((country) => (
+                <MenuItem key={country.cca2} value={country.name.common}>
+                  {country.name.common}
+                </MenuItem>
+              ))}
+          </TextField>
         </Grid>
 
         <Grid sx={{ flexBasis: { xs: "100%", md: "32%" } }}>
+          <label htmlFor="Corporate Address 1" className="listing-form-label">
+            Corporate Address 1
+          </label>
           <TextField
             fullWidth
-            label="City"
-            name="city"
-            value={formik.values.city}
+            name="CorporateAddress1"
+            value={formik.values.CorporateAddress1}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
         </Grid>
 
         <Grid sx={{ flexBasis: { xs: "100%", md: "32%" } }}>
-          <TextField
-            select
-            fullWidth
-            label="State"
-            name="state"
-            value={formik.values.state}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          >
-            {usStates.map((state) => (
-              <MenuItem key={state} value={state}>
-                {state}
-              </MenuItem>
-            ))}
-          </TextField>
-        </Grid>
-
-        <Grid sx={{ flexBasis: { xs: "100%", md: "32%" } }}>
+          <label htmlFor="Corporate Address 2" className="listing-form-label">
+            Corporate Address 2
+          </label>
           <TextField
             fullWidth
-            label="ZIP Code"
-            name="zipCode"
-            value={formik.values.zipCode}
+            name="CorporateAddress2"
+            value={formik.values.CorporateAddress2}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />

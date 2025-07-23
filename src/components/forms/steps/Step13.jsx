@@ -1,96 +1,108 @@
 import React from "react";
 import { Box, Typography, TextField, Grid, Button, Paper } from "@mui/material";
+import Facebook from "../../../assets/images/users/facebook.svg";
 
 const Step13 = ({ formik, onBack, onNext }) => {
   return (
     <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }} className="shadow-none">
-      <Box mb={3} display="flex" alignItems="center">
+      <Box mb={3}>
         <Box
           sx={{
-            width: 32,
-            height: 32,
             borderRadius: "50%",
-            bgcolor: "primary.main",
-            color: "#fff",
+            // bgcolor: "primary.main",
+            color: "#535364",
             display: "flex",
             alignItems: "center",
-            justifyContent: "center",
             mr: 2,
+            gap: "10px",
           }}
         >
-          13
+          <img src={Facebook} alt="Broker Referrals icon" />
+          <Typography variant="h6 steps-heading">
+            Social Media Presence
+          </Typography>
         </Box>
         <Box>
-          <Typography variant="h6">Social Media Presence</Typography>
-          <Typography variant="subtitle2" color="text.secondary">
+          <Typography
+            variant="subtitle2"
+            color="text.secondary"
+            className="fs-14 steps-short-desc"
+          >
             Social media platform URLs and online presence.
           </Typography>
         </Box>
       </Box>
 
-      <Grid container spacing={3}>
+      <Grid container spacing={3} className="my-4">
         {/* Facebook URL */}
-        <Grid item sx={{ flexBasis: { xs: "100%", md: "49%" } }}>
+        <Grid item sx={{ flexBasis: { xs: "100%", md: "30%" } }}>
+          <label htmlFor="Facebook URL" className="listing-form-label">
+            Facebook URL
+          </label>
           <TextField
             fullWidth
-            label="Facebook URL"
             name="facebookUrl"
             value={formik.values.facebookUrl}
             onChange={formik.handleChange}
             placeholder="https://facebook.com/yourbrand"
-            helperText="Facebook page URL"
           />
         </Grid>
 
         {/* Instagram URL */}
-        <Grid item sx={{ flexBasis: { xs: "100%", md: "49%" } }}>
+        <Grid item sx={{ flexBasis: { xs: "100%", md: "30%" } }}>
+          <label htmlFor="Instagram URL" className="listing-form-label">
+            Instagram URL
+          </label>
           <TextField
             fullWidth
-            label="Instagram URL"
             name="instagramUrl"
             value={formik.values.instagramUrl}
             onChange={formik.handleChange}
             placeholder="https://instagram.com/yourbrand"
-            helperText="Instagram profile URL"
           />
         </Grid>
 
         {/* Twitter URL */}
-        <Grid item sx={{ flexBasis: { xs: "100%", md: "49%" } }}>
+        <Grid item sx={{ flexBasis: { xs: "100%", md: "30%" } }}>
+          <label htmlFor="Twitter URL" className="listing-form-label">
+            Twitter URL
+          </label>
           <TextField
             fullWidth
-            label="Twitter URL"
             name="twitterUrl"
             value={formik.values.twitterUrl}
             onChange={formik.handleChange}
             placeholder="https://twitter.com/yourbrand"
-            helperText="Twitter profile URL"
           />
         </Grid>
+      </Grid>
 
+      <Grid container spacing={3} className="my-4">
         {/* LinkedIn URL */}
-        <Grid item sx={{ flexBasis: { xs: "100%", md: "49%" } }}>
+        <Grid item sx={{ flexBasis: { xs: "100%", md: "30%" } }}>
+          <label htmlFor="LinkedIn URL" className="listing-form-label">
+            LinkedIn URL
+          </label>
           <TextField
             fullWidth
-            label="LinkedIn URL"
             name="linkedinUrl"
             value={formik.values.linkedinUrl}
             onChange={formik.handleChange}
             placeholder="https://linkedin.com/company/yourbrand"
-            helperText="LinkedIn company page URL"
           />
         </Grid>
 
         {/* YouTube URL */}
-        <Grid item sx={{ flexBasis: { xs: "100%", md: "100%" } }}>
+        <Grid item sx={{ flexBasis: { xs: "100%", md: "30%" } }}>
+          <label htmlFor="YouTube URL" className="listing-form-label">
+            YouTube URL
+          </label>
           <TextField
             fullWidth
-            label="YouTube URL"
             name="youtubeUrl"
             value={formik.values.youtubeUrl}
             onChange={formik.handleChange}
             placeholder="https://youtube.com/channel/yourbrand"
-            helperText="YouTube channel URL"
           />
         </Grid>
       </Grid>

@@ -27,6 +27,10 @@ import Step13 from "./steps/Step13";
 import Step14 from "./steps/Step14";
 import Step15 from "./steps/Step15";
 import { BASE_URL } from "../../../env";
+import { RxCross1 } from "react-icons/rx";
+import { IoSaveOutline } from "react-icons/io5";
+import dayjs from "dayjs";
+import { borderRadius } from "@mui/system";
 
 const StepForm = () => {
   const [step, setStep] = useState(0);
@@ -71,9 +75,9 @@ const StepForm = () => {
     corporateLocations: 0,
     franchiseLocations: 0,
     streetAddress: "",
-    city: "",
-    state: "",
-    zipCode: "",
+    Country: "",
+    CorporateAddress1: "",
+    CorporateAddress2: "",
     investmentLow: "",
     investmentHigh: "",
     franchiseFee: "",
@@ -87,16 +91,27 @@ const StepForm = () => {
     nationalAdType: "",
     nationalAdAmount: "",
     nationalAdRequired: "",
+    locationType: "",
     spaceLow: "",
     spaceHigh: "",
     ownerOperatorRequired: "",
     absenteeOwnershipAllowed: "",
     staffRequirements: "",
-    operationalHours: "",
+    // operationalHours: "",
+    operationalDay: dayjs(),
+    operationalHour: "",
     trainingHours: "",
-    trainingLocation: "",
+    jobtrainighours: "",
+    openingsupport: "",
     trainingDescription: "",
     ongoingSupport: "",
+    exclusiveterritory: "",
+    territorydescription: "",
+    singleunitfranchise: "",
+    multiunitfranchise: "",
+    masterunitfranchise: "",
+    internationalexpansion: "",
+    notRegisteredStates: [],
     territoryProtection: "",
     internationalOpportunities: "",
     opportunityTypes: "",
@@ -107,38 +122,25 @@ const StepForm = () => {
     brokerReferrals: "",
     brokerCommission: "",
     commissionType: "",
-    minCommission: "",
-    maxCommission: "",
+    singleunitreferral: "",
+    multiunitfranchise: "",
+    masterunitreferral: "",
     brokerProgramDetails: "",
     facebookUrl: "",
     instagramUrl: "",
     twitterUrl: "",
     linkedinUrl: "",
     youtubeUrl: "",
-    brandVideoUrl: "",
+    marketingVideoUrl: "",
     testimonialVideoUrl: "",
     pressMentions: "",
-    galleryImages: null,
+    galleryImages: [],
     marketingBrochure: null,
     leadEmail: "",
     calendlyUrl: "",
     responseTime: "",
 
     //============
-    name: "",
-    email: "",
-    phone: "",
-    address: "",
-    age: "",
-    gender: "",
-    education: "",
-    experience: "",
-    skills: "",
-    languages: "",
-    certifications: "",
-    linkedin: "",
-    portfolio: "",
-    summary: "",
   };
 
   const validationSchemas = [
@@ -185,8 +187,8 @@ const StepForm = () => {
       franchiseLocations: Yup.number().min(0).required(),
       streetAddress: Yup.string().required(),
       city: Yup.string().required(),
-      state: Yup.string().required(),
-      zipCode: Yup.string().required(),
+      CorporateAddress1: Yup.string().required(),
+      CorporateAddress2: Yup.string().required(),
     }),
 
     // step 6
@@ -208,27 +210,34 @@ const StepForm = () => {
 
     // step 7
     Yup.object({
+      locationType: Yup.string().required("Required"),
       spaceLow: Yup.number().required("Required"),
       spaceHigh: Yup.number().required("Required"),
       ownerOperatorRequired: Yup.string().required("Required"),
       absenteeOwnershipAllowed: Yup.string().required("Required"),
       staffRequirements: Yup.string().required("Required"),
-      operationalHours: Yup.string().required("Required"),
+      operationalHour: Yup.string().required("Required"),
+      operationalDay: Yup.date().required("Required"),
     }),
 
     // step 8
     Yup.object({
       trainingHours: Yup.number().required("Required"),
-      trainingLocation: Yup.string().required("Required"),
+      jobtrainighours: Yup.number().required("Required"),
+      openingsupport: Yup.string().required("Required"),
       trainingDescription: Yup.string().required("Required"),
       ongoingSupport: Yup.string().required("Required"),
     }),
 
     // step 9
     Yup.object({
-      territoryProtection: Yup.string().required("Required"),
-      internationalOpportunities: Yup.string().required("Required"),
-      opportunityTypes: Yup.string().required("Required"),
+      exclusiveterritory: Yup.string().required("Reuired"),
+      territorydescription: Yup.string().required("Required"),
+      singleunitfranchise: Yup.string().required("Required"),
+      multiunitfranchise: Yup.string().required("Required"),
+      masterunitfranchise: Yup.string().required("Required"),
+      internationalexpansion: Yup.string().required("Required"),
+      notRegisteredStates: Yup.array().min(1, "Select at least one state"),
     }),
 
     // step 10
@@ -260,8 +269,9 @@ const StepForm = () => {
         .max(100, "Must be under 100")
         .required("Required"),
       commissionType: Yup.string().required("Required"),
-      minCommission: Yup.number().required("Required"),
-      maxCommission: Yup.number().required("Required"),
+      singleunitreferral: Yup.number().required("Required"),
+      multiunitreferral: Yup.number().required("Required"),
+      masterunitreferral: Yup.number().required("Required"),
       brokerProgramDetails: Yup.string().required("Required"),
     }),
 
@@ -276,7 +286,7 @@ const StepForm = () => {
 
     // step 14
     Yup.object({
-      brandVideoUrl: Yup.string().url("Invalid URL").nullable(),
+      marketingVideoUrl: Yup.string().url("Invalid URL").nullable(),
       testimonialVideoUrl: Yup.string().url("Invalid URL").nullable(),
       pressMentions: Yup.string().nullable(),
       galleryImages: Yup.mixed().nullable(),
@@ -561,7 +571,7 @@ const StepForm = () => {
   };
 
   return (
-    <div className="p-6 max-w-xl mx-auto bg-white ">
+    <div className="p-6 max-w-xl mx-auto bg-white Listing-form">
       {/* <h2 className="text-l font-bold mb-4 Stepsubmain-heading">
         Step {step + 1}: {steps[step]}
       </h2> */}
@@ -576,17 +586,35 @@ const StepForm = () => {
 
             {/* Buttons (except on Step 0 because handled in custom component) */}
             {step > 0 && (
-              <div className="d-flex justify-content-between mt-6 p-3">
-                <button
-                  type="button"
-                  onClick={() => setStep((prev) => prev - 1)}
-                  className="px-4 py-2 rounded steps-previous-btn"
-                >
-                  Previous
-                </button>
-                <button type="submit" className="px-6 py-0 step-next-button ">
-                  {isLastStep ? "Submit" : "Continue to Branding →"}
-                </button>
+              <div className="d-flex justify-content-between mt-6 p-3 ">
+                <div className="gap-10 d-flex">
+                  <Button
+                    variant="outlined"
+                    color="secondary"
+                    className="outline-btn border gap-10"
+                  >
+                    cancle <RxCross1 />
+                  </Button>
+                  <Button
+                    variant="outlined"
+                    color="secondary"
+                    className="outline-btn border gap-10"
+                  >
+                    Save <IoSaveOutline />
+                  </Button>
+                </div>
+                <div className="gap-10 d-flex">
+                  <button
+                    type="button"
+                    onClick={() => setStep((prev) => prev - 1)}
+                    className="px-4 py-2  steps-previous-btn"
+                  >
+                    Previous
+                  </button>
+                  <button type="submit" className="px-6  step-next-button ">
+                    {isLastStep ? "Create List" : "Next Step →"}
+                  </button>
+                </div>
               </div>
             )}
           </Form>

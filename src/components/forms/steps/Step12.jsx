@@ -8,6 +8,7 @@ import {
   Button,
   Paper,
 } from "@mui/material";
+import Like from "../../../assets/images/users/like.svg";
 
 const brokerReferralOptions = [
   { label: "Yes", value: "yes" },
@@ -22,41 +23,47 @@ const commissionTypes = [
 const Step12 = ({ formik, onBack, onNext }) => {
   return (
     <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }} className="shadow-none">
-      <Box mb={3} display="flex" alignItems="center">
+      <Box mb={3}>
         <Box
           sx={{
-            width: 32,
-            height: 32,
             borderRadius: "50%",
-            bgcolor: "primary.main",
-            color: "#fff",
+            // bgcolor: "primary.main",
+            color: "#535364",
             display: "flex",
             alignItems: "center",
-            justifyContent: "center",
             mr: 2,
+            gap: "10px",
           }}
         >
-          12
+          <img src={Like} alt="Broker Referrals icon" />
+          <Typography variant="h6 steps-heading">Broker Referrals</Typography>
         </Box>
         <Box>
-          <Typography variant="h6">Broker Referrals</Typography>
-          <Typography variant="subtitle2" color="text.secondary">
-            Broker referral program and commission structure.
+          <Typography
+            variant="subtitle2"
+            color="text.secondary"
+            className="fs-14 steps-short-desc"
+          >
+            Financial performance disclosure information.
           </Typography>
         </Box>
       </Box>
 
-      <Grid container spacing={3}>
+      <Grid container spacing={3} className="my-4">
         {/* Accept Broker Referrals */}
-        <Grid item sx={{ flexBasis: { xs: "100%", md: "49%" } }}>
+        <Grid item sx={{ flexBasis: { xs: "100%", md: "25%" } }}>
+          <label
+            htmlFor="Do You Accept Broker Referrals?"
+            className="listing-form-label"
+          >
+            Do You Accept Broker Referrals?
+          </label>
           <TextField
             select
             fullWidth
-            label="Accept Broker Referrals"
             name="brokerReferrals"
             value={formik.values.brokerReferrals}
             onChange={formik.handleChange}
-            helperText="Do you accept broker referrals?"
           >
             {brokerReferralOptions.map((option) => (
               <MenuItem key={option.value} value={option.value}>
@@ -66,29 +73,20 @@ const Step12 = ({ formik, onBack, onNext }) => {
           </TextField>
         </Grid>
 
-        {/* Broker Commission (%) */}
-        <Grid item sx={{ flexBasis: { xs: "100%", md: "49%" } }}>
-          <TextField
-            fullWidth
-            label="Broker Commission (%)"
-            name="brokerCommission"
-            type="number"
-            value={formik.values.brokerCommission}
-            onChange={formik.handleChange}
-            helperText="Commission percentage for brokers"
-          />
-        </Grid>
-
         {/* Commission Type */}
-        <Grid item sx={{ flexBasis: { xs: "100%", md: "32%" } }}>
+        <Grid item sx={{ flexBasis: { xs: "100%", md: "25%" } }}>
+          <label
+            htmlFor="Type of Commission Payable?"
+            className="listing-form-label"
+          >
+            Type of Commission Payable?
+          </label>
           <TextField
             select
             fullWidth
-            label="Commission Type"
             name="commissionType"
             value={formik.values.commissionType}
             onChange={formik.handleChange}
-            helperText="How commission is calculated"
           >
             {commissionTypes.map((type) => (
               <MenuItem key={type.value} value={type.value}>
@@ -97,44 +95,73 @@ const Step12 = ({ formik, onBack, onNext }) => {
             ))}
           </TextField>
         </Grid>
+      </Grid>
 
-        {/* Minimum Commission */}
-        <Grid item sx={{ flexBasis: { xs: "100%", md: "32%" } }}>
+      <Grid container spacing={3} className="my-4">
+        <Grid item sx={{ flexBasis: { xs: "100%", md: "23%" } }}>
+          <label
+            htmlFor="Single Unit Referral Fee?"
+            className="listing-form-label"
+          >
+            Single Unit Referral Fee?
+          </label>
           <TextField
             fullWidth
-            label="Minimum Commission"
-            name="minCommission"
-            type="number"
-            value={formik.values.minCommission}
+            name="singleunitreferral"
+            value={formik.values.singleunitfranchise}
             onChange={formik.handleChange}
-            helperText="Minimum commission amount"
+            type="number"
+            placeholder="Input Percentage or Doller Amount"
           />
         </Grid>
 
-        {/* Maximum Commission */}
-        <Grid item sx={{ flexBasis: { xs: "100%", md: "32%" } }}>
+        <Grid item sx={{ flexBasis: { xs: "100%", md: "23%" } }}>
+          <label
+            htmlFor="Multi Unit Referral Fee?"
+            className="listing-form-label"
+          >
+            Multi Unit Referral Fee?
+          </label>
           <TextField
             fullWidth
-            label="Maximum Commission"
-            name="maxCommission"
-            type="number"
-            value={formik.values.maxCommission}
+            name="multiunitreferral"
+            value={formik.values.multiunitfranchise}
             onChange={formik.handleChange}
-            helperText="Maximum commission amount"
+            type="number"
+            placeholder="Input Percentage or Doller Amount"
+          />
+        </Grid>
+
+        <Grid item sx={{ flexBasis: { xs: "100%", md: "23%" } }}>
+          <label htmlFor="Master Franchise Fee?" className="listing-form-label">
+            Master Franchise Fee?
+          </label>
+          <TextField
+            fullWidth
+            name="masterunitreferral"
+            value={formik.values.masterunitfranchise}
+            onChange={formik.handleChange}
+            type="number"
+            placeholder="Input Percentage or Doller Amount"
           />
         </Grid>
 
         {/* Broker Program Details */}
         <Grid item sx={{ flexBasis: { xs: "100%", md: "100%" } }}>
+          <label
+            htmlFor="Broker Program Details"
+            className="listing-form-label"
+          >
+            Broker Program Details
+          </label>
           <TextField
             fullWidth
             multiline
             rows={4}
-            label="Broker Program Details"
             name="brokerProgramDetails"
             value={formik.values.brokerProgramDetails}
             onChange={formik.handleChange}
-            helperText="Additional broker program information"
+            placeholder="Describe your broker referral program, requirements, and terms..."
           />
         </Grid>
       </Grid>

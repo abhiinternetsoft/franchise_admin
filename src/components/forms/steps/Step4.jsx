@@ -8,6 +8,7 @@ import {
   Button,
   Paper,
 } from "@mui/material";
+import { GoInfo } from "react-icons/go";
 
 const Step4 = ({ formik, onBack, onNext }) => {
   const categories = [
@@ -48,25 +49,27 @@ const Step4 = ({ formik, onBack, onNext }) => {
   return (
     <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }} className="shadow-none">
       {/* Header */}
-      <Box mb={3} display="flex" alignItems="center">
+      <Box mb={3}>
         <Box
           sx={{
-            width: 32,
-            height: 32,
             borderRadius: "50%",
-            bgcolor: "primary.main",
-            color: "#fff",
+            // bgcolor: "primary.main",
+            color: "#535364",
             display: "flex",
             alignItems: "center",
-            justifyContent: "center",
             mr: 2,
+            gap: "10px",
           }}
         >
-          4
+          <GoInfo size={20} />
+          <Typography variant="h6 steps-heading">Brand Overview</Typography>
         </Box>
         <Box>
-          <Typography variant="h6">Brand Overview</Typography>
-          <Typography variant="subtitle2" color="text.secondary">
+          <Typography
+            variant="subtitle2"
+            color="text.secondary"
+            className="fs-14 steps-short-desc"
+          >
             Provide comprehensive brand description and categorization.
           </Typography>
         </Box>
@@ -75,32 +78,34 @@ const Step4 = ({ formik, onBack, onNext }) => {
       <Grid container spacing={3}>
         {/* About Us */}
         <Grid sx={{ flexBasis: { xs: "100%", md: "100%" } }}>
+          <label htmlFor="About Us Description" className="listing-form-label">
+            About Us Description
+          </label>
           <TextField
             fullWidth
-            label="About Us Description"
             name="aboutUs"
             multiline
             rows={5}
             value={formik.values.aboutUs}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            helperText="Minimum 200 characters, maximum 2000 characters"
             error={formik.touched.aboutUs && Boolean(formik.errors.aboutUs)}
           />
         </Grid>
 
         {/* Category */}
         <Grid sx={{ flexBasis: { xs: "100%", md: "32%" } }}>
+          <label htmlFor="Category" className="listing-form-label">
+            Category
+          </label>
           <TextField
             select
             fullWidth
-            label="Category"
             name="category"
             value={formik.values.category}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             error={formik.touched.category && Boolean(formik.errors.category)}
-            helperText="Primary business category"
           >
             {categories.map((cat) => (
               <MenuItem key={cat} value={cat}>
@@ -112,10 +117,12 @@ const Step4 = ({ formik, onBack, onNext }) => {
 
         {/* Subcategory */}
         <Grid sx={{ flexBasis: { xs: "100%", md: "32%" } }}>
+          <label htmlFor="Subcategory" className="listing-form-label">
+            Subcategory
+          </label>
           <TextField
             select
             fullWidth
-            label="Subcategory"
             name="subcategory"
             value={formik.values.subcategory}
             onChange={formik.handleChange}
@@ -124,7 +131,6 @@ const Step4 = ({ formik, onBack, onNext }) => {
             error={
               formik.touched.subcategory && Boolean(formik.errors.subcategory)
             }
-            helperText="Specific business subcategory"
           >
             {selectedSubcategories.map((sub) => (
               <MenuItem key={sub} value={sub}>
@@ -136,10 +142,12 @@ const Step4 = ({ formik, onBack, onNext }) => {
 
         {/* Business Model */}
         <Grid sx={{ flexBasis: { xs: "100%", md: "32%" } }}>
+          <label htmlFor="Business Model" className="listing-form-label">
+            Business Model
+          </label>
           <TextField
             select
             fullWidth
-            label="Business Model"
             name="businessModel"
             value={formik.values.businessModel}
             onChange={formik.handleChange}
@@ -148,7 +156,6 @@ const Step4 = ({ formik, onBack, onNext }) => {
               formik.touched.businessModel &&
               Boolean(formik.errors.businessModel)
             }
-            helperText="Primary business model"
           >
             {businessModels.map((model) => (
               <MenuItem key={model} value={model}>
@@ -160,14 +167,15 @@ const Step4 = ({ formik, onBack, onNext }) => {
 
         {/* Keywords */}
         <Grid sx={{ flexBasis: { xs: "100%", md: "100%" } }}>
+          <label htmlFor="Keywords" className="listing-form-label">
+            Keywords
+          </label>
           <TextField
             fullWidth
-            label="Keywords"
             name="keywords"
             value={formik.values.keywords}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            helperText="Enter keywords separated by commas (e.g., fast food, burgers, family dining)"
             error={formik.touched.keywords && Boolean(formik.errors.keywords)}
           />
         </Grid>
