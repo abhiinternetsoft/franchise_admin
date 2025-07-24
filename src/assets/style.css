@@ -72,7 +72,8 @@
 .Mainlogo_text {
   font-size: 18px; 
   margin: 0px; 
-  font-family: 'certia' !important;
+  font-family: 'poppins' !important;
+  font-weight: 600;
 }
 
 .user-role {
@@ -453,4 +454,52 @@
 
 .upload-title {
   color: #6D758F;
+}
+
+.table-main-heading {
+  font-size: 20px;
+  font-family: "Inter";
+  color: #535364;
+  font-weight: 700;
+}
+
+.table-main-heading span {
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.export-file-btn {
+  border: 1px solid #0DA2FF;
+  color: #0DA2FF;
+  font-size: 14px;
+  font-family: "Inter";
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px 24px;
+}
+
+.new-listing-btn {
+  border: 1px solid #fff;
+  color: #fff;
+  font-size: 14px;
+  font-family: "Inter";
+  background: linear-gradient(to right, #00DB62, #0DA2FF);
+  border-radius: 10px;
+  padding: 10px 24px;
+}
+
+.w-15 {
+  width: 15%;
+}
+
+.w-40 {
+  width: 40%;
+}
+
+Select {
+  border-radius: 10px !important;
+}
+
+.Listingtable-head {
+  border-radius: 10px !important;
 }

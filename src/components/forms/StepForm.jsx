@@ -67,6 +67,7 @@ const StepForm = () => {
     subcategory: "",
     businessModel: "",
     keywords: "",
+    // step 5
     entityName: "",
     website: "",
     foundedDate: null,
@@ -78,19 +79,21 @@ const StepForm = () => {
     Country: "",
     CorporateAddress1: "",
     CorporateAddress2: "",
+    // step 6
     investmentLow: "",
     investmentHigh: "",
-    franchiseFee: "",
+    // franchiseFee: "",
     liquidCapital: "",
     thirdPartyFinancing: "",
     royaltyFee: "",
     marketingFee: "",
     localAdType: "",
-    localAdAmount: "",
-    localAdRequired: "",
+    localAdpercentage: "",
+    localAdflatfee: "",
     nationalAdType: "",
-    nationalAdAmount: "",
-    nationalAdRequired: "",
+    nationalAdpercentage: "",
+    nationalAdflatfee: "",
+    // step 7
     locationType: "",
     spaceLow: "",
     spaceHigh: "",
@@ -100,6 +103,7 @@ const StepForm = () => {
     // operationalHours: "",
     operationalDay: dayjs(),
     operationalHour: "",
+    // step 8
     trainingHours: "",
     jobtrainighours: "",
     openingsupport: "",
@@ -119,11 +123,12 @@ const StepForm = () => {
     trademarkNumber: "",
     financialDisclosure: "",
     financialDetails: "",
+    // step 12
     brokerReferrals: "",
-    brokerCommission: "",
+    // brokerCommission: "",
     commissionType: "",
     singleunitreferral: "",
-    multiunitfranchise: "",
+    multiunitreferral: "",
     masterunitreferral: "",
     brokerProgramDetails: "",
     facebookUrl: "",
@@ -138,7 +143,7 @@ const StepForm = () => {
     marketingBrochure: null,
     leadEmail: "",
     calendlyUrl: "",
-    responseTime: "",
+    // responseTime: "",
 
     //============
   };
@@ -179,33 +184,36 @@ const StepForm = () => {
     // step 5
     Yup.object({
       entityName: Yup.string().required("Entity name is required"),
-      website: Yup.string().url("Invalid URL").required("Website is required"),
+      // website: Yup.string().url("Invalid URL").required("Website is required"),
       foundedDate: Yup.date().required("Founded Date is required"),
       franchisingSince: Yup.date().required("Franchising Date is required"),
-      corporatePhone: Yup.string().required("Phone is required"),
+      // corporatePhone: Yup.string().required("Phone is required"),
       corporateLocations: Yup.number().min(0).required(),
       franchiseLocations: Yup.number().min(0).required(),
-      streetAddress: Yup.string().required(),
-      city: Yup.string().required(),
-      CorporateAddress1: Yup.string().required(),
-      CorporateAddress2: Yup.string().required(),
+      Country: Yup.string().required("Country is required"),
+      CorporateAddress1: Yup.string().required(
+        "Corporate Address 1 is required"
+      ),
+      CorporateAddress2: Yup.string().required(
+        "Corporate Address 2 is required"
+      ),
     }),
 
     // step 6
     Yup.object({
       investmentLow: Yup.number().required("Required"),
       investmentHigh: Yup.number().required("Required"),
-      franchiseFee: Yup.number().required("Required"),
+      // franchiseFee: Yup.number().required("Required"),
       liquidCapital: Yup.number().required("Required"),
       thirdPartyFinancing: Yup.string().required("Required"),
       royaltyFee: Yup.number().required("Required"),
       marketingFee: Yup.number().required("Required"),
       localAdType: Yup.string().required("Required"),
-      localAdAmount: Yup.number().required("Required"),
-      localAdRequired: Yup.string().required("Required"),
+      localAdpercentage: Yup.number().required("Required"),
+      localAdflatfee: Yup.string().required("Required"),
       nationalAdType: Yup.string().required("Required"),
-      nationalAdAmount: Yup.number().required("Required"),
-      nationalAdRequired: Yup.string().required("Required"),
+      nationalAdpercentage: Yup.number().required("Required"),
+      nationalAdflatfee: Yup.string().required("Required"),
     }),
 
     // step 7
@@ -226,7 +234,7 @@ const StepForm = () => {
       jobtrainighours: Yup.number().required("Required"),
       openingsupport: Yup.string().required("Required"),
       trainingDescription: Yup.string().required("Required"),
-      ongoingSupport: Yup.string().required("Required"),
+      // ongoingSupport: Yup.string().required("Required"),
     }),
 
     // step 9
@@ -264,10 +272,10 @@ const StepForm = () => {
     // step 12
     Yup.object({
       brokerReferrals: Yup.string().required("Required"),
-      brokerCommission: Yup.number()
-        .min(0, "Must be positive")
-        .max(100, "Must be under 100")
-        .required("Required"),
+      // brokerCommission: Yup.number()
+      //   .min(0, "Must be positive")
+      //   .max(100, "Must be under 100")
+      //   .required("Required"),
       commissionType: Yup.string().required("Required"),
       singleunitreferral: Yup.number().required("Required"),
       multiunitreferral: Yup.number().required("Required"),
@@ -301,7 +309,7 @@ const StepForm = () => {
       calendlyUrl: Yup.string()
         .url("Invalid URL")
         .required("Calendly URL is required"),
-      responseTime: Yup.string().required("Response time is required"),
+      // responseTime: Yup.string().required("Response time is required"),
     }),
 
     Yup.object({ email: Yup.string().email().required("Email is required") }),

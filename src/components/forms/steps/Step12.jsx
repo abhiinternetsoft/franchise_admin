@@ -108,7 +108,7 @@ const Step12 = ({ formik, onBack, onNext }) => {
           <TextField
             fullWidth
             name="singleunitreferral"
-            value={formik.values.singleunitfranchise}
+            value={formik.values.singleunitreferral}
             onChange={formik.handleChange}
             type="number"
             placeholder="Input Percentage or Doller Amount"
@@ -125,7 +125,7 @@ const Step12 = ({ formik, onBack, onNext }) => {
           <TextField
             fullWidth
             name="multiunitreferral"
-            value={formik.values.multiunitfranchise}
+            value={formik.values.multiunitreferral}
             onChange={formik.handleChange}
             type="number"
             placeholder="Input Percentage or Doller Amount"
@@ -139,7 +139,7 @@ const Step12 = ({ formik, onBack, onNext }) => {
           <TextField
             fullWidth
             name="masterunitreferral"
-            value={formik.values.masterunitfranchise}
+            value={formik.values.masterunitreferral}
             onChange={formik.handleChange}
             type="number"
             placeholder="Input Percentage or Doller Amount"

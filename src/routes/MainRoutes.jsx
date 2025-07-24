@@ -10,8 +10,13 @@ const DashboardDefault = Loadable(
 );
 
 const Color = Loadable(lazy(() => import("pages/component-overview/color")));
+
 const Opportunities = Loadable(
   lazy(() => import("pages/component-overview/FranchiseOpportunities"))
+);
+
+const AllFranchiseListing = Loadable(
+  lazy(() => import("pages/component-overview/AllFranchiseListing"))
 );
 
 const UserManagement = Loadable(
@@ -44,11 +49,15 @@ const MainRoutes = {
   children: [
     {
       path: "/",
-      element: <DashboardDefault />, // This is for franchisee
+      element: <DashboardDefault />,
     },
     {
       path: "franchiseopportunities",
       element: <Opportunities />,
+    },
+    {
+      path: "AllFranchiseListing",
+      element: <AllFranchiseListing />,
     },
     {
       path: "usermanagement",

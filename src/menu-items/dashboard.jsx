@@ -61,6 +61,14 @@ const dashboard = {
       icon: icons.ShopOutlined,
       breadcrumbs: false,
     },
+    // {
+    //   id: "All Franchise Listing",
+    //   title: "All Franchise Listing",
+    //   type: "item",
+    //   url: "./allfranchiselisting",
+    //   icon: icons.ShopOutlined,
+    //   breadcrumbs: false,
+    // },
     {
       id: "Disclosures",
       title: "Franchise Disclosures",

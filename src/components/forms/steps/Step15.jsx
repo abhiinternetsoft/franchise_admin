@@ -63,6 +63,8 @@ const Step15 = ({ formik, onBack, onNext }) => {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             placeholder="leads@yourbrand.com"
+            error={formik.touched.leadEmail && Boolean(formik.errors.leadEmail)}
+            helperText={formik.touched.leadEmail && formik.errors.leadEmail}
           />
         </Grid>
 
@@ -84,6 +86,10 @@ const Step15 = ({ formik, onBack, onNext }) => {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             placeholder="https://calendly.com/yourbrand"
+            error={
+              formik.touched.calendlyUrl && Boolean(formik.errors.calendlyUrl)
+            }
+            helperText={formik.touched.calendlyUrl && formik.errors.calendlyUrl}
           />
         </Grid>
       </Grid>

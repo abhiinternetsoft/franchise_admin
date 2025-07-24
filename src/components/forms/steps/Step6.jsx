@@ -193,7 +193,7 @@ const Step6 = ({ formik, onBack, onNext }) => {
           <TextField
             fullWidth
             name="localAdpercentage"
-            value={formik.values.localAdAmount}
+            value={formik.values.localAdpercentage}
             onChange={formik.handleChange}
             type="number"
           />
@@ -205,7 +205,7 @@ const Step6 = ({ formik, onBack, onNext }) => {
           <TextField
             fullWidth
             name="localAdflatfee"
-            value={formik.values.localAdRequired}
+            value={formik.values.localAdflatfee}
             onChange={formik.handleChange}
             type="number"
           ></TextField>
@@ -242,7 +242,7 @@ const Step6 = ({ formik, onBack, onNext }) => {
           <TextField
             fullWidth
             name="nationalAdpercentage"
-            value={formik.values.localAdAmount}
+            value={formik.values.nationalAdpercentage}
             onChange={formik.handleChange}
             type="number"
           />
@@ -254,7 +254,7 @@ const Step6 = ({ formik, onBack, onNext }) => {
           <TextField
             fullWidth
             name="nationalAdflatfee"
-            value={formik.values.localAdRequired}
+            value={formik.values.nationalAdflatfee}
             onChange={formik.handleChange}
             type="number"
           ></TextField>

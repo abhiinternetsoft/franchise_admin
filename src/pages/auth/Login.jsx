@@ -49,7 +49,7 @@ const SignIn = () => {
 
   const handleSignup = async () => {
     try {
-      const res = await axios.post(`${BASE_URL}api/auth/register`, {
+      const res = await axios.post(`${BASE_URL}/api/auth/register`, {
         email: signupEmail,
         password: signupPassword,
         role: signupRole, // sent to backend, stored in DB

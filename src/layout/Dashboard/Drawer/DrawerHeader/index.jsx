@@ -19,8 +19,8 @@ export default function DrawerHeader({ open }) {
         paddingLeft: open ? "24px" : 0,
       }}
     >
-      <img src={adminLogo} alt="Admin Main Logo" width={30} />
-      <div className="mx-3 mobile-content">
+      <img src={adminLogo} alt="Admin Main Logo" width={26} />
+      <div className="mx-1 mobile-content">
         <h4 className="Mainlogo_text">Franchise Listing</h4>
         <p className="user-role">{user?.role}</p>
       </div>
