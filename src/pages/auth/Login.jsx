@@ -238,11 +238,11 @@ const SignIn = () => {
         <div className="col-lg-9 d-none d-lg-block p-0 right-column image-column">
           <h3>Join the World's Leading</h3>
           <h2>Franchise Marketplace</h2>
-          <p>
+          {/* <p>
             Browse thousand of franchise opportunities, resales, and connect{" "}
             <br></br>
             with franchise professionals around the world.
-          </p>
+          </p> */}
         </div>
       </div>
     </div>
