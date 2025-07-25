@@ -152,7 +152,7 @@ const SignIn = () => {
                 >
                   <option value="">I am:</option>
                   <option value="franchisor">Franchisor</option>
-                  <option value="franchisee">Franchisee</option>
+                  <option value="franchisee">Looking to Buy a Franchise</option>
                 </select>
                 <label>Email</label>
                 <input

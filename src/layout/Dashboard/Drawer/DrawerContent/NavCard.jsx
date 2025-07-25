@@ -10,7 +10,7 @@ import MainCard from "components/MainCard";
 
 export default function NavCard() {
   return (
-    <MainCard>
+    <MainCard className="border-none">
       {/* <Stack alignItems="center">
         <a href="#" className="upgrade-link">
           <Button>
