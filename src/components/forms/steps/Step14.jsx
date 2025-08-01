@@ -1,13 +1,26 @@
 import React from "react";
-import { Box, Typography, TextField, Grid, Button, Paper } from "@mui/material";
+import {
+  Box,
+  Typography,
+  TextField,
+  Grid,
+  Button,
+  Paper,
+  Chip,
+  IconButton,
+} from "@mui/material";
 import Document from "../../../assets/images/users/document.svg";
 import Vector from "../../../assets/images/users/Vector.svg";
 import brandBanner from "../../../assets/images/users/brandbanner.svg";
+import { useState } from "react";
+import { IoAdd } from "react-icons/io5";
 
 const Step14 = ({ formik, onBack, onNext }) => {
   // const handleFileChange = (e, fieldName) => {
   //   formik.setFieldValue(fieldName, e.currentTarget.files[0]);
   // };
+
+  const [linkInput, setLinkInput] = useState("");
 
   const handleFileChange = (e, fieldName) => {
     const files = Array.from(e.currentTarget.files);
@@ -87,7 +100,9 @@ const Step14 = ({ formik, onBack, onNext }) => {
           />
         </Grid>
 
-        <Grid item sx={{ flexBasis: { xs: "100%", md: "100%" } }}>
+        {/* =================Press Menstion Links ================== */}
+
+        {/* <Grid item sx={{ flexBasis: { xs: "100%", md: "100%" } }}>
           <label htmlFor="Press Mentions Video" className="listing-form-label">
             Press Mentions
           </label>
@@ -100,6 +115,66 @@ const Step14 = ({ formik, onBack, onNext }) => {
             multiline
             rows={3}
           />
+        </Grid> */}
+
+        <Grid item sx={{ flexBasis: { xs: "100%", md: "100%" } }}>
+          <label htmlFor="pressMentions" className="listing-form-label">
+            Press Mentions (Links)
+          </label>
+
+          <Box
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: 1,
+              border: "1px solid #ccc",
+              borderRadius: "4px",
+              padding: "6px",
+            }}
+          >
+            {formik.values.pressMentions &&
+              formik.values.pressMentions.map((link, index) => (
+                <Chip
+                  key={index}
+                  label={link}
+                  onDelete={() => {
+                    const updated = formik.values.pressMentions.filter(
+                      (_, i) => i !== index
+                    );
+                    formik.setFieldValue("pressMentions", updated);
+                  }}
+                  component="a"
+                  href={link}
+                  target="_blank"
+                  clickable
+                  sx={{
+                    backgroundColor: "#f0f0f0",
+                    border: "1px solid #ccc",
+                    textDecoration: "underline",
+                  }}
+                />
+              ))}
+
+            <TextField
+              variant="standard"
+              placeholder="Paste link and press Enter"
+              value={linkInput}
+              onChange={(e) => setLinkInput(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && linkInput.trim() !== "") {
+                  e.preventDefault();
+                  const updated = [
+                    ...(formik.values.pressMentions || []),
+                    linkInput.trim(),
+                  ];
+                  formik.setFieldValue("pressMentions", updated);
+                  setLinkInput("");
+                }
+              }}
+              sx={{ flex: 1, minWidth: "150px" }}
+              InputProps={{ disableUnderline: true }}
+            />
+          </Box>
         </Grid>
 
         <Grid

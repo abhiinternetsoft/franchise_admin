@@ -32,27 +32,7 @@ import { IoSaveOutline } from "react-icons/io5";
 import dayjs from "dayjs";
 import { borderRadius } from "@mui/system";
 
-const StepForm = () => {
-  const [step, setStep] = useState(0);
-
-  const steps = [
-    "FDD Upload",
-    "Custom URL & Identification",
-    "Email",
-    "Phone",
-    "Address",
-    "Age",
-    "Gender",
-    "Education",
-    "Experience",
-    "Skills",
-    "Languages",
-    "Certifications",
-    "LinkedIn",
-    "Portfolio",
-    "Summary",
-  ];
-
+const StepForm = ({ step, setStep, steps }) => {
   const isLastStep = step === steps.length - 1;
 
   const initialValues = {
@@ -66,7 +46,7 @@ const StepForm = () => {
     category: "",
     subcategory: "",
     businessModel: "",
-    keywords: "",
+    keywords: [],
     // step 5
     entityName: "",
     website: "",
@@ -82,11 +62,12 @@ const StepForm = () => {
     // step 6
     investmentLow: "",
     investmentHigh: "",
-    // franchiseFee: "",
+    ongoingfranchisefee: "",
     liquidCapital: "",
     thirdPartyFinancing: "",
-    royaltyFee: "",
-    marketingFee: "",
+    ongoingPercentage: "",
+    ongoingFlatFee: "",
+    royaltyType: "",
     localAdType: "",
     localAdpercentage: "",
     localAdflatfee: "",
@@ -138,7 +119,7 @@ const StepForm = () => {
     youtubeUrl: "",
     marketingVideoUrl: "",
     testimonialVideoUrl: "",
-    pressMentions: "",
+    pressMentions: [],
     galleryImages: [],
     marketingBrochure: null,
     leadEmail: "",
@@ -203,11 +184,12 @@ const StepForm = () => {
     Yup.object({
       investmentLow: Yup.number().required("Required"),
       investmentHigh: Yup.number().required("Required"),
-      // franchiseFee: Yup.number().required("Required"),
+      ongoingfranchisefee: Yup.number().required("Required"),
       liquidCapital: Yup.number().required("Required"),
       thirdPartyFinancing: Yup.string().required("Required"),
-      royaltyFee: Yup.number().required("Required"),
-      marketingFee: Yup.number().required("Required"),
+      ongoingPercentage: Yup.number().required("Required"),
+      ongoingFlatFee: Yup.number().required("Required"),
+      royaltyType: Yup.string().required("Required"),
       localAdType: Yup.string().required("Required"),
       localAdpercentage: Yup.number().required("Required"),
       localAdflatfee: Yup.string().required("Required"),

@@ -5,7 +5,7 @@ import "./SignIn.css";
 import { BASE_URL } from "../../../env";
 import { useNavigate } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
-import { BsArrowLeft } from "react-icons/bs";
+import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 
 const SignIn = () => {
   const [role, setRole] = useState("");
@@ -78,17 +78,20 @@ const SignIn = () => {
     <div className="sign-container vh-100">
       <div className="row h-100">
         {/* Left Column - SignIn Form */}
-        <div className="col-lg-3 d-flex align-items-center justify-content-center bg-white p-4 signin-column">
+        <div className="col-lg-3 d-flex align-items-start justify-content-center bg-white p-4 signin-column">
           <div className="w-100" style={{ maxWidth: "400px" }}>
-            <p onClick={() => navigate(-1)} className="py-4 back-arrow">
+            <p
+              onClick={() => navigate(-1)}
+              className="py-4 back-arrow desktop-arrow"
+            >
               <BsArrowLeft size={20} />
             </p>
-            <h3 className="signup-title  mb-4">
+            <h3 className="signup-title  mb-4 d-flex gap-10 justify-content-between">
               Welcome to Franchise Listings
             </h3>
 
             {/* Tabs */}
-            <div className="d-flex mb-4 tabchange-text w-50">
+            <div className="d-flex mb-4 tabchange-text ">
               <button
                 onClick={() => setTab("signin")}
                 className={`flex-fill btn border-bottom sign-tabs-head ${
@@ -144,7 +147,7 @@ const SignIn = () => {
               </div>
             ) : (
               <div className="signup-form">
-                <label>Select Role</label>
+                {/* <label>Select Role</label> */}
                 <select
                   value={signupRole}
                   onChange={(e) => setSignupRole(e.target.value)}
@@ -173,16 +176,19 @@ const SignIn = () => {
                 <div className="small text-muted mb-3">
                   <ul className="password-validations">
                     <li>At least 8 characters</li>
-                    <li> Mix of letters and numbers</li>
-                    <li> At least 1 special character</li>
-                    <li>At least 1 lowercase letter and 1 uppercase letter</li>
+                    <li>Validation neutral Mix of letters and numbers</li>
+                    <li>Validation neutral At least 1 special character</li>
+                    <li>
+                      Validation neutral At least 1 lowercase letter and 1
+                      uppercase letter
+                    </li>
                   </ul>
                 </div>
                 <button
                   className="btn btn-primary w-100 mb-3 create-account-btn"
                   onClick={handleSignup}
                 >
-                  Create Account
+                  Sign in
                 </button>
                 <div className="form-check small d-flex align-items-center">
                   <span className="checkbox-outer-box">
@@ -236,7 +242,7 @@ const SignIn = () => {
 
         {/* Right Column - Image */}
         <div className="col-lg-9 d-none d-lg-block p-0 right-column image-column">
-          <h3>Join the World's Leading</h3>
+          <h3>Browse the World's Leading</h3>
           <h2>Franchise Marketplace</h2>
           {/* <p>
             Browse thousand of franchise opportunities, resales, and connect{" "}

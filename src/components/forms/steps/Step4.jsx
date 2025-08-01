@@ -7,10 +7,28 @@ import {
   MenuItem,
   Button,
   Paper,
+  Chip,
 } from "@mui/material";
 import { GoInfo } from "react-icons/go";
+import { useState } from "react";
+import { useFormik } from "formik";
 
 const Step4 = ({ formik, onBack, onNext }) => {
+  const [keywords, setKeywords] = useState([]);
+  const [inputValue, setInputValue] = useState("");
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" && inputValue.trim() !== "") {
+      e.preventDefault();
+      setKeywords([...keywords, inputValue.trim()]);
+      setInputValue("");
+    }
+  };
+
+  const handleDelete = (chipToDelete) => {
+    setKeywords((chips) => chips.filter((chip) => chip !== chipToDelete));
+  };
+
   const categories = [
     "Home Services",
     "Food & Beverage",
@@ -166,7 +184,7 @@ const Step4 = ({ formik, onBack, onNext }) => {
         </Grid>
 
         {/* Keywords */}
-        <Grid sx={{ flexBasis: { xs: "100%", md: "100%" } }}>
+        {/* <Grid sx={{ flexBasis: { xs: "100%", md: "100%" } }}>
           <label htmlFor="Keywords" className="listing-form-label">
             Keywords
           </label>
@@ -174,11 +192,70 @@ const Step4 = ({ formik, onBack, onNext }) => {
             fullWidth
             name="keywords"
             value={formik.values.keywords}
-            onChange={formik.handleChange}
+            onChange={(e) => {
+              formik.handleChange(e);
+              if (e.target.value.trim() !== "") {
+                setOpenSnackbar(true); // show popup
+              }
+            }}
             onBlur={formik.handleBlur}
             error={formik.touched.keywords && Boolean(formik.errors.keywords)}
           />
-        </Grid>
+        </Grid> */}
+
+        <Box sx={{ flexBasis: { xs: "100%", md: "100%" } }}>
+          <label htmlFor="Keywords" className="listing-form-label">
+            Keywords
+          </label>
+
+          <Box
+            sx={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: 1,
+              border: "1px solid #ccc",
+              borderRadius: "4px",
+              padding: "6px",
+            }}
+          >
+            {formik.values.keywords.map((keyword, index) => (
+              <Chip
+                key={index}
+                label={keyword}
+                onDelete={() => {
+                  const updated = formik.values.keywords.filter(
+                    (_, i) => i !== index
+                  );
+                  formik.setFieldValue("keywords", updated);
+                }}
+                sx={{
+                  backgroundColor: "#f0f0f0",
+                  border: "1px solid #ccc",
+                }}
+              />
+            ))}
+
+            <TextField
+              variant="standard"
+              placeholder="Type and press Enter"
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && inputValue.trim() !== "") {
+                  e.preventDefault();
+                  const updated = [
+                    ...formik.values.keywords,
+                    inputValue.trim(),
+                  ];
+                  formik.setFieldValue("keywords", updated);
+                  setInputValue("");
+                }
+              }}
+              sx={{ flex: 1, minWidth: "100px" }}
+              InputProps={{ disableUnderline: true }}
+            />
+          </Box>
+        </Box>
       </Grid>
 
       {/* Buttons */}

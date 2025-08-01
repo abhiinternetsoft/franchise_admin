@@ -15,7 +15,7 @@ input::placeholder {
 }
 
 .password-validations {
-  font-size: 12px;
+  font-size: 10px;
   color: #535364;
   padding: 0px;
   list-style: none;
@@ -64,6 +64,7 @@ input::placeholder {
     font-size: 14px;
     color: #535364;
     border-bottom: 1px solid #EDEDED !important;
+    width: max-content !important;
 }
 
 .signin-form label, .signup-form label {
@@ -80,19 +81,35 @@ input::placeholder {
     font-family: 'Inter';
     padding: 12px 10px;
     margin-top: 6px;
+    background-color: #FBFBFB;
+    
 }
 
 .signin-btn {
     background-color: #000B82;
     font-weight: 700;
-    border-radius: 6px;
+    border-radius: 10px;
     padding: 12px 10px;
+}
+
+.signin-btn:hover {
+  background-color: #000B82;
+  font-weight: 700;
+  border-radius: 10px;
+  padding: 12px 10px;
 }
 
 .create-account-btn {
     background-color: #000B82;
     font-weight: 700;
-    border-radius: 6px;
+    border-radius: 10px;
+    padding: 12px 10px; 
+}
+
+.create-account-btn:hover {
+    background-color: #000B82;
+    font-weight: 700;
+    border-radius: 10px;
     padding: 12px 10px; 
 }
 
@@ -101,6 +118,7 @@ input::placeholder {
     font-size: 14px;
     font-family: 'Inter';
     text-decoration: none;
+    font-weight: 600;
 }
 
 .social-login-btn button {
@@ -189,10 +207,11 @@ input::placeholder {
   font-size: 14px;
   border: none;
   border-radius: 0px;
+  color: #898989;
 }
 
 .back-arrow {
-  color: #ADADB6;
+  color: #535364;
 }
 
 .checkbox-input {
@@ -216,6 +235,20 @@ input::placeholder {
   border-color: #0DA2FF;
 }
 
+ .text-primary {
+  color: #535364 !important;
+  font-weight: 500 !important;
+  border-bottom: 2px solid #0DA2FF !important;
+}
+
+.desktop-arrow {
+    display: block;
+  }
+  
+  .mobile-arrow {
+    display: none;
+  }
+
 @media(max-width: 567px) {
   .image-column {
     display: none !important;
@@ -228,4 +261,17 @@ input::placeholder {
   .tabchange-text {
     width: 60% !important;
   }
+  
+  .desktop-arrow {
+    display: none !important;
+  }
+  
+  .mobile-arrow {
+    display: Block;
+  }
+  
+  .signup-title {
+    font-size: 20px !important;
+  }
+
 }

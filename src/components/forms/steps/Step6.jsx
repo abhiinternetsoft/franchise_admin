@@ -136,27 +136,57 @@ const Step6 = ({ formik, onBack, onNext }) => {
             Ongoing Fees
           </Typography>
         </Grid>
-
-        <Grid item sx={{ flexBasis: { xs: "100%", md: "49%" } }}>
+        <Grid item sx={{ flexBasis: { xs: "100%", md: "23%" } }}>
           <label htmlFor="Staff Requirements" className="listing-form-label">
-            Royalty Fee (%)
+            Franchise Fee
           </label>
           <TextField
             fullWidth
-            name="royaltyFee"
-            value={formik.values.royaltyFee}
+            name="ongoingfranchisefee"
+            value={formik.values.ongoingfranchisefee}
             onChange={formik.handleChange}
             type="number"
           />
         </Grid>
-        <Grid item sx={{ flexBasis: { xs: "100%", md: "49%" } }}>
+        <Grid item sx={{ flexBasis: { xs: "100%", md: "23%" } }}>
           <label htmlFor="Staff Requirements" className="listing-form-label">
-            Marketing Fee (%)
+            Royalty Fee
+          </label>
+          <TextField
+            select
+            fullWidth
+            name="royaltyType"
+            value={formik.values.ongoingtype}
+            onChange={formik.handleChange}
+          >
+            {amountTypeOptions.map((opt) => (
+              <MenuItem key={opt.value} value={opt.value}>
+                {opt.label}
+              </MenuItem>
+            ))}
+          </TextField>
+        </Grid>
+
+        <Grid item sx={{ flexBasis: { xs: "100%", md: "23%" } }}>
+          <label htmlFor="Staff Requirements" className="listing-form-label">
+            Percentage (%)
           </label>
           <TextField
             fullWidth
-            name="marketingFee"
-            value={formik.values.marketingFee}
+            name="ongoingPercentage"
+            value={formik.values.ongoingPercentage}
+            onChange={formik.handleChange}
+            type="number"
+          />
+        </Grid>
+        <Grid item sx={{ flexBasis: { xs: "100%", md: "23%" } }}>
+          <label htmlFor="Staff Requirements" className="listing-form-label">
+            Flat Fee (%)
+          </label>
+          <TextField
+            fullWidth
+            name="ongoingFlatFee"
+            value={formik.values.ongoingFlatFee}
             onChange={formik.handleChange}
             type="number"
           />

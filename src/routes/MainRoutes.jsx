@@ -35,6 +35,7 @@ const Typography = Loadable(
   lazy(() => import("pages/component-overview/typography"))
 );
 const Shadow = Loadable(lazy(() => import("pages/component-overview/shadows")));
+
 const SamplePage = Loadable(
   lazy(() => import("pages/extra-pages/sample-page"))
 );
