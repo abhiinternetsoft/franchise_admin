@@ -79,14 +79,23 @@ const SignIn = () => {
       <div className="row h-100">
         {/* Left Column - SignIn Form */}
         <div className="col-lg-3 d-flex align-items-start justify-content-center bg-white p-4 signin-column">
-          <div className="w-100" style={{ maxWidth: "400px" }}>
-            <p
+          <div
+            className="w-100"
+            style={{ maxWidth: "400px", marginTop: "40%" }}
+          >
+            {/* <p
               onClick={() => navigate(-1)}
               className="py-4 back-arrow desktop-arrow"
             >
               <BsArrowLeft size={20} />
-            </p>
+            </p> */}
             <h3 className="signup-title  mb-4 d-flex gap-10 justify-content-between">
+              <p
+                onClick={() => navigate(-1)}
+                className="py-0 back-arrow desktop-arrow"
+              >
+                <BsArrowLeft size={20} />
+              </p>
               Welcome to Franchise Listings
             </h3>
 
