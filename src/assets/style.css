@@ -586,5 +586,10 @@ Select {
   padding: 0px !important;
 }
 
-
+.css-5uxytq.MuiChip-combinedPrimary {
+  justify-content: flex-start;
+  background-color: #fff;
+  border: none;
+  color: #00DB9D;
+}
 
