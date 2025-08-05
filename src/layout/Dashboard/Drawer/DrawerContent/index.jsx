@@ -3,6 +3,7 @@ import NavCard from "./NavCard";
 import Navigation from "./Navigation";
 import SimpleBar from "components/third-party/SimpleBar";
 import { useGetMenuMaster } from "api/menu";
+import Footer from "../../Footer";
 
 // ==============================|| DRAWER CONTENT ||============================== //
 
@@ -20,6 +21,7 @@ export default function DrawerContent() {
       >
         <Navigation />
         {drawerOpen && <NavCard />}
+        <Footer />
       </SimpleBar>
     </>
   );

@@ -143,10 +143,8 @@ const Step14 = ({ formik, onBack, onNext }) => {
                     );
                     formik.setFieldValue("pressMentions", updated);
                   }}
-                  component="a"
-                  href={link}
-                  target="_blank"
                   clickable
+                  onClick={() => window.open(link, "_blank")}
                   sx={{
                     backgroundColor: "#f0f0f0",
                     border: "1px solid #ccc",
@@ -173,6 +171,8 @@ const Step14 = ({ formik, onBack, onNext }) => {
               }}
               sx={{ flex: 1, minWidth: "150px" }}
               InputProps={{ disableUnderline: true }}
+              multiline
+              rows={4}
             />
           </Box>
         </Grid>

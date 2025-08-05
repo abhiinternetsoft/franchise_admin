@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Typography, TextField, Grid, Button, Paper } from "@mui/material";
 import brandLogo from "../../../assets/images/users/brandLogo.svg";
 import brandBanner from "../../../assets/images/users/brandbanner.svg";
+import Branding from "../../../assets/images/users/Branding.svg";
 import { FaRegUserCircle } from "react-icons/fa";
 
 const Step3 = ({ formik, onBack, onNext }) => {
@@ -24,7 +25,7 @@ const Step3 = ({ formik, onBack, onNext }) => {
             gap: "10px",
           }}
         >
-          <FaRegUserCircle size={20} />
+          <img src={Branding} alt="Branding Image" />
           <Typography variant="h6 steps-heading">Branding</Typography>
         </Box>
         <Box>

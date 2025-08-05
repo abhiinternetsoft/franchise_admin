@@ -19,7 +19,8 @@ export default function Footer() {
         <Link href="#" target="_blank" underline="hover">
           {" "}
           FranchiseListings.com{" "}
-        </Link>
+        </Link>{" "}
+        <br />
         All rights reserved{" "}
       </Typography>
       {/* <Stack

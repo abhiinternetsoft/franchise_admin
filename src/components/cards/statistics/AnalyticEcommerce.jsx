@@ -32,41 +32,61 @@ export default function AnalyticEcommerce({
   icon,
 }) {
   return (
-    <MainCard contentSX={{ p: 2.25 }}>
-      <div className=" ">
-        <div className="d-flex align-items-center justify-content-start gap-10 mb-2 ">
-          <span className="dashboard-icons-avtar">{icon}</span>
+    <MainCard
+      className="dashboard-cards"
+      sx={{
+        position: "relative",
+        borderRadius: "16px",
+        padding: "2px", // thickness of gradient border
+        background: `linear-gradient(to top, ${color}, white)`, // gradient border
+      }}
+    >
+      <Box
+        sx={{
+          background: "#fff", // inner card background
+          borderRadius: "14px",
+          p: 2.25,
+        }}
+      >
+        <div className="d-flex align-items-center justify-content-start gap-10 mb-2">
+          <span
+            style={{
+              backgroundColor: color, // same as border color
+              borderRadius: "50%",
+              padding: "8px",
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            {icon}
+          </span>
           <Typography variant="h6" color="text.secondary">
             {title}
           </Typography>
         </div>
+
         <Stack sx={{ gap: 0.5 }}>
-          <Grid container className="d-flex flex-column ">
-            <Grid>
-              <Typography variant="h2" color="inherit">
-                {count}
-              </Typography>
-            </Grid>
-            {percentage && (
-              <Grid>
-                <Chip
-                  variant="combined"
-                  color={color}
-                  icon={
-                    isLoss ? (
-                      <ArrowDownOutlined style={iconSX} />
-                    ) : (
-                      <ArrowUpOutlined style={iconSX} />
-                    )
-                  }
-                  label={`${percentage}%`}
-                  size="small"
-                />
-              </Grid>
-            )}
-          </Grid>
+          <Typography variant="h2" color="inherit">
+            {count}
+          </Typography>
+          {percentage && (
+            <Chip
+              variant="combined"
+              color="primary"
+              icon={
+                isLoss ? (
+                  <ArrowDownOutlined style={{ fontSize: "0.75rem" }} />
+                ) : (
+                  <ArrowUpOutlined style={{ fontSize: "0.75rem" }} />
+                )
+              }
+              label={`${percentage}% this month`}
+              size="small"
+            />
+          )}
         </Stack>
-      </div>
+      </Box>
     </MainCard>
   );
 }

@@ -12,6 +12,7 @@ import {
 import { GoInfo } from "react-icons/go";
 import { useState } from "react";
 import { useFormik } from "formik";
+import Brand from "../../../assets/images/users/Brand.svg";
 
 const Step4 = ({ formik, onBack, onNext }) => {
   const [keywords, setKeywords] = useState([]);
@@ -79,7 +80,7 @@ const Step4 = ({ formik, onBack, onNext }) => {
             gap: "10px",
           }}
         >
-          <GoInfo size={20} />
+          <img src={Brand} alt="Brand" />
           <Typography variant="h6 steps-heading">Brand Overview</Typography>
         </Box>
         <Box>

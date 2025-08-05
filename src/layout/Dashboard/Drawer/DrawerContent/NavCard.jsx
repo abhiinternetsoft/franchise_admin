@@ -2,6 +2,7 @@
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import { PiCrownSimple } from "react-icons/pi";
+import Footer from "../../Footer";
 
 // project import
 import MainCard from "components/MainCard";
@@ -18,6 +19,7 @@ export default function NavCard() {
           </Button>
         </a>
       </Stack> */}
+      {/* <Footer /> */}
     </MainCard>
   );
 }

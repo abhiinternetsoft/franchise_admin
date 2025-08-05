@@ -33,7 +33,6 @@ const Step6 = ({ formik, onBack, onNext }) => {
         <Box
           sx={{
             borderRadius: "50%",
-            // bgcolor: "primary.main",
             color: "#535364",
             display: "flex",
             alignItems: "center",
@@ -57,21 +56,19 @@ const Step6 = ({ formik, onBack, onNext }) => {
         </Box>
       </Box>
 
-      <Grid container spacing={3} className=" stepform-container">
+      <Grid container spacing={3} className="stepform-container">
+        {/* Initial Investment Section */}
         <Grid
           sx={{ flexBasis: { xs: "100%", md: "100%" } }}
           className="d-flex gap-10 align-items-center"
         >
-          <img src={Dollar} alt=" initial Investment icon" />
+          <img src={Dollar} alt="initial Investment icon" />
           <Typography variant="subtitle1" gutterBottom className="m-0">
             Initial Investment
           </Typography>
         </Grid>
-        {/* Initial Investment */}
         <Grid item sx={{ flexBasis: { xs: "100%", md: "23%" } }}>
-          <label htmlFor="Staff Requirements" className="listing-form-label">
-            Investment Range Low
-          </label>
+          <label className="listing-form-label">Investment Range Low</label>
           <TextField
             fullWidth
             name="investmentLow"
@@ -81,9 +78,7 @@ const Step6 = ({ formik, onBack, onNext }) => {
           />
         </Grid>
         <Grid item sx={{ flexBasis: { xs: "100%", md: "23%" } }}>
-          <label htmlFor="Staff Requirements" className="listing-form-label">
-            Investment Range High
-          </label>
+          <label className="listing-form-label">Investment Range High</label>
           <TextField
             fullWidth
             name="investmentHigh"
@@ -92,9 +87,8 @@ const Step6 = ({ formik, onBack, onNext }) => {
             type="number"
           />
         </Grid>
-
         <Grid item sx={{ flexBasis: { xs: "100%", md: "23%" } }}>
-          <label htmlFor="Staff Requirements" className="listing-form-label">
+          <label className="listing-form-label">
             Minimum Liquid Capital Requirement
           </label>
           <TextField
@@ -105,10 +99,8 @@ const Step6 = ({ formik, onBack, onNext }) => {
             type="number"
           />
         </Grid>
-
-        {/* Financing */}
         <Grid item sx={{ flexBasis: { xs: "100%", md: "23%" } }}>
-          <label htmlFor="Staff Requirements" className="listing-form-label">
+          <label className="listing-form-label">
             Do you Offer Third Party Financing?
           </label>
           <TextField
@@ -126,20 +118,18 @@ const Step6 = ({ formik, onBack, onNext }) => {
           </TextField>
         </Grid>
 
-        {/* Ongoing Fees */}
+        {/* Ongoing Fees Section */}
         <Grid
           sx={{ flexBasis: { xs: "100%", md: "100%" } }}
           className="d-flex gap-10 align-items-center"
         >
-          <img src={Percentage} alt=" initial Investment icon" />
+          <img src={Percentage} alt="Ongoing Fees icon" />
           <Typography variant="subtitle1" gutterBottom className="m-0">
             Ongoing Fees
           </Typography>
         </Grid>
         <Grid item sx={{ flexBasis: { xs: "100%", md: "23%" } }}>
-          <label htmlFor="Staff Requirements" className="listing-form-label">
-            Franchise Fee
-          </label>
+          <label className="listing-form-label">Franchise Fee</label>
           <TextField
             fullWidth
             name="ongoingfranchisefee"
@@ -149,13 +139,11 @@ const Step6 = ({ formik, onBack, onNext }) => {
           />
         </Grid>
         <Grid item sx={{ flexBasis: { xs: "100%", md: "23%" } }}>
-          <label htmlFor="Staff Requirements" className="listing-form-label">
-            Royalty Fee
-          </label>
+          <label className="listing-form-label">Royalty Fee Type</label>
           <TextField
             select
             fullWidth
-            name="royaltyType"
+            name="ongoingtype"
             value={formik.values.ongoingtype}
             onChange={formik.handleChange}
           >
@@ -166,42 +154,39 @@ const Step6 = ({ formik, onBack, onNext }) => {
             ))}
           </TextField>
         </Grid>
+        {formik.values.ongoingtype === "percentage" && (
+          <Grid item sx={{ flexBasis: { xs: "100%", md: "23%" } }}>
+            <label className="listing-form-label">Percentage (%)</label>
+            <TextField
+              fullWidth
+              name="ongoingPercentage"
+              value={formik.values.ongoingPercentage}
+              onChange={formik.handleChange}
+              type="number"
+            />
+          </Grid>
+        )}
+        {formik.values.ongoingtype === "amount" && (
+          <Grid item sx={{ flexBasis: { xs: "100%", md: "23%" } }}>
+            <label className="listing-form-label">Flat Fee</label>
+            <TextField
+              fullWidth
+              name="ongoingFlatFee"
+              value={formik.values.ongoingFlatFee}
+              onChange={formik.handleChange}
+              type="number"
+            />
+          </Grid>
+        )}
 
-        <Grid item sx={{ flexBasis: { xs: "100%", md: "23%" } }}>
-          <label htmlFor="Staff Requirements" className="listing-form-label">
-            Percentage (%)
-          </label>
-          <TextField
-            fullWidth
-            name="ongoingPercentage"
-            value={formik.values.ongoingPercentage}
-            onChange={formik.handleChange}
-            type="number"
-          />
-        </Grid>
-        <Grid item sx={{ flexBasis: { xs: "100%", md: "23%" } }}>
-          <label htmlFor="Staff Requirements" className="listing-form-label">
-            Flat Fee (%)
-          </label>
-          <TextField
-            fullWidth
-            name="ongoingFlatFee"
-            value={formik.values.ongoingFlatFee}
-            onChange={formik.handleChange}
-            type="number"
-          />
-        </Grid>
-
-        {/* Local Ad Spend */}
+        {/* Local Ad Spend Section */}
         <Grid sx={{ flexBasis: { xs: "100%", md: "100%" } }}>
           <Typography variant="subtitle1" gutterBottom>
             Local Ad Spend
           </Typography>
         </Grid>
         <Grid item sx={{ flexBasis: { xs: "100%", md: "32%" } }}>
-          <label htmlFor="Staff Requirements" className="listing-form-label">
-            Local Ad Spend Type
-          </label>
+          <label className="listing-form-label">Local Ad Spend Type</label>
           <TextField
             select
             fullWidth
@@ -216,41 +201,39 @@ const Step6 = ({ formik, onBack, onNext }) => {
             ))}
           </TextField>
         </Grid>
-        <Grid item sx={{ flexBasis: { xs: "100%", md: "32%" } }}>
-          <label htmlFor="Staff Requirements" className="listing-form-label">
-            Percentage (%)
-          </label>
-          <TextField
-            fullWidth
-            name="localAdpercentage"
-            value={formik.values.localAdpercentage}
-            onChange={formik.handleChange}
-            type="number"
-          />
-        </Grid>
-        <Grid item sx={{ flexBasis: { xs: "100%", md: "32%" } }}>
-          <label htmlFor="Staff Requirements" className="listing-form-label">
-            Flat Fee
-          </label>
-          <TextField
-            fullWidth
-            name="localAdflatfee"
-            value={formik.values.localAdflatfee}
-            onChange={formik.handleChange}
-            type="number"
-          ></TextField>
-        </Grid>
+        {formik.values.localAdType === "percentage" && (
+          <Grid item sx={{ flexBasis: { xs: "100%", md: "32%" } }}>
+            <label className="listing-form-label">Percentage (%)</label>
+            <TextField
+              fullWidth
+              name="localAdpercentage"
+              value={formik.values.localAdpercentage}
+              onChange={formik.handleChange}
+              type="number"
+            />
+          </Grid>
+        )}
+        {formik.values.localAdType === "amount" && (
+          <Grid item sx={{ flexBasis: { xs: "100%", md: "32%" } }}>
+            <label className="listing-form-label">Flat Fee</label>
+            <TextField
+              fullWidth
+              name="localAdflatfee"
+              value={formik.values.localAdflatfee}
+              onChange={formik.handleChange}
+              type="number"
+            />
+          </Grid>
+        )}
 
-        {/* National Ad Spend */}
+        {/* National Ad Spend Section */}
         <Grid sx={{ flexBasis: { xs: "100%", md: "100%" } }}>
           <Typography variant="subtitle1" gutterBottom>
             National Ad Spend
           </Typography>
         </Grid>
         <Grid item sx={{ flexBasis: { xs: "100%", md: "32%" } }}>
-          <label htmlFor="Staff Requirements" className="listing-form-label">
-            National Ad Spend Type
-          </label>
+          <label className="listing-form-label">National Ad Spend Type</label>
           <TextField
             select
             fullWidth
@@ -265,37 +248,34 @@ const Step6 = ({ formik, onBack, onNext }) => {
             ))}
           </TextField>
         </Grid>
-        <Grid item sx={{ flexBasis: { xs: "100%", md: "32%" } }}>
-          <label htmlFor="Staff Requirements" className="listing-form-label">
-            Percentage (%)
-          </label>
-          <TextField
-            fullWidth
-            name="nationalAdpercentage"
-            value={formik.values.nationalAdpercentage}
-            onChange={formik.handleChange}
-            type="number"
-          />
-        </Grid>
-        <Grid item sx={{ flexBasis: { xs: "100%", md: "32%" } }}>
-          <label htmlFor="Staff Requirements" className="listing-form-label">
-            Flat Fee
-          </label>
-          <TextField
-            fullWidth
-            name="nationalAdflatfee"
-            value={formik.values.nationalAdflatfee}
-            onChange={formik.handleChange}
-            type="number"
-          ></TextField>
-        </Grid>
+        {formik.values.nationalAdType === "percentage" && (
+          <Grid item sx={{ flexBasis: { xs: "100%", md: "32%" } }}>
+            <label className="listing-form-label">Percentage (%)</label>
+            <TextField
+              fullWidth
+              name="nationalAdpercentage"
+              value={formik.values.nationalAdpercentage}
+              onChange={formik.handleChange}
+              type="number"
+            />
+          </Grid>
+        )}
+        {formik.values.nationalAdType === "amount" && (
+          <Grid item sx={{ flexBasis: { xs: "100%", md: "32%" } }}>
+            <label className="listing-form-label">Flat Fee</label>
+            <TextField
+              fullWidth
+              name="nationalAdflatfee"
+              value={formik.values.nationalAdflatfee}
+              onChange={formik.handleChange}
+              type="number"
+            />
+          </Grid>
+        )}
       </Grid>
 
       {/* Navigation */}
       <Box mt={4} display="flex" justifyContent="space-between">
-        {/* <Button variant="outlined" onClick={onBack}>
-          ← Previous
-        </Button> */}
         <Button variant="contained" onClick={onNext}>
           Skip Button
         </Button>

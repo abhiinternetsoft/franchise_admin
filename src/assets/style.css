@@ -18,6 +18,7 @@
 .css-pvj91o-MuiTypography-root {
   font-size: 14px;
   color: #535364;
+  font-weight: 600;
 }
 
 .css-197kj58-MuiTypography-root {
@@ -57,7 +58,7 @@
   margin-right: 30px;
   padding: 20px;
   border: 1px solid #ddd;
-  border-radius: 10px;
+  border-radius: 15px;
 }
 
 .stickyheader-icons {
@@ -198,8 +199,15 @@
   background-color: #fff;
 }
 
+.css-z9hlhg-MuiInputBase-root-MuiOutlinedInput-root {
+  border-radius: 10px !important;
+}
+
 .css-dcfwkv-MuiChip-root.MuiChip-combinedPrimary {
+  justify-content: flex-start;
   color: #00DB9D;
+  font-family: "Inter";
+  font-size: 12px;
 }
 
 .css-18b53yu-MuiChip-root.MuiChip-combinedWarning {
@@ -268,6 +276,7 @@
 .steps-heading {
   font-size: 28px !important;
   font-weight: 600;
+  font-family: "Poppins" !important;
   color: #535364;
 }
 
@@ -359,12 +368,24 @@
   color: #CDCDD3;
 }
 
+.css-5vq2th {
+  padding-left: 8px !important;
+}
+
+.dashboard-cards {
+  border-radius: 15px !important;
+}
+
+.css-puupk7-MuiCardContent-root, .css-puupk7-MuiCardContent-root:last-child {
+  padding: 0px !important;
+}
+
 /* ============= Home Dashboard Css =========== */
 
 .homeSection-dashboard {
   position: relative;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 15px;
 
   background: linear-gradient(to right,
                               #fff 0%,
@@ -434,6 +455,8 @@
 
 .upload-blue {
   color: #6BBDEF;
+  font-weight: 600;
+  text-decoration: underline;
 }
 
 .upload-description {
@@ -449,7 +472,8 @@
   padding: 4px 15px;
   border: 1px solid #6BBDEF;
   font-size: 12px;
-  border-radius: 4px;
+  border-radius: 8px;
+  color: #6BBDEF;
 }
 
 .upload-title {
@@ -503,6 +527,61 @@ Select {
 .Listingtable-head {
   border-radius: 10px !important;
 }
+
+.mobile-content span {
+  display: none;
+}
+
+.mobile-content {
+  justify-content: space-between !important;
+  gap: 20px !important;
+}
+
+.MuiBox-root .css-15o9cg1 .Franchise-naming {
+  display: none !important;
+}
+
+.MuiBox-root .css-15o9cg1 {
+  display: flex !important;
+  text-align: center !important;
+  align-items: center !important;
+  flex-flow: column-reverse !important;
+  gap: 15px !important;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #E1E9EE;
+}
+
+.css-1rrx047 {
+  border-right: 1px solid #E1E9EE;
+}
+
+.MuiBox-root .css-15o9cg1 .sidebar-close-logo {
+  margin-left: 10px;
+}
+
+.css-1soxpfl-MuiPickersSectionList-root-MuiPickersInputBase-sectionsContainer-MuiPickersOutlinedInput-sectionsContainer, .css-79xojp-MuiPickersSectionList-root-MuiPickersInputBase-sectionsContainer-MuiPickersOutlinedInput-sectionsContainer {
+  padding: 10px 0px !important;
+}
+
+.css-lqwr9g-MuiPickersOutlinedInput-notchedOutline, .css-4h8zbi-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root, .css-1bulnml-MuiInputBase-root-MuiOutlinedInput-root, .css-f5wl4m {
+  border-radius: 10px !important;
+}
+
+.css-eqc3kq-MuiFormControl-root-MuiPickersTextField-root {
+  width: 100%;
+  color: #6D758F;
+}
+
+.simplebar-content {
+  display: flex;
+  justify-content: space-between;
+  height: 90vh !important;
+}
+
+.css-1uhjpfk-MuiButtonBase-root-MuiIconButton-root:hover, .css-11fhhhm-MuiButtonBase-root-MuiIconButton-root:hover {
+  background: none !important;
+}
+
 
 
 

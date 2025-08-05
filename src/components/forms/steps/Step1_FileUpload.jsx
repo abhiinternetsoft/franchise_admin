@@ -6,6 +6,8 @@ import { LuFileText } from "react-icons/lu";
 import { RxCross1 } from "react-icons/rx";
 import { IoSaveOutline } from "react-icons/io5";
 import { FaArrowRightLong } from "react-icons/fa6";
+import FddUpload from "../../../assets/images/users/fdd-upload.svg";
+import IcUpload from "../../../assets/images/users/ic-pdf.svg";
 // import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 
 const Step1_FileUpload = ({ formik, onSkip, onNext }) => {
@@ -36,7 +38,7 @@ const Step1_FileUpload = ({ formik, onSkip, onNext }) => {
             gap: "10px",
           }}
         >
-          <LuFileText size={20} />
+          <img src={FddUpload} alt="FddUpload" />
           <Typography variant="h6 steps-heading">FDD Upload</Typography>
         </Box>
         <Box>
@@ -82,7 +84,7 @@ const Step1_FileUpload = ({ formik, onSkip, onNext }) => {
           variant="caption"
           className="text-blue py-1 px-2 mt-3 rounded fs-14 gap-10 d-flex align-items-center upload-file-btn"
         >
-          <FaRegFilePdf />
+          <img src={IcUpload} alt="IcUpload" />
           PDF files only, max 10MB
         </Typography>
       </Box>

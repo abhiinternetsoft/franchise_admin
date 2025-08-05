@@ -9,6 +9,7 @@ import {
   FormHelperText,
 } from "@mui/material";
 import { CiLink } from "react-icons/ci";
+import linkIcon from "../../../assets/images/users/linkIcon.png";
 
 const Step2 = ({ formik, onBack, onNext }) => {
   const baseURL = "https://franchisehub.com/opportunities/";
@@ -29,7 +30,7 @@ const Step2 = ({ formik, onBack, onNext }) => {
             gap: "10px",
           }}
         >
-          <CiLink size={20} />
+          <img src={linkIcon} alt="linkIcon" />
           <Typography variant="h6 steps-heading">
             {" "}
             Custom URL & Identification

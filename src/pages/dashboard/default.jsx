@@ -7,6 +7,7 @@ import { LuEye } from "react-icons/lu";
 import Typography from "@mui/material/Typography";
 import scanImage from "../../assets/images/users/scan-barcode.png";
 import { MdOutlineAssignment } from "react-icons/md";
+import Note from "../../assets/images/users/note.svg";
 
 // project imports
 import AnalyticEcommerce from "components/cards/statistics/AnalyticEcommerce";
@@ -39,7 +40,7 @@ export default function DashboardDefault() {
           <img src={scanImage} alt="" />
         </div>
         <div>
-          <h3 className="fs-16 m-0">Customizable Dashboard</h3>
+          <h3 className="fs-16 m-0 fw-semibold">Customizable Dashboard</h3>
           <p className="fs-14 m-0">
             Drag and drop the cards below to rearrange them according to your
             preference. Your layout will be automatically saved.
@@ -55,7 +56,8 @@ export default function DashboardDefault() {
           count="124"
           percentage={12}
           extra="35,000"
-          icon={<MdOutlineAssignment />}
+          color="#667EEA"
+          icon={<img src={Note} alt="Note" style={{ width: 24, height: 24 }} />}
         />
       </Grid>
       <Grid size={{ xs: 12, sm: 6, md: 3, lg: 2.4 }}>
@@ -64,36 +66,39 @@ export default function DashboardDefault() {
           count="22"
           percentage={12}
           isLoss
-          color="warning"
+          color="#29A846"
+          icon={<img src={Note} alt="Note" style={{ width: 24, height: 24 }} />}
           extra="8,900"
-          icon={<MdOutlineAssignment />}
         />
       </Grid>
       <Grid size={{ xs: 12, sm: 6, md: 3, lg: 2.4 }}>
         <AnalyticEcommerce
-          title="Users"
+          title="Total Users"
           count="8"
           percentage={24}
+          color="#17A2B8"
           extra="1,943"
-          icon={<MdOutlineAssignment />}
+          icon={<img src={Note} alt="Note" style={{ width: 24, height: 24 }} />}
         />
       </Grid>
       <Grid size={{ xs: 12, sm: 6, md: 3, lg: 2.4 }}>
         <AnalyticEcommerce
-          title="Leads"
+          title="Total Leads"
           count="4.6K"
           percentage={12}
+          color="#FFC107"
           extra="20,395"
-          icon={<MdOutlineAssignment />}
+          icon={<img src={Note} alt="Note" style={{ width: 24, height: 24 }} />}
         />
       </Grid>
       <Grid size={{ xs: 12, sm: 6, md: 3, lg: 2.4 }}>
         <AnalyticEcommerce
-          title="Leads"
+          title="Total Listing"
           count="4.6K"
           percentage={12}
+          color="#7129A8"
           extra="20,395"
-          icon={<MdOutlineAssignment />}
+          icon={<img src={Note} alt="Note" style={{ width: 24, height: 24 }} />}
         />
       </Grid>
       <Grid

@@ -262,8 +262,12 @@ input::placeholder {
     width: 60% !important;
   }
   
-  .desktop-arrow {
+  /* .desktop-arrow {
     display: none !important;
+  } */
+   
+  .sign-up-form {
+    margin-top: 10% !important;
   }
   
   .mobile-arrow {

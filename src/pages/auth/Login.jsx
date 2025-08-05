@@ -80,7 +80,7 @@ const SignIn = () => {
         {/* Left Column - SignIn Form */}
         <div className="col-lg-3 d-flex align-items-start justify-content-center bg-white p-4 signin-column">
           <div
-            className="w-100"
+            className="w-100 sign-up-form"
             style={{ maxWidth: "400px", marginTop: "40%" }}
           >
             {/* <p
@@ -163,8 +163,8 @@ const SignIn = () => {
                   className="form-select mb-3"
                 >
                   <option value="">I am:</option>
-                  <option value="franchisor">Franchisor</option>
-                  <option value="franchisee">Looking to Buy a Franchise</option>
+                  <option value="franchisor">I AM A FRANCHISOR</option>
+                  <option value="franchisee">LOOKING TO BY A FRANCHISE</option>
                 </select>
                 <label>Email</label>
                 <input

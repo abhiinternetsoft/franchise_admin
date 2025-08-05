@@ -1,4 +1,3 @@
-// assets
 import {
   SearchOutlined,
   HomeOutlined,
@@ -10,15 +9,40 @@ import {
 } from "@ant-design/icons";
 import { BiBuildingHouse } from "react-icons/bi";
 import { SlWallet } from "react-icons/sl";
-import { TbUsersGroup } from "react-icons/tb";
-import { TbMailSearch } from "react-icons/tb";
+import { TbUsersGroup, TbMailSearch } from "react-icons/tb";
 import { GrAnnounce } from "react-icons/gr";
 import { BiCategory } from "react-icons/bi";
 import { LuStar } from "react-icons/lu";
 import { SlCalender } from "react-icons/sl";
 import { RiNewsLine } from "react-icons/ri";
+import Dashboard from "../assets/images/users/dashboard.svg";
+import Franchise from "../assets/images/users/franchise.svg";
+import Disclosures from "../assets/images/users/Disclosures.svg";
+import usermanagement from "../assets/images/users/usermanagement.svg";
+import leadmanagement from "../assets/images/users/leadmanagement.svg";
 
-// icons
+// Wrap the image as a React component
+const DashboardIcon = () => (
+  <img src={Dashboard} alt="Dashboard" style={{ width: 20, height: 20 }} />
+);
+
+const FranchiseIcon = () => (
+  <img src={Franchise} alt="Franchise" style={{ width: 20, height: 20 }} />
+);
+
+const DisclosuresIcon = () => (
+  <img src={Disclosures} alt="Franchise" style={{ width: 20, height: 20 }} />
+);
+
+const usermanagementIcon = () => (
+  <img src={usermanagement} alt="Franchise" style={{ width: 20, height: 20 }} />
+);
+
+const leadmanagementIcon = () => (
+  <img src={leadmanagement} alt="Franchise" style={{ width: 20, height: 20 }} />
+);
+
+// icons object
 const icons = {
   SearchOutlined,
   HomeOutlined,
@@ -36,10 +60,14 @@ const icons = {
   LuStar,
   SlCalender,
   RiNewsLine,
+  Dashboard: DashboardIcon, // use wrapped image component
+  Franchise: FranchiseIcon,
+  Disclosures: DisclosuresIcon,
+  usermanagement: usermanagementIcon,
+  leadmanagement: leadmanagementIcon,
 };
 
-// ==============================|| MENU ITEMS - DASHBOARD ||============================== //
-
+// menu config
 const dashboard = {
   id: "group-dashboard",
   title: "Navigation",
@@ -50,7 +78,7 @@ const dashboard = {
       title: "Dashboard",
       type: "item",
       url: "/",
-      icon: icons.HomeOutlined,
+      icon: icons.Dashboard,
       breadcrumbs: false,
     },
     {
@@ -58,23 +86,15 @@ const dashboard = {
       title: "Franchise Opportunities",
       type: "item",
       url: "./franchiseopportunities",
-      icon: icons.ShopOutlined,
+      icon: icons.Franchise,
       breadcrumbs: false,
     },
-    // {
-    //   id: "All Franchise Listing",
-    //   title: "All Franchise Listing",
-    //   type: "item",
-    //   url: "./allfranchiselisting",
-    //   icon: icons.ShopOutlined,
-    //   breadcrumbs: false,
-    // },
     {
       id: "Disclosures",
       title: "Franchise Disclosures",
       type: "item",
       url: "./disclosures",
-      icon: icons.FileTextOutlined,
+      icon: icons.Disclosures,
       breadcrumbs: false,
     },
     {
@@ -82,7 +102,7 @@ const dashboard = {
       title: "User Management",
       type: "item",
       url: "./usermanagement",
-      icon: icons.TbUsersGroup,
+      icon: icons.usermanagement,
       breadcrumbs: false,
     },
     {
@@ -90,108 +110,9 @@ const dashboard = {
       title: "Lead Management",
       type: "item",
       url: "./leadmanagement",
-      icon: icons.TbMailSearch,
+      icon: icons.leadmanagement,
       breadcrumbs: false,
     },
-    // {
-    //   id: "dashboard",
-    //   title: "Search Directory",
-    //   type: "item",
-    //   url: "#",
-    //   icon: icons.UserAddOutlined,
-    //   breadcrumbs: false,
-    // },
-    // {
-    //   id: "conversations",
-    //   title: "Conversations",
-    //   type: "item",
-    //   url: "#",
-    //   icon: icons.MessageOutlined,
-    //   breadcrumbs: false,
-    // },
-
-    // {
-    //   id: "Franchise Resales",
-    //   title: "Franchise Resales",
-    //   type: "item",
-    //   url: "#",
-    //   icon: icons.FilterOutlined,
-    //   breadcrumbs: false,
-    // },
-    // {
-    //   id: "CRE Listings",
-    //   title: "CRE Listings",
-    //   type: "item",
-    //   url: "#",
-    //   icon: icons.BiBuildingHouse,
-    //   breadcrumbs: false,
-    // },
-    // {
-    //   id: "Company Pages",
-    //   title: "Company Pages",
-    //   type: "item",
-    //   url: "#",
-    //   icon: icons.BiBuildingHouse,
-    //   breadcrumbs: false,
-    // },
-    // {
-    //   id: "Premium Subscriptions",
-    //   title: "Premium Subscriptions",
-    //   type: "item",
-    //   url: "#",
-    //   icon: icons.SlWallet,
-    //   breadcrumbs: false,
-    // },
-
-    // {
-    //   id: "Franchisee Management",
-    //   title: "Franchisee Management",
-    //   type: "item",
-    //   url: "#",
-    //   icon: icons.FilterOutlined,
-    //   breadcrumbs: false,
-    // },
-
-    // {
-    //   id: "Marketing Management",
-    //   title: "Marketing Management",
-    //   type: "item",
-    //   url: "#",
-    //   icon: icons.GrAnnounce,
-    //   breadcrumbs: false,
-    // },
-    // {
-    //   id: "Category Management",
-    //   title: "Category Management",
-    //   type: "item",
-    //   url: "#",
-    //   icon: icons.BiCategory,
-    //   breadcrumbs: false,
-    // },
-    // {
-    //   id: "Review Management",
-    //   title: "Review Management",
-    //   type: "item",
-    //   url: "#",
-    //   icon: icons.LuStar,
-    //   breadcrumbs: false,
-    // },
-    // {
-    //   id: "Events Management",
-    //   title: "Events Management",
-    //   type: "item",
-    //   url: "#",
-    //   icon: icons.SlCalender,
-    //   breadcrumbs: false,
-    // },
-    // {
-    //   id: "News Management",
-    //   title: "News Management",
-    //   type: "item",
-    //   url: "#",
-    //   icon: icons.RiNewsLine,
-    //   breadcrumbs: false,
-    // },
   ],
 };
 
