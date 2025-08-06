@@ -33,9 +33,9 @@ export default function DrawerHeader({ open }) {
       <div className="mx-1 mobile-content d-flex justify-contents-between align-items-center">
         <div className="Franchise-naming">
           <h4 className="Mainlogo_text">Franchise Listing</h4>
-          <p className="user-role">Super Admin</p>
+          {/* <p className="user-role">Super Admin</p> */}
+          <p className="user-role">{user?.role}</p>
         </div>
-        {/* <p className="user-role">{user?.role}</p> */}
 
         <IconButton
           aria-label="open drawer"

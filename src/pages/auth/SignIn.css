@@ -279,3 +279,9 @@ input::placeholder {
   }
 
 }
+
+.terms-of-use {
+  text-decoration: none;
+  border-bottom: none !important;
+  color: #007bff !important;
+}

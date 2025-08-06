@@ -22,7 +22,7 @@ const Step1_FileUpload = ({ formik, onSkip, onNext }) => {
     <Paper
       elevation={3}
       sx={{ padding: 4, borderRadius: 2 }}
-      className="shadow-none"
+      className="shadow-none border step-forms"
     >
       {/* Title */}
 
@@ -54,6 +54,7 @@ const Step1_FileUpload = ({ formik, onSkip, onNext }) => {
       </Box>
 
       {/* Upload Box */}
+      {/* Upload Box */}
       <Box
         sx={{
           border: "2px dashed #ccc",
@@ -73,20 +74,42 @@ const Step1_FileUpload = ({ formik, onSkip, onNext }) => {
           hidden
           onChange={handleFileChange}
         />
-        {/* <CloudUploadIcon sx={{ fontSize: 40, color: "#888" }} /> */}
-        <span className="upload-icon">
-          <BsCloudArrowUpFill size={120} />
-        </span>
-        <Typography variant="body1" sx={{ mt: 2 }} className="text-blue">
-          Click to upload FDD document
-        </Typography>
-        <Typography
-          variant="caption"
-          className="text-blue py-1 px-2 mt-3 rounded fs-14 gap-10 d-flex align-items-center upload-file-btn"
-        >
-          <img src={IcUpload} alt="IcUpload" />
-          PDF files only, max 10MB
-        </Typography>
+
+        {!formik.values.fddFile ? (
+          <>
+            <span className="upload-icon">
+              <BsCloudArrowUpFill size={120} />
+            </span>
+            <Typography variant="body1" sx={{ mt: 2 }} className="text-blue">
+              Click to upload FDD document
+            </Typography>
+            <Typography
+              variant="caption"
+              className="text-blue py-1 px-2 mt-3 rounded fs-14 gap-10 d-flex align-items-center upload-file-btn"
+            >
+              <img src={IcUpload} alt="IcUpload" />
+              PDF files only, max 10MB
+            </Typography>
+          </>
+        ) : (
+          <Box sx={{ textAlign: "center" }}>
+            <FaRegFilePdf size={50} color="#6BBDEF" />
+            <Typography variant="body1" sx={{ mt: 2 }}>
+              {formik.values.fddFile.name}
+            </Typography>
+            <Button
+              variant="outlined"
+              color="#6BBDEF"
+              sx={{ mt: 2 }}
+              onClick={(e) => {
+                e.stopPropagation();
+                formik.setFieldValue("fddFile", null);
+              }}
+            >
+              Remove File
+            </Button>
+          </Box>
+        )}
       </Box>
 
       {/* Buttons */}

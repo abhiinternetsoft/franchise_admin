@@ -155,7 +155,7 @@ const Step14 = ({ formik, onBack, onNext }) => {
 
             <TextField
               variant="standard"
-              placeholder="Paste link and press Enter"
+              placeholder="List any press mentions, awards, or media coverage..."
               value={linkInput}
               onChange={(e) => setLinkInput(e.target.value)}
               onKeyDown={(e) => {

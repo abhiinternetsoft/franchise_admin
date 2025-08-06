@@ -28,18 +28,22 @@ const SignIn = () => {
       });
 
       if (res.status === 200) {
-        alert("Login successful!");
-
         const token = res.data.token;
-        // const email = res.data.user?.email;
+        const email = res.data.user?.email;
         const role = res.data.user?.role;
 
-        // Save token and role
-        localStorage.setItem("token", token);
-        // localhost.setItem("userEmail", email); // Store email for display
-        localStorage.setItem("userRole", role); // Now store role locally
+        // Allow only admin users
+        if (role !== "super admin") {
+          alert("Access denied: Only admins can log in.");
+          return;
+        }
 
-        // Navigate based on role
+        // Save token and user info
+        localStorage.setItem("token", token);
+        localStorage.setItem("userEmail", email);
+        localStorage.setItem("userRole", role);
+
+        alert("Login successful!");
         navigate("/");
       }
     } catch (error) {
@@ -162,7 +166,7 @@ const SignIn = () => {
                   onChange={(e) => setSignupRole(e.target.value)}
                   className="form-select mb-3"
                 >
-                  <option value="">I am:</option>
+                  <option value="">I am</option>
                   <option value="franchisor">I AM A FRANCHISOR</option>
                   <option value="franchisee">LOOKING TO BY A FRANCHISE</option>
                 </select>
@@ -208,10 +212,7 @@ const SignIn = () => {
                   </span>
                   <label className="form-check-label ms-2 termsandconditions">
                     By Submitting, I accept Franchise Listings{" "}
-                    <a
-                      href="#"
-                      className="text-primary text-decoration-underline"
-                    >
+                    <a href="#" className="text-primary terms-of-use">
                       terms of use.
                     </a>
                   </label>

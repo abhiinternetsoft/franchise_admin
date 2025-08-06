@@ -103,6 +103,7 @@ const Step4 = ({ formik, onBack, onNext }) => {
           <TextField
             fullWidth
             name="aboutUs"
+            placeholder="Enter your brand about us description"
             multiline
             rows={5}
             value={formik.values.aboutUs}
@@ -244,11 +245,10 @@ const Step4 = ({ formik, onBack, onNext }) => {
               onKeyDown={(e) => {
                 if (e.key === "Enter" && inputValue.trim() !== "") {
                   e.preventDefault();
-                  const updated = [
+                  formik.setFieldValue("keywords", [
                     ...formik.values.keywords,
                     inputValue.trim(),
-                  ];
-                  formik.setFieldValue("keywords", updated);
+                  ]);
                   setInputValue("");
                 }
               }}
@@ -256,6 +256,12 @@ const Step4 = ({ formik, onBack, onNext }) => {
               InputProps={{ disableUnderline: true }}
             />
           </Box>
+
+          {formik.touched.keywords && formik.errors.keywords && (
+            <Typography color="error" variant="body2">
+              {formik.errors.keywords}
+            </Typography>
+          )}
         </Box>
       </Grid>
 

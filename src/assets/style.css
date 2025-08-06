@@ -80,7 +80,7 @@
 .user-role {
   font-size: 10px;
   margin: 0px;
-  font-family: 'certia' !important;
+  
 }
 
 .upgrade-link {
@@ -95,6 +95,10 @@
   color: #fff;
   font-weight: 600;
   font-size: 14px;
+}
+
+.form-header-section {
+  border-radius: 15px;
 }
 
 .css-15f4cbe-MuiTypography-root {
@@ -309,8 +313,9 @@
   border-radius: 10px !important;
 }
 
+
 .stepform-section {
-  border-radius: 10px;
+  border-radius: 15px;
 }
 
 .brandBanner-icon {
@@ -442,8 +447,8 @@
   border-radius: 10px;
 }
 
-.Listing-form {
-  border-radius: 10px;
+.Listing-form, .css-ncl1k3-MuiPaper-root {
+  border-radius: 15px;
 }
 
 .listing-form-label {
@@ -591,5 +596,16 @@ Select {
   background-color: #fff;
   border: none;
   color: #00DB9D;
+}
+
+.css-1er4oq3 {
+  display: none;
+  
+}
+
+.css-1wq3g92 {
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  margin-top: 5px;
 }
 

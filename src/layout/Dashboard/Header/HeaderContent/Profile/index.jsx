@@ -1,63 +1,36 @@
-import PropTypes from "prop-types";
 import { useRef, useState } from "react";
-
-// material-ui
 import { useTheme } from "@mui/material/styles";
 import ButtonBase from "@mui/material/ButtonBase";
-import CardContent from "@mui/material/CardContent";
-import ClickAwayListener from "@mui/material/ClickAwayListener";
-import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
-import Popper from "@mui/material/Popper";
 import Stack from "@mui/material/Stack";
-import Tab from "@mui/material/Tab";
-import Tabs from "@mui/material/Tabs";
-import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import ClickAwayListener from "@mui/material/ClickAwayListener";
+import Popper from "@mui/material/Popper";
+import List from "@mui/material/List";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
 
-// project imports
-import ProfileTab from "./ProfileTab";
-import SettingTab from "./SettingTab";
+// Custom components
 import Avatar from "components/@extended/Avatar";
 import MainCard from "components/MainCard";
 import Transitions from "components/@extended/Transitions";
-import IconButton from "components/@extended/IconButton";
 import { useUser } from "../../../../../contexts/UserContext";
 
-// assets
-import LogoutOutlined from "@ant-design/icons/LogoutOutlined";
+// Icons
+import EditOutlined from "@ant-design/icons/EditOutlined";
 import SettingOutlined from "@ant-design/icons/SettingOutlined";
-import UserOutlined from "@ant-design/icons/UserOutlined";
+import LogoutOutlined from "@ant-design/icons/LogoutOutlined";
+import { LuUserRound } from "react-icons/lu";
+import { IoIosLogOut } from "react-icons/io";
+
+// Sample avatar
 import avatar1 from "assets/images/users/avatar-1.png";
-
-// tab panel wrapper
-function TabPanel({ children, value, index, ...other }) {
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`profile-tabpanel-${index}`}
-      aria-labelledby={`profile-tab-${index}`}
-      {...other}
-    >
-      {value === index && children}
-    </div>
-  );
-}
-
-function a11yProps(index) {
-  return {
-    id: `profile-tab-${index}`,
-    "aria-controls": `profile-tabpanel-${index}`,
-  };
-}
-
-// ==============================|| HEADER CONTENT - PROFILE ||============================== //
 
 export default function Profile() {
   const theme = useTheme();
-  const { user } = useUser();
+  const { user, logout } = useUser(); // Assuming logout function is in context
   const anchorRef = useRef(null);
   const [open, setOpen] = useState(false);
 
@@ -72,58 +45,41 @@ export default function Profile() {
     setOpen(false);
   };
 
-  const [value, setValue] = useState(0);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
+  const handleLogout = () => {
+    if (logout) {
+      logout(); // Clear user state
+    } else {
+      localStorage.removeItem("token"); // Fallback if no context logout
+    }
+    window.location.href = "admin/login"; // Redirect after logout
   };
 
   return (
     <Box sx={{ flexShrink: 0, ml: 0.75 }}>
       <ButtonBase
-        sx={(theme) => ({
+        sx={{
           p: 0.25,
           bgcolor: open ? "grey.100" : "transparent",
           borderRadius: 1,
           "&:hover": { bgcolor: "secondary.lighter" },
-          "&:focus-visible": {
-            outline: `2px solid ${theme.palette.secondary.dark}`,
-            outlineOffset: 2,
-          },
-          ...theme.applyStyles("dark", {
-            bgcolor: open ? "background.default" : "transparent",
-            "&:hover": { bgcolor: "secondary.light" },
-          }),
-        })}
+        }}
         aria-label="open profile"
         ref={anchorRef}
-        aria-controls={open ? "profile-grow" : undefined}
-        aria-haspopup="true"
         onClick={handleToggle}
       >
         <Stack direction="row" sx={{ gap: 1.25, alignItems: "center", p: 0.5 }}>
           <Avatar alt="profile user" src={avatar1} size="sm" />
-          {/* <Typography variant="subtitle1" sx={{ textTransform: 'capitalize' }}>
-            John Doe
-          </Typography> */}
         </Stack>
       </ButtonBase>
+
       <Popper
         placement="bottom-end"
         open={open}
         anchorEl={anchorRef.current}
-        role={undefined}
         transition
         disablePortal
         popperOptions={{
-          modifiers: [
-            {
-              name: "offset",
-              options: {
-                offset: [0, 9],
-              },
-            },
-          ],
+          modifiers: [{ name: "offset", options: { offset: [0, 9] } }],
         }}
       >
         {({ TransitionProps }) => (
@@ -133,100 +89,48 @@ export default function Profile() {
             in={open}
             {...TransitionProps}
           >
-            <Paper
-              sx={(theme) => ({
-                boxShadow: theme.customShadows.z1,
-                width: 290,
-                minWidth: 240,
-                maxWidth: { xs: 250, md: 290 },
-              })}
-            >
+            <Paper sx={{ boxShadow: theme.customShadows.z1, width: 240 }}>
               <ClickAwayListener onClickAway={handleClose}>
                 <MainCard elevation={0} border={false} content={false}>
-                  <CardContent sx={{ px: 2.5, pt: 3 }}>
-                    <Grid
-                      container
-                      justifyContent="space-between"
-                      alignItems="center"
-                    >
-                      <Grid>
-                        <Stack
-                          direction="row"
-                          sx={{ gap: 1.25, alignItems: "center" }}
-                        >
-                          <Avatar
-                            alt="profile user"
-                            src={avatar1}
-                            sx={{ width: 32, height: 32 }}
-                          />
-                          <Stack>
-                            <Typography variant="h6">{user?.email}</Typography>
-                            <Typography variant="body2" color="text.secondary">
-                              {user?.role || "User"}
-                            </Typography>
-                          </Stack>
-                        </Stack>
-                      </Grid>
-                      <Grid>
-                        <Tooltip title="Logout">
-                          <IconButton
-                            size="large"
-                            sx={{ color: "text.primary" }}
-                          >
-                            <LogoutOutlined />
-                          </IconButton>
-                        </Tooltip>
-                      </Grid>
-                    </Grid>
-                  </CardContent>
-
-                  <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-                    <Tabs
-                      variant="fullWidth"
-                      value={value}
-                      onChange={handleChange}
-                      aria-label="profile tabs"
-                    >
-                      <Tab
-                        sx={{
-                          display: "flex",
-                          flexDirection: "row",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          textTransform: "capitalize",
-                          gap: 1.25,
-                          "& .MuiTab-icon": {
-                            marginBottom: 0,
-                          },
-                        }}
-                        icon={<UserOutlined />}
-                        label="Profile"
-                        {...a11yProps(0)}
+                  <Box sx={{ p: 2, borderBottom: 1, borderColor: "divider" }}>
+                    <Stack direction="row" spacing={1.5} alignItems="center">
+                      <Avatar
+                        alt="profile user"
+                        src={avatar1}
+                        sx={{ width: 40, height: 40 }}
                       />
-                      <Tab
-                        sx={{
-                          display: "flex",
-                          flexDirection: "row",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          textTransform: "capitalize",
-                          gap: 1.25,
-                          "& .MuiTab-icon": {
-                            marginBottom: 0,
-                          },
-                        }}
-                        icon={<SettingOutlined />}
-                        label="Setting"
-                        {...a11yProps(1)}
-                      />
-                    </Tabs>
+                      <Stack>
+                        <Typography variant="subtitle1">
+                          {user?.email}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                          {user?.role || "User"}
+                        </Typography>
+                      </Stack>
+                    </Stack>
                   </Box>
-                  <TabPanel value={value} index={0} dir={theme.direction}>
-                    <ProfileTab />
-                  </TabPanel>
-                  <TabPanel value={value} index={1} dir={theme.direction}>
-                    <SettingTab />
-                  </TabPanel>
+
+                  <List component="nav" sx={{ p: 0 }}>
+                    <ListItemButton>
+                      <ListItemIcon>
+                        <LuUserRound />
+                      </ListItemIcon>
+                      <ListItemText primary="Edit Profile" />
+                    </ListItemButton>
+                    <ListItemButton>
+                      <ListItemIcon>
+                        <SettingOutlined />
+                      </ListItemIcon>
+                      <ListItemText primary="Settings" />
+                    </ListItemButton>
+                    <hr className="m-0" />
+                    <ListItemButton onClick={handleLogout}>
+                      <ListItemIcon>
+                        <IoIosLogOut />
+                      </ListItemIcon>
+                      <ListItemText primary="Logout" />
+                    </ListItemButton>
+                  </List>
                 </MainCard>
               </ClickAwayListener>
             </Paper>
@@ -236,10 +140,3 @@ export default function Profile() {
     </Box>
   );
 }
-
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  value: PropTypes.number,
-  index: PropTypes.number,
-  other: PropTypes.any,
-};

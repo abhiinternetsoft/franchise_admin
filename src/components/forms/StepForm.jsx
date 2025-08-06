@@ -159,7 +159,9 @@ const StepForm = ({ step, setStep, steps }) => {
       category: Yup.string().required("Category is required"),
       subcategory: Yup.string().required("Subcategory is required"),
       businessModel: Yup.string().required("Business Model is required"),
-      keywords: Yup.string().required("Keywords are required"),
+      keywords: Yup.array()
+        .min(1, "At least one keyword is required")
+        .of(Yup.string().trim()),
     }),
 
     // step 5

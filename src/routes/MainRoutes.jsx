@@ -1,5 +1,6 @@
 import { lazy } from "react";
 import Loadable from "components/Loadable";
+import ProtectedRoute from "../components/ProtectedRoute";
 
 // Layouts
 import DashboardLayout from "layout/Dashboard"; // for admin

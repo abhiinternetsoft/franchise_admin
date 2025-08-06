@@ -29,8 +29,8 @@ export default function FranchiseOpportunities() {
   const progress = ((step + 1) / totalSteps) * 100;
 
   return (
-    <div className="p-3">
-      <div className="d-flex justify-content-between align-items-center rounded border p-4 mb-4">
+    <div className="p-0">
+      <div className="d-flex justify-content-between align-items-center form-header-section border p-4 mb-4">
         <div className="d-flex align-items-center justify-content-center gap-10">
           <img src={fromIcon} alt="form Icon" />
           <h1 className="franchisestepsform-mainheading m-0">
