@@ -103,7 +103,7 @@ const Disclosures = () => {
         justifyContent="space-between"
         alignItems="center"
         mb={3}
-        className="bg-white p-3 border rounded"
+        className="bg-white p-3 border rounded TextHeading-section"
       >
         <Box>
           <Typography variant="h5" fontWeight="bold" className="fs-24">
@@ -123,7 +123,7 @@ const Disclosures = () => {
         </Button>
       </Box>
 
-      <div className="bg-white border rounded ">
+      <div className="bg-white border rounded content-section">
         <Paper sx={{ p: 2, mb: 0 }}>
           <Box
             display="flex"

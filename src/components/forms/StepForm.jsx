@@ -79,8 +79,8 @@ const StepForm = ({ step, setStep, steps }) => {
 
     // step 7
     locationType: "",
-    spaceLow: "",
-    spaceHigh: "",
+    spaceLow: 0,
+    spaceHigh: 0,
     ownerOperatorRequired: "",
     absenteeOwnershipAllowed: "",
     staffRequirements: "",

@@ -112,9 +112,9 @@ const Step13 = ({ formik, onBack, onNext }) => {
         {/* <Button variant="outlined" onClick={onBack}>
           ← Previous
         </Button> */}
-        <Button variant="contained" onClick={onNext}>
+        {/* <Button variant="contained" onClick={onNext}>
           Skip Button
-        </Button>
+        </Button> */}
       </Box>
     </Paper>
   );

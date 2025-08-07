@@ -276,9 +276,9 @@ const Step6 = ({ formik, onBack, onNext }) => {
 
       {/* Navigation */}
       <Box mt={4} display="flex" justifyContent="space-between">
-        <Button variant="contained" onClick={onNext}>
+        {/* <Button variant="contained" onClick={onNext}>
           Skip Button
-        </Button>
+        </Button> */}
       </Box>
     </Paper>
   );

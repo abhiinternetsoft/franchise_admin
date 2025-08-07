@@ -107,6 +107,26 @@
   font-family: 'inter';
 }
 
+.content-section, .TextHeading-section {
+  border-radius: 15px !important;
+}
+
+.css-8lsd9m-MuiPaper-root {
+  border-radius: 15px 15px 0px 0px !important;
+}
+
+.css-y0u0hj {
+  border-radius: 0px 0px 15px 15px !important;
+}
+
+.MuiTableContainer-root {
+    border-radius: 15px !important;
+}
+
+.css-19kzrtu {
+  padding: 0px;
+}
+
 .anticon {
   color: #535364;
   font-size: 16px !important;

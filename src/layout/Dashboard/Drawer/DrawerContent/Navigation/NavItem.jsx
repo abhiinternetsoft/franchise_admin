@@ -1,32 +1,37 @@
-import PropTypes from 'prop-types';
-import { Link, useLocation, matchPath } from 'react-router-dom';
+import PropTypes from "prop-types";
+import { Link, useLocation, matchPath } from "react-router-dom";
 
 // material-ui
-import useMediaQuery from '@mui/material/useMediaQuery';
-import Avatar from '@mui/material/Avatar';
-import Chip from '@mui/material/Chip';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import useMediaQuery from "@mui/material/useMediaQuery";
+import Avatar from "@mui/material/Avatar";
+import Chip from "@mui/material/Chip";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 
 // project imports
-import IconButton from 'components/@extended/IconButton';
+import IconButton from "components/@extended/IconButton";
 
-import { handlerDrawerOpen, useGetMenuMaster } from 'api/menu';
+import { handlerDrawerOpen, useGetMenuMaster } from "api/menu";
 
 // ==============================|| NAVIGATION - LIST ITEM ||============================== //
 
-export default function NavItem({ item, level, isParents = false, setSelectedID }) {
+export default function NavItem({
+  item,
+  level,
+  isParents = false,
+  setSelectedID,
+}) {
   const { menuMaster } = useGetMenuMaster();
   const drawerOpen = menuMaster.isDashboardDrawerOpened;
 
-  const downLG = useMediaQuery((theme) => theme.breakpoints.down('lg'));
+  const downLG = useMediaQuery((theme) => theme.breakpoints.down("lg"));
 
-  let itemTarget = '_self';
+  let itemTarget = "_self";
   if (item.target) {
-    itemTarget = '_blank';
+    itemTarget = "_blank";
   }
 
   const itemHandler = () => {
@@ -41,8 +46,8 @@ export default function NavItem({ item, level, isParents = false, setSelectedID 
   const itemIcon = item.icon ? (
     <Icon
       style={{
-        fontSize: drawerOpen ? '1rem' : '1.25rem',
-        ...(isParents && { fontSize: 20, stroke: '1.5' })
+        fontSize: drawerOpen ? "1rem" : "1.25rem",
+        ...(isParents && { fontSize: 20, stroke: "1.5" }),
       }}
     />
   ) : (
@@ -50,14 +55,15 @@ export default function NavItem({ item, level, isParents = false, setSelectedID 
   );
 
   const { pathname } = useLocation();
-  const isSelected = !!matchPath({ path: item?.link ? item.link : item.url, end: false }, pathname);
+  // const isSelected = !!matchPath({ path: item?.link ? item.link : item.url, end: false }, pathname);
+  const isSelected = pathname.startsWith(item?.url);
 
-  const textColor = 'text.primary';
-  const iconSelectedColor = 'primary.main';
+  const textColor = "text.primary";
+  const iconSelectedColor = "primary.main";
 
   return (
     <>
-      <Box sx={{ position: 'relative' }}>
+      <Box sx={{ position: "relative" }}>
         <ListItemButton
           component={Link}
           to={item.url}
@@ -69,20 +75,30 @@ export default function NavItem({ item, level, isParents = false, setSelectedID 
             pl: drawerOpen ? `${level * 28}px` : 1.5,
             py: !drawerOpen && level === 1 ? 1.25 : 1,
             ...(drawerOpen && {
-              '&:hover': { bgcolor: 'primary.lighter', ...theme.applyStyles('dark', { bgcolor: 'divider' }) },
-              '&.Mui-selected': {
-                bgcolor: 'primary.lighter',
-                ...theme.applyStyles('dark', { bgcolor: 'divider' }),
-                borderRight: '2px solid',
-                borderColor: 'primary.main',
+              "&:hover": {
+                bgcolor: "primary.lighter",
+                ...theme.applyStyles("dark", { bgcolor: "divider" }),
+              },
+              "&.Mui-selected": {
+                bgcolor: "primary.lighter",
+                ...theme.applyStyles("dark", { bgcolor: "divider" }),
+                borderRight: "2px solid",
+                borderColor: "primary.main",
                 color: iconSelectedColor,
-                '&:hover': { color: iconSelectedColor, bgcolor: 'primary.lighter', ...theme.applyStyles('dark', { bgcolor: 'divider' }) }
-              }
+                "&:hover": {
+                  color: iconSelectedColor,
+                  bgcolor: "primary.lighter",
+                  ...theme.applyStyles("dark", { bgcolor: "divider" }),
+                },
+              },
             }),
             ...(!drawerOpen && {
-              '&:hover': { bgcolor: 'transparent' },
-              '&.Mui-selected': { '&:hover': { bgcolor: 'transparent' }, bgcolor: 'transparent' }
-            })
+              "&:hover": { bgcolor: "transparent" },
+              "&.Mui-selected": {
+                "&:hover": { bgcolor: "transparent" },
+                bgcolor: "transparent",
+              },
+            }),
           })}
           onClick={() => itemHandler()}
         >
@@ -95,16 +111,26 @@ export default function NavItem({ item, level, isParents = false, setSelectedID 
                   borderRadius: 1.5,
                   width: 36,
                   height: 36,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  '&:hover': { bgcolor: 'secondary.lighter', ...theme.applyStyles('dark', { bgcolor: 'secondary.light' }) }
+                  alignItems: "center",
+                  justifyContent: "center",
+                  "&:hover": {
+                    bgcolor: "secondary.lighter",
+                    ...theme.applyStyles("dark", {
+                      bgcolor: "secondary.light",
+                    }),
+                  },
                 }),
                 ...(!drawerOpen &&
                   isSelected && {
-                    bgcolor: 'primary.lighter',
-                    ...theme.applyStyles('dark', { bgcolor: 'primary.900' }),
-                    '&:hover': { bgcolor: 'primary.lighter', ...theme.applyStyles('dark', { bgcolor: 'primary.darker' }) }
-                  })
+                    bgcolor: "primary.lighter",
+                    ...theme.applyStyles("dark", { bgcolor: "primary.900" }),
+                    "&:hover": {
+                      bgcolor: "primary.lighter",
+                      ...theme.applyStyles("dark", {
+                        bgcolor: "primary.darker",
+                      }),
+                    },
+                  }),
               })}
             >
               {itemIcon}
@@ -113,7 +139,10 @@ export default function NavItem({ item, level, isParents = false, setSelectedID 
           {(drawerOpen || (!drawerOpen && level !== 1)) && (
             <ListItemText
               primary={
-                <Typography variant="h6" sx={{ color: isSelected ? iconSelectedColor : textColor }}>
+                <Typography
+                  variant="h6"
+                  sx={{ color: isSelected ? iconSelectedColor : textColor }}
+                >
                   {item.title}
                 </Typography>
               }
@@ -137,21 +166,21 @@ export default function NavItem({ item, level, isParents = false, setSelectedID 
             return (
               <IconButton
                 key={index}
-                {...(action.type === 'function' && {
+                {...(action.type === "function" && {
                   onClick: (event) => {
                     event.stopPropagation();
                     callAction();
-                  }
+                  },
                 })}
-                {...(action.type === 'link' && {
+                {...(action.type === "link" && {
                   component: Link,
                   to: action.url,
-                  target: action.target ? '_blank' : '_self'
+                  target: action.target ? "_blank" : "_self",
                 })}
                 color="secondary"
                 variant="outlined"
                 sx={{
-                  position: 'absolute',
+                  position: "absolute",
                   top: 12,
                   right: 20,
                   zIndex: 1202,
@@ -159,12 +188,14 @@ export default function NavItem({ item, level, isParents = false, setSelectedID 
                   height: 20,
                   mr: -1,
                   ml: 1,
-                  color: 'secondary.dark',
-                  borderColor: isSelected ? 'primary.light' : 'secondary.light',
-                  '&:hover': { borderColor: isSelected ? 'primary.main' : 'secondary.main' }
+                  color: "secondary.dark",
+                  borderColor: isSelected ? "primary.light" : "secondary.light",
+                  "&:hover": {
+                    borderColor: isSelected ? "primary.main" : "secondary.main",
+                  },
                 }}
               >
-                <ActionIcon style={{ fontSize: '0.625rem' }} />
+                <ActionIcon style={{ fontSize: "0.625rem" }} />
               </IconButton>
             );
           })}
@@ -177,5 +208,5 @@ NavItem.propTypes = {
   item: PropTypes.any,
   level: PropTypes.number,
   isParents: PropTypes.bool,
-  setSelectedID: PropTypes.oneOfType([PropTypes.any, PropTypes.func])
+  setSelectedID: PropTypes.oneOfType([PropTypes.any, PropTypes.func]),
 };

@@ -5,6 +5,7 @@ import "./SignIn.css";
 import { BASE_URL } from "../../../env";
 import { useNavigate } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 
 const SignIn = () => {
@@ -116,7 +117,7 @@ const SignIn = () => {
               >
                 Sign In
               </button>
-              <button
+              {/* <button
                 onClick={() => setTab("signup")}
                 className={`flex-fill btn border-bottom sign-tabs-head ${
                   tab === "signup"
@@ -125,7 +126,7 @@ const SignIn = () => {
                 }`}
               >
                 New Account
-              </button>
+              </button> */}
             </div>
 
             {/* Form */}
@@ -154,9 +155,12 @@ const SignIn = () => {
                   Sign In
                 </button>
                 <div className="text-start">
-                  <a href="#" className="forget-pass text-decoration-none">
+                  <Link
+                    to="/forgot-password"
+                    className="forget-pass text-decoration-none"
+                  >
                     Forgot your password?
-                  </a>
+                  </Link>
                 </div>
               </div>
             ) : (
@@ -169,7 +173,7 @@ const SignIn = () => {
                 >
                   <option value="">I am</option>
                   <option value="franchisor">A FRANCHISOR</option>
-                  <option value="franchisee">LOOKING TO BY A FRANCHISE</option>
+                  <option value="franchisee">LOOKING TO BUY A FRANCHISE</option>
                 </select>
                 <label>Email</label>
                 <input
