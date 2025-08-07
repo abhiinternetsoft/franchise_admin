@@ -18,7 +18,7 @@
 .css-pvj91o-MuiTypography-root {
   font-size: 14px;
   color: #535364;
-  font-weight: 600;
+  
 }
 
 .css-197kj58-MuiTypography-root {
@@ -27,7 +27,7 @@
 }
 
 .css-51r0pn-MuiPaper-root-MuiCard-root {
-  border-radius: 10px;
+  border-radius: 15px;
 }
 
 .css-10yzedz-MuiTypography-root {
@@ -539,7 +539,7 @@ Select {
 
 .mobile-content {
   justify-content: space-between !important;
-  gap: 20px !important;
+  gap: 30px !important;
 }
 
 .MuiBox-root .css-15o9cg1 .Franchise-naming {
