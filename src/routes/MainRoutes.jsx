@@ -47,7 +47,11 @@ const role = localStorage.getItem("userRole");
 // Define route children
 const MainRoutes = {
   path: "/",
-  element: <DashboardLayout />, // ✅ always use this wrapper
+  element: (
+    <ProtectedRoute>
+      <DashboardLayout />
+    </ProtectedRoute>
+  ), // ✅ always use this wrapper
   children: [
     {
       path: "/",

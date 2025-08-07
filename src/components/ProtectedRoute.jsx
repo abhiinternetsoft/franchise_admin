@@ -1,15 +1,17 @@
 import { Navigate } from "react-router-dom";
 
-const ProtectedRoute = ({ children, allowedRoles }) => {
+const ProtectedRoute = ({ children }) => {
   const token = localStorage.getItem("token");
   const role = localStorage.getItem("userRole");
 
-  // Redirect to login if no token
-  if (!token) return <Navigate to="/login" replace />;
+  // If token is missing, redirect to login
+  if (!token) {
+    return <Navigate to="/login" replace />;
+  }
 
-  // Restrict access if role not allowed
-  if (allowedRoles && !allowedRoles.includes(role)) {
-    return <Navigate to="/" replace />;
+  // If role is not super admin, redirect to login or an unauthorized page
+  if (role !== "super admin") {
+    return <Navigate to="/login" replace />;
   }
 
   return children;

@@ -60,20 +60,23 @@ const StepForm = ({ step, setStep, steps }) => {
     CorporateAddress1: "",
     CorporateAddress2: "",
     // step 6
-    investmentLow: "",
-    investmentHigh: "",
-    ongoingfranchisefee: "",
-    liquidCapital: "",
-    thirdPartyFinancing: "",
-    ongoingPercentage: "",
-    ongoingFlatFee: "",
+    investmentLow: 0,
+    investmentHigh: 0,
+    ongoingfranchisefee: 0,
+    liquidCapital: 0,
+    thirdPartyFinancing: "", // string okay
+    ongoingPercentage: 0,
+    ongoingFlatFee: 0,
     royaltyType: "",
+
     localAdType: "",
-    localAdpercentage: "",
+    localAdpercentage: 0,
     localAdflatfee: "",
+
     nationalAdType: "",
-    nationalAdpercentage: "",
+    nationalAdpercentage: 0,
     nationalAdflatfee: "",
+
     // step 7
     locationType: "",
     spaceLow: "",
@@ -191,13 +194,13 @@ const StepForm = ({ step, setStep, steps }) => {
       thirdPartyFinancing: Yup.string().required("Required"),
       ongoingPercentage: Yup.number().required("Required"),
       ongoingFlatFee: Yup.number().required("Required"),
-      royaltyType: Yup.string().required("Required"),
-      localAdType: Yup.string().required("Required"),
-      localAdpercentage: Yup.number().required("Required"),
-      localAdflatfee: Yup.string().required("Required"),
-      nationalAdType: Yup.string().required("Required"),
-      nationalAdpercentage: Yup.number().required("Required"),
-      nationalAdflatfee: Yup.string().required("Required"),
+      royaltyType: Yup.string(),
+      localAdType: Yup.string(),
+      localAdpercentage: Yup.number(),
+      localAdflatfee: Yup.string(),
+      nationalAdType: Yup.string(),
+      nationalAdpercentage: Yup.number(),
+      nationalAdflatfee: Yup.string(),
     }),
 
     // step 7
@@ -280,9 +283,23 @@ const StepForm = ({ step, setStep, steps }) => {
     Yup.object({
       marketingVideoUrl: Yup.string().url("Invalid URL").nullable(),
       testimonialVideoUrl: Yup.string().url("Invalid URL").nullable(),
-      pressMentions: Yup.string().nullable(),
-      galleryImages: Yup.mixed().nullable(),
-      marketingBrochure: Yup.mixed().nullable(),
+      pressMentions: Yup.array().of(Yup.string().url("Invalid URL")).nullable(),
+      galleryImages: Yup.array()
+        .of(Yup.mixed())
+        .max(5, "Maximum 5 images")
+        .nullable(),
+      marketingBrochure: Yup.mixed()
+        .nullable()
+        .test(
+          "fileSize",
+          "File too large",
+          (value) => !value || value.size <= 10 * 1024 * 1024
+        )
+        .test(
+          "fileType",
+          "Only PDF allowed",
+          (value) => !value || value.type === "application/pdf"
+        ),
     }),
 
     // step 15

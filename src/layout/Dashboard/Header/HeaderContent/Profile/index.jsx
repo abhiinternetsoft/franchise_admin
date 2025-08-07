@@ -51,7 +51,7 @@ export default function Profile() {
     } else {
       localStorage.removeItem("token"); // Fallback if no context logout
     }
-    window.location.href = "admin/login"; // Redirect after logout
+    window.location.href = "/admin/login"; // Redirect after logout
   };
 
   return (
