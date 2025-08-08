@@ -7,21 +7,20 @@ import {
   MessageOutlined,
   ShopOutlined,
 } from "@ant-design/icons";
-import { BiBuildingHouse } from "react-icons/bi";
-import { SlWallet } from "react-icons/sl";
+import { BiBuildingHouse, BiCategory } from "react-icons/bi";
+import { SlWallet, SlCalender } from "react-icons/sl";
 import { TbUsersGroup, TbMailSearch } from "react-icons/tb";
 import { GrAnnounce } from "react-icons/gr";
-import { BiCategory } from "react-icons/bi";
 import { LuStar } from "react-icons/lu";
-import { SlCalender } from "react-icons/sl";
 import { RiNewsLine } from "react-icons/ri";
+
 import Dashboard from "../assets/images/users/dashboard.svg";
 import Franchise from "../assets/images/users/franchise.svg";
 import Disclosures from "../assets/images/users/Disclosures.svg";
 import usermanagement from "../assets/images/users/usermanagement.svg";
 import leadmanagement from "../assets/images/users/leadmanagement.svg";
 
-// Wrap the image as a React component
+// Image-based icon components
 const DashboardIcon = () => (
   <img src={Dashboard} alt="Dashboard" style={{ width: 20, height: 20 }} />
 );
@@ -31,18 +30,26 @@ const FranchiseIcon = () => (
 );
 
 const DisclosuresIcon = () => (
-  <img src={Disclosures} alt="Franchise" style={{ width: 20, height: 20 }} />
+  <img src={Disclosures} alt="Disclosures" style={{ width: 20, height: 20 }} />
 );
 
 const usermanagementIcon = () => (
-  <img src={usermanagement} alt="Franchise" style={{ width: 20, height: 20 }} />
+  <img
+    src={usermanagement}
+    alt="User Management"
+    style={{ width: 20, height: 20 }}
+  />
 );
 
 const leadmanagementIcon = () => (
-  <img src={leadmanagement} alt="Franchise" style={{ width: 20, height: 20 }} />
+  <img
+    src={leadmanagement}
+    alt="Lead Management"
+    style={{ width: 20, height: 20 }}
+  />
 );
 
-// icons object
+// Icons collection
 const icons = {
   SearchOutlined,
   HomeOutlined,
@@ -60,14 +67,14 @@ const icons = {
   LuStar,
   SlCalender,
   RiNewsLine,
-  Dashboard: DashboardIcon, // use wrapped image component
+  Dashboard: DashboardIcon,
   Franchise: FranchiseIcon,
   Disclosures: DisclosuresIcon,
   usermanagement: usermanagementIcon,
   leadmanagement: leadmanagementIcon,
 };
 
-// menu config
+// Sidebar menu group
 const dashboard = {
   id: "group-dashboard",
   title: "Navigation",
@@ -77,39 +84,39 @@ const dashboard = {
       id: "dashboard",
       title: "Dashboard",
       type: "item",
-      url: "/",
+      url: "/", // ✅ Home route
       icon: icons.Dashboard,
       breadcrumbs: false,
     },
     {
-      id: "Franchise Opportunities",
+      id: "franchise-opportunities",
       title: "Franchise Opportunities",
       type: "item",
-      url: "./franchiseopportunities",
+      url: "/franchiseopportunities", // ✅ fixed path
       icon: icons.Franchise,
       breadcrumbs: false,
     },
     {
-      id: "Disclosures",
+      id: "franchise-disclosures",
       title: "Franchise Disclosures",
       type: "item",
-      url: "./disclosures",
+      url: "/disclosures", // ✅ fixed path
       icon: icons.Disclosures,
       breadcrumbs: false,
     },
     {
-      id: "User Management",
+      id: "user-management",
       title: "User Management",
       type: "item",
-      url: "./usermanagement",
+      url: "/usermanagement", // ✅ fixed path
       icon: icons.usermanagement,
       breadcrumbs: false,
     },
     {
-      id: "Lead Management",
+      id: "lead-management",
       title: "Lead Management",
       type: "item",
-      url: "./leadmanagement",
+      url: "/leadmanagement", // ✅ fixed path
       icon: icons.leadmanagement,
       breadcrumbs: false,
     },

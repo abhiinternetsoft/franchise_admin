@@ -119,8 +119,12 @@
   border-radius: 0px 0px 15px 15px !important;
 }
 
-.MuiTableContainer-root {
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation1.MuiTableContainer-root.css-1j7oohv-MuiPaper-root-MuiTableContainer-root {
     border-radius: 15px !important;
+}
+
+.css-51r0pn-MuiPaper-root-MuiCard-root {
+  border: none !important;
 }
 
 .css-19kzrtu {
@@ -165,6 +169,30 @@
   gap: 10px;
   align-items: center;
 }
+.css-3duesl-MuiButtonBase-root-MuiListItemButton-root.Mui-selected {
+  position: relative;
+  padding: 8px 30px;
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 14px;
+  border-radius: 30px;
+  color: #000; /* Text color */
+  z-index: 1;
+  background: linear-gradient(to right, #00db62, #00b4db); /* Gradient border */
+}
+
+.css-3duesl-MuiButtonBase-root-MuiListItemButton-root.Mui-selected::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  right: 0px;
+  bottom: 2px;
+  left: 2px;
+  background: #fff; /* Inner background */
+  border-radius: 28px;
+  z-index: -1;
+}
+
 
 .user-name {
   color: #2A2A33;
@@ -354,14 +382,16 @@
   border-radius: 30px;
 }
 
-
+.MuiTableContainer-root {
+  border-radius: 15px !important;
+}
 
 .button {
   background: linear-gradient(to right, #00DB62, #0DA2FF);
   padding: 7px 24px;
   color: #fff;
   border: none;
-  border-radius: 4px;
+  border-radius: 30px;
 }
 
 .step-next-button {
