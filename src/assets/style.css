@@ -173,7 +173,7 @@
   gap: 10px;
   align-items: center;
 }
-.css-3duesl-MuiButtonBase-root-MuiListItemButton-root.Mui-selected {
+.sidebar-navigation .css-3duesl-MuiButtonBase-root-MuiListItemButton-root.Mui-selected {
   position: relative;
   padding: 8px 30px;
   font-family: Poppins;
@@ -185,7 +185,7 @@
   background: linear-gradient(to right, #00db62, #00b4db); /* Gradient border */
 }
 
-.css-3duesl-MuiButtonBase-root-MuiListItemButton-root.Mui-selected::before {
+.sidebar-navigation .css-3duesl-MuiButtonBase-root-MuiListItemButton-root.Mui-selected::before {
   content: "";
   position: absolute;
   top: 2px;

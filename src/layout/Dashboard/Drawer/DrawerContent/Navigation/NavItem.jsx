@@ -57,8 +57,9 @@ export default function NavItem({
   const iconSelectedColor = "primary.main";
 
   return (
-    <Box sx={{ position: "relative" }}>
+    <Box sx={{ position: "relative" }} className="sidebar-navigation  ">
       <ListItemButton
+        className="sidebar-navigation-link"
         component={Link}
         to={item.url}
         target={itemTarget}
