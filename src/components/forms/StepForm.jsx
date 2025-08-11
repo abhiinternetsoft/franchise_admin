@@ -160,7 +160,6 @@ const StepForm = ({ step, setStep, steps }) => {
     // step 4
     Yup.object({
       aboutUs: Yup.string()
-        .min(200, "Minimum 200 characters")
         .max(2000, "Maximum 2000 characters")
         .required("About Us is required"),
       category: Yup.string().required("Category is required"),

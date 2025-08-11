@@ -57,7 +57,13 @@ const Step2 = ({ formik, onBack, onNext }) => {
             fullWidth
             name="customSlug"
             value={formik.values.customSlug}
-            onChange={formik.handleChange}
+            onChange={(e) => {
+              const formatted = e.target.value
+                .replace(/\s+/g, "-") // spaces → dash
+                .replace(/[^a-zA-Z0-9-]/g, "") // remove invalid chars
+                .toLowerCase();
+              formik.setFieldValue("customSlug", formatted);
+            }}
             onBlur={formik.handleBlur}
             placeholder="my-brand-name"
             error={

@@ -675,3 +675,9 @@ Select {
   margin-top: 5px;
 }
 
+.css-1peduel-MuiButtonBase-root-MuiMenuItem-root:hover {
+  background: linear-gradient(to right, #00DB62, #0DA2FF);
+  opacity: 0.5;
+}
+
+

@@ -53,13 +53,21 @@ const Step1_FileUpload = ({ formik, onSkip, onNext }) => {
         <Box sx={{ mb: 3 }}>
           <label htmlFor="FDD Insurance date">FDD Issuance Date</label>
           <DatePicker
-            value={formik.values.fddIssuanceDate || null}
-            onChange={(newValue) =>
-              formik.setFieldValue(
-                "fddIssuanceDate",
-                dayjs(newValue).toISOString()
-              )
+            value={
+              formik.values.fddIssuanceDate
+                ? dayjs(formik.values.fddIssuanceDate)
+                : null
             }
+            onChange={(newValue) => {
+              if (newValue && dayjs(newValue).isValid()) {
+                formik.setFieldValue(
+                  "fddIssuanceDate",
+                  dayjs(newValue).toISOString()
+                );
+              } else {
+                formik.setFieldValue("fddIssuanceDate", null);
+              }
+            }}
             slotProps={{
               textField: {
                 fullWidth: true,

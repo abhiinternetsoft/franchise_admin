@@ -33,10 +33,14 @@ const Step4 = ({ formik, onBack, onNext }) => {
   const categories = [
     "Home Services",
     "Food & Beverage",
-    "Healthcare",
+    "Health & Fitness",
     "Children & Family Services",
     "Beauty and Wellness",
     "Retail",
+    "Services",
+    "Automotive",
+    "Education",
+    "Business Services",
   ];
   const subcategories = {
     "Home Services": [
@@ -51,7 +55,7 @@ const Step4 = ({ formik, onBack, onNext }) => {
       "Specialty Food",
       "Greek/Mediterranean",
     ],
-    Healthcare: ["Urgent Care"],
+    "Health & Fitness": ["Urgent Care"],
     "Children & Family Services": ["Kids Entertainment & Spa"],
     "Beauty and Wellness": ["Hair Removal & Beauty"],
     Retail: ["Tobacco & Vape"],
