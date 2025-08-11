@@ -170,6 +170,11 @@
   resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.27.6.tgz"
   integrity sha512-vbavdySgbTTrmFE+EsiqUTzlOr5bzlnJtUv9PynGCAKvfQqjIXbvFdumPM/GxMDfyuGMJaJAU6TO4zc1Jf1i8Q==
 
+"@babel/runtime@^7.28.2":
+  version "7.28.2"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.28.2.tgz#2ae5a9d51cc583bd1f5673b3bb70d6d819682473"
+  integrity sha512-KHp2IflsnGywDjBWDkR9iEqiWSpc8GIi0lgTT3mOElT0PP1tG26P4tmFI2YvAdzgq9RGyoHZQEIEdZy6Ec5xCA==
+
 "@babel/template@^7.27.2":
   version "7.27.2"
   resolved "https://registry.npmjs.org/@babel/template/-/template-7.27.2.tgz"
@@ -833,7 +838,7 @@
     prop-types "^15.8.1"
     react-is "^19.0.0"
 
-"@mui/utils@^7.0.1", "@mui/utils@^7.0.2", "@mui/utils@^7.1.1", "@mui/utils@^7.2.0":
+"@mui/utils@^7.0.1", "@mui/utils@^7.0.2", "@mui/utils@^7.2.0":
   version "7.2.0"
   resolved "https://registry.npmjs.org/@mui/utils/-/utils-7.2.0.tgz"
   integrity sha512-O0i1GQL6MDzhKdy9iAu5Yr0Sz1wZjROH1o3aoztuivdCXqEeQYnEjTDiRLGuFxI9zrUbTHBwobMyQH5sNtyacw==
@@ -883,28 +888,28 @@
     reselect "^5.1.1"
     use-sync-external-store "^1.5.0"
 
-"@mui/x-date-pickers-pro@^8.7.0":
-  version "8.7.0"
-  resolved "https://registry.yarnpkg.com/@mui/x-date-pickers-pro/-/x-date-pickers-pro-8.7.0.tgz#e306ef641a54a27556b0a19d551011376c808394"
-  integrity sha512-TMH7pJzvUAKpD/fcWtpcNCB4g/mAAqXMeKQWXKfz/ReyYEQgI7QsfdBpmjobrx+kAfI1GRYITkz1bQTbfkdiEA==
+"@mui/x-date-pickers-pro@^8.10.0":
+  version "8.10.0"
+  resolved "https://registry.yarnpkg.com/@mui/x-date-pickers-pro/-/x-date-pickers-pro-8.10.0.tgz#28d84d14578c9439034940923994a9554ee28127"
+  integrity sha512-ha678mLaYv/NikCRkcis0gNHhn/9IhODhEAXLqBqUY1o9kSd5v5cD+wKSo3T94sNNZPGdBhy87IB7m6g1EKLgA==
   dependencies:
-    "@babel/runtime" "^7.27.6"
-    "@mui/utils" "^7.1.1"
-    "@mui/x-date-pickers" "8.7.0"
-    "@mui/x-internals" "8.7.0"
-    "@mui/x-license" "8.7.0"
+    "@babel/runtime" "^7.28.2"
+    "@mui/utils" "^7.2.0"
+    "@mui/x-date-pickers" "8.10.0"
+    "@mui/x-internals" "8.10.0"
+    "@mui/x-license" "8.10.0"
     clsx "^2.1.1"
     prop-types "^15.8.1"
     react-transition-group "^4.4.5"
 
-"@mui/x-date-pickers@8.7.0", "@mui/x-date-pickers@^8.7.0":
-  version "8.7.0"
-  resolved "https://registry.yarnpkg.com/@mui/x-date-pickers/-/x-date-pickers-8.7.0.tgz#1451d94e0a8efb029f02d02fadc3dce0e8a1ee7b"
-  integrity sha512-7fCRhhoE/2s7wsJWLoY2IoHlN5ZA+ev7ZzhIjLPAOzMXwIflzCgljq6iG/iXpATugsmlxWHhO/7wdDSD6zUNOw==
+"@mui/x-date-pickers@8.10.0", "@mui/x-date-pickers@^8.10.0":
+  version "8.10.0"
+  resolved "https://registry.yarnpkg.com/@mui/x-date-pickers/-/x-date-pickers-8.10.0.tgz#f9cc3020a3d3785751e8a0b5162c37ab75ae37d2"
+  integrity sha512-3nY+SS2/JtqcptQodECIyWKsTvPBDAcXKkyW65R4rQUCrnV6tuzriSrzy/FEYqTK0hyXYPIGJhQ6A0FbtQ9AkQ==
   dependencies:
-    "@babel/runtime" "^7.27.6"
-    "@mui/utils" "^7.1.1"
-    "@mui/x-internals" "8.7.0"
+    "@babel/runtime" "^7.28.2"
+    "@mui/utils" "^7.2.0"
+    "@mui/x-internals" "8.10.0"
     "@types/react-transition-group" "^4.4.12"
     clsx "^2.1.1"
     prop-types "^15.8.1"
@@ -918,23 +923,24 @@
     "@babel/runtime" "^7.27.0"
     "@mui/utils" "^7.0.2"
 
-"@mui/x-internals@8.7.0":
-  version "8.7.0"
-  resolved "https://registry.yarnpkg.com/@mui/x-internals/-/x-internals-8.7.0.tgz#5266f501fd96a068d4ac7312771238df2fc55d61"
-  integrity sha512-1aduds7L2i6t0HIFNlqG4UB07SVEg+wcnJ9GGu8B/X8EVwO72Rt+rc8ZlqK10ooscq1AlTwi2dd0q+hz+aWk+Q==
+"@mui/x-internals@8.10.0":
+  version "8.10.0"
+  resolved "https://registry.yarnpkg.com/@mui/x-internals/-/x-internals-8.10.0.tgz#ecc9d2367ad1125c78d1505ed959b7f5db25713b"
+  integrity sha512-stYhWBeCKfV2/ltAWShZ3ZJ51otbqpMpC+krWWoIsxM8TuvGzwXw5YMU9L2fTb8hRstsiOCQfEzIn12Ii7+N0Q==
   dependencies:
-    "@babel/runtime" "^7.27.6"
-    "@mui/utils" "^7.1.1"
+    "@babel/runtime" "^7.28.2"
+    "@mui/utils" "^7.2.0"
     reselect "^5.1.1"
+    use-sync-external-store "^1.5.0"
 
-"@mui/x-license@8.7.0":
-  version "8.7.0"
-  resolved "https://registry.yarnpkg.com/@mui/x-license/-/x-license-8.7.0.tgz#9d806ee2b9b13fbea64093d499aadb4dc64701dc"
-  integrity sha512-kZIHnWPGVzIo/W6cSaM/8l/YALpMSNX1jLcA9lutMAdddoxB9czGCx2V5aSg1HGwuiVuun0jTPkdIfrDhN0sRQ==
+"@mui/x-license@8.10.0":
+  version "8.10.0"
+  resolved "https://registry.yarnpkg.com/@mui/x-license/-/x-license-8.10.0.tgz#878b93610cca8d12499d983a950a41e54d074460"
+  integrity sha512-N6grkf44ESMmQp8bqSNKmWLIsf7IfsfJUr2PKDH07PVfJHTwvyQpUKBF+mLUtcd/GNDyUhqyDK98zx9AwGzSwA==
   dependencies:
-    "@babel/runtime" "^7.27.6"
-    "@mui/utils" "^7.1.1"
-    "@mui/x-internals" "8.7.0"
+    "@babel/runtime" "^7.28.2"
+    "@mui/utils" "^7.2.0"
+    "@mui/x-internals" "8.10.0"
     "@mui/x-telemetry" "8.5.3"
 
 "@mui/x-telemetry@8.5.3":

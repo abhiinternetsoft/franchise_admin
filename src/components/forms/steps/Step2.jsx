@@ -59,7 +59,7 @@ const Step2 = ({ formik, onBack, onNext }) => {
             value={formik.values.customSlug}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            placeholder="my-franchise-opportunity"
+            placeholder="my-brand-name"
             error={
               formik.touched.customSlug && Boolean(formik.errors.customSlug)
             }
@@ -94,7 +94,7 @@ const Step2 = ({ formik, onBack, onNext }) => {
           <TextField
             fullWidth
             name="previewURL"
-            value={`https://franchisehub.com/opportunities/${formik.values.customSlug}`}
+            value={`https://franchisehub.com/${formik.values.customSlug}`}
             InputProps={{ readOnly: true }}
           />
         </Grid>

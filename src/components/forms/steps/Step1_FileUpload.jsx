@@ -1,14 +1,14 @@
 import React from "react";
-import { Box, Typography, Button, Paper, IconButton } from "@mui/material";
-import { FaRegFilePdf } from "react-icons/fa";
+import { Box, Typography, Button, Paper, TextField } from "@mui/material";
 import { BsCloudArrowUpFill } from "react-icons/bs";
-import { LuFileText } from "react-icons/lu";
+import { FaRegFilePdf, FaArrowRightLong } from "react-icons/fa6";
 import { RxCross1 } from "react-icons/rx";
 import { IoSaveOutline } from "react-icons/io5";
-import { FaArrowRightLong } from "react-icons/fa6";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import dayjs from "dayjs";
+
 import FddUpload from "../../../assets/images/users/fdd-upload.svg";
 import IcUpload from "../../../assets/images/users/ic-pdf.svg";
-// import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 
 const Step1_FileUpload = ({ formik, onSkip, onNext }) => {
   const handleFileChange = (event) => {
@@ -25,23 +25,20 @@ const Step1_FileUpload = ({ formik, onSkip, onNext }) => {
       className="shadow-none border step-forms"
     >
       {/* Title */}
-
-      <Box mb={3}>
-        <Box
-          sx={{
-            borderRadius: "50%",
-            // bgcolor: "primary.main",
-            color: "#535364",
-            display: "flex",
-            alignItems: "center",
-            mr: 2,
-            gap: "10px",
-          }}
-        >
-          <img src={FddUpload} alt="FddUpload" />
-          <Typography variant="h6 steps-heading">FDD Upload</Typography>
-        </Box>
-        <Box>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        <Box mb={3}>
+          <Box sx={{ display: "flex", alignItems: "center", gap: "10px" }}>
+            <img src={FddUpload} alt="FddUpload" />
+            <Typography variant="h6" className="steps-heading">
+              FDD Upload
+            </Typography>
+          </Box>
           <Typography
             variant="subtitle2"
             color="text.secondary"
@@ -51,9 +48,34 @@ const Step1_FileUpload = ({ formik, onSkip, onNext }) => {
             manually.
           </Typography>
         </Box>
+
+        {/* Issuance Date Selector */}
+        <Box sx={{ mb: 3 }}>
+          <label htmlFor="FDD Insurance date">FDD Issuance Date</label>
+          <DatePicker
+            value={formik.values.fddIssuanceDate || null}
+            onChange={(newValue) =>
+              formik.setFieldValue(
+                "fddIssuanceDate",
+                dayjs(newValue).toISOString()
+              )
+            }
+            slotProps={{
+              textField: {
+                fullWidth: true,
+                size: "small",
+                error:
+                  formik.touched.fddIssuanceDate &&
+                  Boolean(formik.errors.fddIssuanceDate),
+                helperText:
+                  formik.touched.fddIssuanceDate &&
+                  formik.errors.fddIssuanceDate,
+              },
+            }}
+          />
+        </Box>
       </Box>
 
-      {/* Upload Box */}
       {/* Upload Box */}
       <Box
         sx={{
@@ -99,7 +121,6 @@ const Step1_FileUpload = ({ formik, onSkip, onNext }) => {
             </Typography>
             <Button
               variant="outlined"
-              color="#6BBDEF"
               sx={{ mt: 2 }}
               onClick={(e) => {
                 e.stopPropagation();
@@ -114,17 +135,14 @@ const Step1_FileUpload = ({ formik, onSkip, onNext }) => {
 
       {/* Buttons */}
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-        <div className="d-flex gap-10 upload-save-button">
+        <Box className="d-flex gap-10 upload-save-button">
           <Button variant="outlined" color="secondary" onClick={onSkip}>
-            cancle <RxCross1 />
+            cancel <RxCross1 />
           </Button>
           <Button variant="outlined" color="secondary" onClick={onSkip}>
             Save <IoSaveOutline />
           </Button>
-          {/* <Button variant="outlined" color="secondary" onClick={onSkip}>
-            Skip FDD Upload
-          </Button> */}
-        </div>
+        </Box>
         <Button
           variant="contained"
           color="primary"

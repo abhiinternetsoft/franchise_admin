@@ -107,9 +107,16 @@ const Step4 = ({ formik, onBack, onNext }) => {
             multiline
             rows={5}
             value={formik.values.aboutUs}
-            onChange={formik.handleChange}
+            onChange={(e) => {
+              const words = e.target.value.trim().split(/\s+/);
+              if (words.length <= 200) {
+                formik.setFieldValue("aboutUs", e.target.value);
+              }
+            }}
             onBlur={formik.handleBlur}
             error={formik.touched.aboutUs && Boolean(formik.errors.aboutUs)}
+            helperText={`${formik.values.aboutUs.trim() === "" ? 0 : formik.values.aboutUs.trim().split(/\s+/).length} / 200 words`}
+            // error={formik.touched.aboutUs && Boolean(formik.errors.aboutUs)}
           />
         </Grid>
 

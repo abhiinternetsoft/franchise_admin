@@ -22,6 +22,7 @@ export default function DrawerContent() {
         <Navigation />
         {drawerOpen && <NavCard />}
         <Footer />
+        <span></span>
       </SimpleBar>
     </>
   );

@@ -91,7 +91,7 @@ export default function DashboardDefault() {
           icon={<img src={Note} alt="Note" style={{ width: 24, height: 24 }} />}
         />
       </Grid>
-      <Grid size={{ xs: 12, sm: 6, md: 3, lg: 2.4 }}>
+      {/* <Grid size={{ xs: 12, sm: 6, md: 3, lg: 2.4 }}>
         <AnalyticEcommerce
           title="Total Listing"
           count="4.6K"
@@ -100,7 +100,7 @@ export default function DashboardDefault() {
           extra="20,395"
           icon={<img src={Note} alt="Note" style={{ width: 24, height: 24 }} />}
         />
-      </Grid>
+      </Grid> */}
       <Grid
         sx={{ display: { sm: "none", md: "block", lg: "none" } }}
         size={{ md: 8 }}

@@ -197,6 +197,18 @@
   z-index: -1;
 }
 
+.css-1swggnb-MuiPaper-root-MuiDialog-paper {
+  border-radius: 15px;
+}
+
+.Preview-image-popup {
+  width: max-content;
+  margin: auto;
+}
+
+.css-19do60a-MuiDialog-container {
+  width: max-content;
+}
 
 .user-name {
   color: #2A2A33;

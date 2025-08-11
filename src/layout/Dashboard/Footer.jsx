@@ -14,7 +14,7 @@ export default function Footer() {
         mt: "auto",
       }}
     >
-      <Typography variant="caption">
+      {/* <Typography variant="caption">
         &copy; 2025
         <Link href="#" target="_blank" underline="hover">
           {" "}
@@ -22,7 +22,7 @@ export default function Footer() {
         </Link>{" "}
         <br />
         All rights reserved{" "}
-      </Typography>
+      </Typography> */}
       {/* <Stack
         direction="row"
         sx={{ gap: 1.5, alignItems: "center", justifyContent: "space-between" }}

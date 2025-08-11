@@ -37,6 +37,7 @@ const StepForm = ({ step, setStep, steps }) => {
 
   const initialValues = {
     fddFile: null,
+    fddIssuanceDate: null,
     flsNumber: "FLS-OPP-000001",
     customSlug: "",
     brandName: "",
@@ -134,7 +135,10 @@ const StepForm = ({ step, setStep, steps }) => {
 
   const validationSchemas = [
     // Step 1: FDD Upload
-    Yup.object({ fddFile: Yup.mixed().nullable() }),
+    Yup.object({
+      fddFile: Yup.mixed().nullable(),
+      fddIssuanceDate: Yup.date().nullable(),
+    }),
 
     // Step 2: Custom URL and Identification
     Yup.object({
@@ -602,7 +606,7 @@ const StepForm = ({ step, setStep, steps }) => {
                     color="secondary"
                     className="outline-btn border gap-10"
                   >
-                    cancle <RxCross1 />
+                    cancel <RxCross1 />
                   </Button>
                   <Button
                     variant="outlined"
