@@ -32,7 +32,7 @@ export default function DrawerHeader({ open }) {
       <img src={adminLogo} alt="Admin Main Logo" width={26} />
       <div className="mx-1 mobile-content d-flex justify-contents-between align-items-center">
         <div className="Franchise-naming">
-          <h4 className="Mainlogo_text">Franchise Listing</h4>
+          <h4 className="Mainlogo_text">Franchise Listings</h4>
           {/* <p className="user-role">Super Admin</p> */}
           <p className="user-role">{user?.role}</p>
         </div>

@@ -100,7 +100,7 @@ const Step2 = ({ formik, onBack, onNext }) => {
           <TextField
             fullWidth
             name="previewURL"
-            value={`https://franchisehub.com/${formik.values.customSlug}`}
+            value={`https://franchiselistings.com/${formik.values.customSlug}`}
             InputProps={{ readOnly: true }}
           />
         </Grid>
