@@ -28,6 +28,10 @@ const LeadManagement = Loadable(
   lazy(() => import("pages/component-overview/Leadmanagement"))
 );
 
+const AddUserPage = Loadable(
+  lazy(() => import("pages/component-overview/AddUserDialog"))
+);
+
 const Disclosures = Loadable(
   lazy(() => import("pages/component-overview/Disclosures"))
 );
@@ -80,6 +84,10 @@ const MainRoutes = {
     {
       path: "sample-page",
       element: <SamplePage />,
+    },
+    {
+      path: "add-user",
+      element: <AddUserPage />,
     },
   ],
 };

@@ -20,6 +20,8 @@ import {
   FormControl,
 } from "@mui/material";
 import { Delete, Edit, Visibility, Block, Add } from "@mui/icons-material";
+import axios from "axios";
+import { Link } from "react-router";
 
 // Sample user data
 const users = [
@@ -92,22 +94,26 @@ const statusColors = {
 const UserManagement = () => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(null);
+  // const [openAdd, setOpenAdd] = useState(false);
+
+  const fetchUsers = async () => {
+    try {
+      setLoading(true);
+      const token = localStorage.getItem("token"); // or wherever you store it
+      const res = await axios.get("http://localhost:5000/api/users", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      setUsers(res.data.users || res.data); // adapt to your backend shape
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const res = await axios.get(`http://localhost:5000/api/users`);
-        console.log(res.data);
-        setUser(res.data);
-      } catch (error) {
-        console.error("Failed to fetch Users:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchUser();
-  });
+    fetchUsers();
+  }, []);
 
   return (
     <Box p={3}>
@@ -126,14 +132,16 @@ const UserManagement = () => {
             Manage and monitor all platform users
           </Typography>
         </Box>
-        <Button
-          variant="contained"
-          color="secondary"
-          startIcon={<Add />}
-          className="button"
-        >
-          Add New User
-        </Button>
+        <Link to="/add-user">
+          <Button
+            variant="contained"
+            color="secondary"
+            startIcon={<Add />}
+            className="button"
+          >
+            Add New User
+          </Button>
+        </Link>
       </Box>
 
       <div className="bg-white border rounded content-section">

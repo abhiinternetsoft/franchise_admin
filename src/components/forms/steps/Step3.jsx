@@ -17,24 +17,28 @@ import Branding from "../../../assets/images/users/Branding.svg";
 const Step3 = ({ formik }) => {
   const [previewImage, setPreviewImage] = useState(null);
   const [previewField, setPreviewField] = useState(null);
+  const [selectedFile, setSelectedFile] = useState(null);
 
   const handleFileChange = (e, field) => {
     const file = e.currentTarget.files[0];
     if (file) {
       setPreviewImage(URL.createObjectURL(file));
       setPreviewField(field);
+      setSelectedFile(file);
     }
   };
 
   const confirmUpload = () => {
-    formik.setFieldValue(previewField, previewImage);
+    formik.setFieldValue(previewField, selectedFile);
     setPreviewImage(null);
     setPreviewField(null);
+    setSelectedFile(null);
   };
 
   const closePreview = () => {
     setPreviewImage(null);
     setPreviewField(null);
+    setSelectedFile(null);
   };
 
   return (
@@ -81,7 +85,7 @@ const Step3 = ({ formik }) => {
               flexDirection="column"
             >
               <img
-                src={formik.values.brandLogo}
+                src={URL.createObjectURL(formik.values.brandLogo)}
                 alt="Brand Logo"
                 style={{
                   width: 200,
@@ -155,7 +159,7 @@ const Step3 = ({ formik }) => {
               flexDirection="column"
             >
               <img
-                src={formik.values.brandBanner}
+                src={URL.createObjectURL(formik.values.brandBanner)}
                 alt="Brand Banner"
                 style={{
                   width: "100%",
