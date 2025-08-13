@@ -27,7 +27,7 @@ const Step6 = ({ formik, onBack, onNext }) => {
     <Paper
       elevation={3}
       sx={{ p: 3, pb: 1, borderRadius: 2 }}
-      className="shadow-none"
+      className="shadow-none border mb-4 Listing-stepforms"
     >
       <Box mb={3}>
         <Box

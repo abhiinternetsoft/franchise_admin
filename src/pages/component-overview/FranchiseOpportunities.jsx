@@ -60,9 +60,14 @@ export default function FranchiseOpportunities() {
         </Box>
       </div>
 
-      <div className="border stepform-section">
+      <div className=" stepform-section">
         <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <StepForm step={step} setStep={setStep} steps={stepTitles} />
+          <StepForm
+            step={step}
+            setStep={setStep}
+            steps={stepTitles}
+            className="Step-inside"
+          />
         </LocalizationProvider>
       </div>
     </div>

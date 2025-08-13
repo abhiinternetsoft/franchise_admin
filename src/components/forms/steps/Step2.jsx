@@ -15,7 +15,11 @@ const Step2 = ({ formik, onBack, onNext }) => {
   const baseURL = "https://franchisehub.com/opportunities/";
 
   return (
-    <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }} className="shadow-none">
+    <Paper
+      elevation={3}
+      sx={{ p: 4, borderRadius: 2 }}
+      className="shadow-none border mb-4 Listing-stepforms"
+    >
       {/* Header */}
 
       <Box mb={3}>

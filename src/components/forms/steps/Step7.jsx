@@ -48,7 +48,11 @@ const Step7 = ({ formik, onBack, onNext }) => {
   const { values, handleChange, setFieldValue } = formik;
 
   return (
-    <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }} className="shadow-none">
+    <Paper
+      elevation={3}
+      sx={{ p: 4, borderRadius: 2 }}
+      className="shadow-none border mb-4"
+    >
       <Box mb={3}>
         <Box
           sx={{

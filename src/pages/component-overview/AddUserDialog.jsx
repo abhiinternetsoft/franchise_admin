@@ -21,6 +21,7 @@ import building from "../../assets/images/users/building.svg";
 import profilecircle from "../../assets/images/users/profile-circle.svg";
 import verify from "../../assets/images/users/verify.svg";
 import { RxCross1 } from "react-icons/rx";
+import { TfiReload } from "react-icons/tfi";
 
 function generatePassword(length = 10) {
   const chars =
@@ -64,11 +65,15 @@ export default function AddUserPage() {
         sendWelcomeEmail,
         requirePasswordChange,
       };
+      console.log("Token:", localStorage.getItem("token"));
+
       await axios.post("http://localhost:5000/api/auth/create", payload, {
-        headers: { Authorization: `Bearer ${token}` },
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       });
       alert("User created successfully");
-      navigate("/users");
+      navigate("/usermanagement");
     } catch (err) {
       console.error(err);
       alert(err.response?.data?.msg || "Failed to create user");
@@ -275,7 +280,10 @@ export default function AddUserPage() {
                 onClick={handleGenerate}
                 variant="outlined"
                 sx={{ height: "fit-content" }}
+                className="d-flex gap-10 Pass-generate"
               >
+                {" "}
+                <TfiReload />
                 Generate
               </Button>
             </Grid>

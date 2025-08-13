@@ -179,10 +179,14 @@
   font-family: Poppins;
   font-weight: 500;
   font-size: 14px;
-  border-radius: 30px;
-  color: #000; /* Text color */
+  border-radius: 10px;
+  color: #000;
   z-index: 1;
-  background: linear-gradient(to right, #00db62, #00b4db); /* Gradient border */
+  background: linear-gradient(to right, #00db62, #00b4db);
+}
+
+.css-3duesl-MuiButtonBase-root-MuiListItemButton-root:hover {
+ background-color: #fff;
 }
 
 .sidebar-navigation .css-3duesl-MuiButtonBase-root-MuiListItemButton-root.Mui-selected::before {
@@ -192,9 +196,33 @@
   right: 0px;
   bottom: 2px;
   left: 2px;
-  background: #fff; /* Inner background */
-  border-radius: 28px;
+  background: #fff; 
+  border-radius: 8px;
   z-index: -1;
+}
+
+
+.css-1wi7gsi.Mui-selected {
+  position: relative !important;
+  padding: 8px 30px !important;
+  font-family: "Poppins" !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  border-radius: 10px !important;
+  color: #000 !important; /* Text color */
+  z-index: 1 !important;
+  background: linear-gradient(to right, #00db62, #00b4db) !important; /* Gradient border */
+}
+.css-1wi7gsi.Mui-selected::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 2px !important;
+  right: 0px !important;
+  bottom: 2px !important;
+  left: 2px !important;
+  background: #fff !important; /* Inner background */
+  border-radius: 8px !important;
+  z-index: -1 !important;
 }
 
 .css-1swggnb-MuiPaper-root-MuiDialog-paper {
@@ -776,6 +804,36 @@ Select {
     border-radius: 30px;
 }
 
+.Pass-generate {
+  background-color: #0DA2FF;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-family: "Inter";
+  border: none;
+}
+
+.Pass-generate:hover {
+ background-color: #0DA2FF;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-family: "Inter";
+  border: none; 
+}
+
+.anticon {
+  color: #00b4db;
+  border: 1px solid #00b4db;
+  border-radius: 4px;
+}
+
+.anticon svg {
+    border-radius: 50%;
+    padding: 1px;
+    border: none;
+}
+
 
 .Account-setup-section .MuiFormControlLabel-label {
   font-size: 14px;
@@ -787,3 +845,22 @@ Select {
   font-size: 12px !important;
   color: #898989;
 }
+
+.fdd-insuarance-date {
+    font-size: 12px;
+    color: #535364;
+    font-family: 'Inter';
+    margin-bottom: 5px;
+}
+
+.css-165sti9-MuiPaper-root {
+  border-radius: 15px !important;
+}
+
+.Listing-stepforms {
+  height: 590px; 
+}
+
+/* .main-drawer .css-1tu5oyj-MuiDrawer-docked .MuiDrawer-paper {
+  width: 298px !important;
+} */

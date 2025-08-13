@@ -4,7 +4,11 @@ import Facebook from "../../../assets/images/users/facebook.svg";
 
 const Step13 = ({ formik, onBack, onNext }) => {
   return (
-    <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }} className="shadow-none">
+    <Paper
+      elevation={3}
+      sx={{ p: 4, borderRadius: 2 }}
+      className="shadow-none border mb-4"
+    >
       <Box mb={3}>
         <Box
           sx={{

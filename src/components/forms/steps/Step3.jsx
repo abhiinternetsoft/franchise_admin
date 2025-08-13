@@ -13,6 +13,7 @@ import { CheckCircle } from "@mui/icons-material";
 import brandLogo from "../../../assets/images/users/brandLogo.svg";
 import brandBanner from "../../../assets/images/users/brandbanner.svg";
 import Branding from "../../../assets/images/users/Branding.svg";
+// ======================
 
 const Step3 = ({ formik }) => {
   const [previewImage, setPreviewImage] = useState(null);
@@ -28,8 +29,27 @@ const Step3 = ({ formik }) => {
     }
   };
 
-  const confirmUpload = () => {
-    formik.setFieldValue(previewField, selectedFile);
+  // const confirmUpload = () => {
+  //   formik.setFieldValue(previewField, selectedFile);
+  //   setPreviewImage(null);
+  //   setPreviewField(null);
+  //   setSelectedFile(null);
+  // };
+
+  // Replace ONLY the part where you save file in confirmUpload
+  const confirmUpload = async () => {
+    if (previewImage && croppedAreaPixels) {
+      const croppedImageBlob = await getCroppedImg(
+        previewImage,
+        croppedAreaPixels
+      );
+      const croppedFile = new File([croppedImageBlob], selectedFile.name, {
+        type: selectedFile.type,
+      });
+      formik.setFieldValue(previewField, croppedFile);
+    } else {
+      formik.setFieldValue(previewField, selectedFile);
+    }
     setPreviewImage(null);
     setPreviewField(null);
     setSelectedFile(null);
@@ -42,7 +62,11 @@ const Step3 = ({ formik }) => {
   };
 
   return (
-    <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }} className="shadow-none">
+    <Paper
+      elevation={3}
+      sx={{ p: 4, borderRadius: 2 }}
+      className="shadow-none border mb-4 Listing-stepforms"
+    >
       {/* Step Info */}
       <Box mb={3} display="flex" alignItems="center" gap="10px">
         <img src={Branding} alt="Branding Image" />

@@ -70,7 +70,11 @@ const Step4 = ({ formik, onBack, onNext }) => {
   const selectedSubcategories = subcategories[formik.values.category] || [];
 
   return (
-    <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }} className="shadow-none">
+    <Paper
+      elevation={3}
+      sx={{ p: 4, borderRadius: 2 }}
+      className="shadow-none border mb-4 Listing-stepforms"
+    >
       {/* Header */}
       <Box mb={3}>
         <Box

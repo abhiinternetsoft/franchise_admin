@@ -574,8 +574,8 @@ const StepForm = ({ step, setStep, steps }) => {
 
       alert("Form submitted successfully!");
       console.log(res.data);
-      // actions.resetForm();
-      // setStep(0);
+      actions.resetForm();
+      setStep(0);
     } catch (err) {
       console.error("Submit error:", err);
       alert("Failed to submit form");

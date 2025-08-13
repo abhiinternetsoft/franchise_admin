@@ -1,5 +1,4 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Typography,
@@ -22,62 +21,8 @@ import {
 import { Delete, Edit, Visibility, Block, Add } from "@mui/icons-material";
 import axios from "axios";
 import { Link } from "react-router";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-// Sample user data
-const users = [
-  {
-    name: "John Smith",
-    email: "john.smith@email.com",
-    company: "abc",
-    brand: "ACTIVE",
-    role: "ADMIN",
-    registration: "Jan 15, 2024",
-    login: "Dec 29, 2024",
-    status: "ACTIVE",
-  },
-  {
-    name: "Sarah Mitchell",
-    email: "sarah.mitchell@mcdonalds.com",
-    company: "abc",
-    brand: "ACTIVE",
-    role: "FRANCHISOR",
-    registration: "Mar 22, 2024",
-    login: "Dec 28, 2024",
-    status: "ACTIVE",
-  },
-  {
-    name: "Mike Johnson",
-    email: "mike.johnson@subway.com",
-    company: "abc",
-    brand: "PENDING",
-    role: "FRANCHISOR",
-    registration: "Dec 10, 2024",
-    login: "Dec 27, 2024",
-    status: "PENDING",
-  },
-  {
-    name: "Lisa Chen",
-    email: "lisa.chen@anytimefitness.com",
-    company: "abc",
-    brand: "ACTIVE",
-    role: "FRANCHISEE",
-    registration: "Nov 5, 2024",
-    login: "Dec 26, 2024",
-    status: "ACTIVE",
-  },
-  {
-    name: "David Park",
-    email: "david.park@email.com",
-    company: "abc",
-    brand: "SUSPENDED",
-    role: "USER",
-    registration: "Oct 18, 2024",
-    login: "Dec 20, 2024",
-    status: "SUSPENDED",
-  },
-];
-
-// Role/Status color mapping
 const roleColors = {
   ADMIN: "red",
   FRANCHISOR: "blue",
@@ -92,20 +37,22 @@ const statusColors = {
 };
 
 const UserManagement = () => {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(null);
-  // const [openAdd, setOpenAdd] = useState(false);
+  const [users, setUsers] = useState([]); // store all users here
+  const [loading, setLoading] = useState(false);
 
   const fetchUsers = async () => {
     try {
       setLoading(true);
-      const token = localStorage.getItem("token"); // or wherever you store it
-      const res = await axios.get("http://localhost:5000/api/users", {
+      const token = localStorage.getItem("token");
+
+      const res = await axios.get(`${API_BASE_URL}/api/auth/users`, {
         headers: { Authorization: `Bearer ${token}` },
       });
+
+      console.log(res.data);
       setUsers(res.data.users || res.data); // adapt to your backend shape
     } catch (err) {
-      console.error(err);
+      console.error("Error fetching users:", err);
     } finally {
       setLoading(false);
     }
@@ -117,6 +64,7 @@ const UserManagement = () => {
 
   return (
     <Box p={3}>
+      {/* Top header */}
       <Box
         display="flex"
         justifyContent="space-between"
@@ -144,6 +92,7 @@ const UserManagement = () => {
         </Link>
       </Box>
 
+      {/* Users Table */}
       <div className="bg-white border rounded content-section">
         <Paper sx={{ p: 2, mb: 0 }}>
           <Box
@@ -190,6 +139,7 @@ const UserManagement = () => {
           </Box>
         </Paper>
 
+        {/* Table */}
         <TableContainer component={Paper}>
           <Table>
             <TableHead>
@@ -205,85 +155,81 @@ const UserManagement = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {users.map((user, index) => (
-                <TableRow key={index}>
-                  <TableCell>
-                    <Box display="flex" alignItems="center" gap={1}>
-                      <Avatar>{user.name[0]}</Avatar>
-                      <Box className="lh-1">
-                        <Typography className="m-0 p-0 fs-14 ">
-                          {user.name}
-                        </Typography>
-                        <Typography variant="caption">{user.email}</Typography>
-                      </Box>
-                    </Box>
-                  </TableCell>
-                  <TableCell>{user.company}</TableCell>
-                  <TableCell>
-                    <Typography
-                      sx={{
-                        px: 1,
-                        py: 0.5,
-                        borderRadius: 2,
-                        backgroundColor: statusColors[user.brand],
-                        color: "#fff",
-                        fontSize: 12,
-                        display: "inline-block",
-                      }}
-                    >
-                      {user.brand}
-                    </Typography>
-                  </TableCell>
-                  <TableCell>
-                    <Typography
-                      sx={{
-                        px: 1,
-                        py: 0.5,
-                        borderRadius: 2,
-                        backgroundColor: roleColors[user.role],
-                        color: "#fff",
-                        fontSize: 12,
-                        display: "inline-block",
-                      }}
-                    >
-                      {user.role}
-                    </Typography>
-                  </TableCell>
-                  <TableCell>{user.status}</TableCell>
-                  <TableCell>{user.registration}</TableCell>
-                  <TableCell>{user.login}</TableCell>
-                  <TableCell>
-                    <IconButton color="primary">
-                      <Visibility />
-                    </IconButton>
-                    <IconButton color="success">
-                      <Edit />
-                    </IconButton>
-                    <IconButton color="warning">
-                      <Block />
-                    </IconButton>
-                    <IconButton color="error">
-                      <Delete />
-                    </IconButton>
+              {loading ? (
+                <TableRow>
+                  <TableCell colSpan={8} align="center">
+                    Loading...
                   </TableCell>
                 </TableRow>
-              ))}
+              ) : (
+                users.map((user, index) => (
+                  <TableRow key={index}>
+                    <TableCell>
+                      <Box display="flex" alignItems="center" gap={1}>
+                        <Avatar>{user.name?.[0] || "?"}</Avatar>
+                        <Box className="lh-1">
+                          <Typography className="m-0 p-0 fs-14">
+                            {user.name}
+                          </Typography>
+                          <Typography variant="caption">
+                            {user.email}
+                          </Typography>
+                        </Box>
+                      </Box>
+                    </TableCell>
+                    <TableCell>{user.company}</TableCell>
+                    <TableCell>
+                      <Typography
+                        sx={{
+                          px: 1,
+                          py: 0.5,
+                          borderRadius: 2,
+                          backgroundColor: statusColors[user.brand],
+                          color: "#fff",
+                          fontSize: 12,
+                          display: "inline-block",
+                        }}
+                      >
+                        {user.brand}
+                      </Typography>
+                    </TableCell>
+                    <TableCell>
+                      <Typography
+                        sx={{
+                          px: 1,
+                          py: 0.5,
+                          borderRadius: 2,
+                          backgroundColor: roleColors[user.role],
+                          color: "#fff",
+                          fontSize: 12,
+                          display: "inline-block",
+                        }}
+                      >
+                        {user.role}
+                      </Typography>
+                    </TableCell>
+                    <TableCell>{user.status}</TableCell>
+                    <TableCell>{user.registration}</TableCell>
+                    <TableCell>{user.login}</TableCell>
+                    <TableCell>
+                      <IconButton color="primary">
+                        <Visibility />
+                      </IconButton>
+                      <IconButton color="success">
+                        <Edit />
+                      </IconButton>
+                      <IconButton color="warning">
+                        <Block />
+                      </IconButton>
+                      <IconButton color="error">
+                        <Delete />
+                      </IconButton>
+                    </TableCell>
+                  </TableRow>
+                ))
+              )}
             </TableBody>
           </Table>
-          <Box display="flex" justifyContent="space-between" p={2}>
-            <Typography variant="caption">Showing 1-5 of 5 results</Typography>
-            <Box display="flex" alignItems="center" gap={1}>
-              <Button variant="outlined" size="small" disabled>
-                Previous
-              </Button>
-              <Button variant="contained" size="small" color="primary">
-                1
-              </Button>
-              <Button variant="outlined" size="small" disabled>
-                Next
-              </Button>
-            </Box>
-          </Box>
         </TableContainer>
       </div>
     </Box>

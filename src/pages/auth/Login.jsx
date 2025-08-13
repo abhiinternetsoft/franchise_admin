@@ -44,7 +44,7 @@ const SignIn = () => {
         localStorage.setItem("userEmail", email);
         localStorage.setItem("userRole", role);
 
-        alert("Login successful!");
+        // alert("Login successful!");
         navigate("/");
       }
     } catch (error) {
