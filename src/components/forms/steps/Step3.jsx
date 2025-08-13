@@ -29,31 +29,31 @@ const Step3 = ({ formik }) => {
     }
   };
 
-  // const confirmUpload = () => {
-  //   formik.setFieldValue(previewField, selectedFile);
-  //   setPreviewImage(null);
-  //   setPreviewField(null);
-  //   setSelectedFile(null);
-  // };
-
-  // Replace ONLY the part where you save file in confirmUpload
-  const confirmUpload = async () => {
-    if (previewImage && croppedAreaPixels) {
-      const croppedImageBlob = await getCroppedImg(
-        previewImage,
-        croppedAreaPixels
-      );
-      const croppedFile = new File([croppedImageBlob], selectedFile.name, {
-        type: selectedFile.type,
-      });
-      formik.setFieldValue(previewField, croppedFile);
-    } else {
-      formik.setFieldValue(previewField, selectedFile);
-    }
+  const confirmUpload = () => {
+    formik.setFieldValue(previewField, selectedFile);
     setPreviewImage(null);
     setPreviewField(null);
     setSelectedFile(null);
   };
+
+  // Replace ONLY the part where you save file in confirmUpload
+  // const confirmUpload = async () => {
+  //   if (previewImage && croppedAreaPixels) {
+  //     const croppedImageBlob = await getCroppedImg(
+  //       previewImage,
+  //       croppedAreaPixels
+  //     );
+  //     const croppedFile = new File([croppedImageBlob], selectedFile.name, {
+  //       type: selectedFile.type,
+  //     });
+  //     formik.setFieldValue(previewField, croppedFile);
+  //   } else {
+  //     formik.setFieldValue(previewField, selectedFile);
+  //   }
+  //   setPreviewImage(null);
+  //   setPreviewField(null);
+  //   setSelectedFile(null);
+  // };
 
   const closePreview = () => {
     setPreviewImage(null);
