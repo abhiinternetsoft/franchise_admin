@@ -150,7 +150,12 @@ const Step1_FileUpload = ({ formik, onSkip, onNext }) => {
           <Button variant="outlined" color="secondary" onClick={onSkip}>
             cancel <RxCross1 />
           </Button>
-          <Button variant="outlined" color="secondary" onClick={onSkip}>
+          <Button
+            variant="outlined"
+            color="secondary"
+            onClick={onSkip}
+            className="upload-save-btn"
+          >
             Save <IoSaveOutline />
           </Button>
         </Box>

@@ -31,7 +31,7 @@
 }
 
 .css-10yzedz-MuiTypography-root {
-  font-size: 20px;
+  /* font-size: 20px; */
   color: #535364;
   font-weight: 600;
 }
@@ -67,7 +67,7 @@
   align-items: center;
   padding: 8px 20px;
   border: 1px solid #ddd;
-  border-radius: 10px;
+  border-radius: 15px;
 }
 
 .Mainlogo_text {
@@ -281,6 +281,7 @@
   width: 45px;
   text-align: center;
   font-size: 12px !important;
+  overflow: visible !important;
 }
 
 .franchisestepsform-mainheading {
@@ -323,6 +324,11 @@
   font-size: 14px;
   font-weight: 500;
   gap: 10px;
+}
+
+.upload-save-btn {
+  color: #00b4db;
+  border: 1px solid #00b4db !important;
 }
 
 .css-uxn6cr {
@@ -822,13 +828,13 @@ Select {
   border: none; 
 }
 
-.anticon {
+.addUser-Form .anticon {
   color: #00b4db;
   border: 1px solid #00b4db;
   border-radius: 4px;
 }
 
-.anticon svg {
+.addUser-Form .anticon svg {
     border-radius: 50%;
     padding: 1px;
     border: none;

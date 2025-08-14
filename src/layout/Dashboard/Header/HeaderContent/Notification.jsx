@@ -15,6 +15,7 @@ import Popper from "@mui/material/Popper";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import notificationIcon from "../../../../assets/images/users/notification.svg";
 
 // project imports
 import MainCard from "components/MainCard";
@@ -83,7 +84,8 @@ export default function Notification() {
         onClick={handleToggle}
       >
         <Badge badgeContent={read} color="primary">
-          <BellOutlined />
+          {/* <BellOutlined /> */}
+          <img src={notificationIcon} alt="notificationIcon" />
         </Badge>
       </IconButton>
       <Popper
