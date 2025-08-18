@@ -870,3 +870,11 @@ Select {
 /* .main-drawer .css-1tu5oyj-MuiDrawer-docked .MuiDrawer-paper {
   width: 298px !important;
 } */
+ 
+button.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-colorSecondary.MuiIconButton-edgeStart.MuiIconButton-sizeMedium.sidebar-close-logo.css-1uhjpfk-MuiButtonBase-root-MuiIconButton-root {
+  background-color: #fff !important;
+}
+
+.MuiBox-root .css-15o9cg1 .sidebar-close-logo {
+  margin-left: 3px !important;
+}

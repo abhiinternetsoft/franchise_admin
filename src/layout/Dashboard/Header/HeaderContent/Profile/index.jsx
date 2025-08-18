@@ -123,6 +123,12 @@ export default function Profile() {
                       </ListItemIcon>
                       <ListItemText primary="Settings" />
                     </ListItemButton>
+                    <ListItemButton>
+                      <ListItemIcon>
+                        <LuUserRound />
+                      </ListItemIcon>
+                      <ListItemText primary="support staff" />
+                    </ListItemButton>
                     <hr className="m-0" />
                     <ListItemButton onClick={handleLogout}>
                       <ListItemIcon>
