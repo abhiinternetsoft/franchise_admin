@@ -38,7 +38,7 @@ const StepForm = ({ step, setStep, steps }) => {
   const initialValues = {
     fddFile: null,
     fddIssuanceDate: null,
-    flsNumber: "FLS-OPP-000001",
+    flsNumber: null,
     customSlug: "",
     brandName: "",
     brandLogo: null,

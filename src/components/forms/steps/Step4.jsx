@@ -131,7 +131,7 @@ const Step4 = ({ formik, onBack, onNext }) => {
         {/* Category */}
         <Grid sx={{ flexBasis: { xs: "100%", md: "32%" } }}>
           <label htmlFor="Category" className="listing-form-label">
-            Category
+            Industry
           </label>
           <TextField
             select
@@ -153,7 +153,7 @@ const Step4 = ({ formik, onBack, onNext }) => {
         {/* Subcategory */}
         <Grid sx={{ flexBasis: { xs: "100%", md: "32%" } }}>
           <label htmlFor="Subcategory" className="listing-form-label">
-            Subcategory
+            Category
           </label>
           <TextField
             select

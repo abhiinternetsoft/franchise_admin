@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Box,
   TextField,
@@ -8,11 +8,48 @@ import {
   Button,
   FormHelperText,
 } from "@mui/material";
+import axios from "axios";
 import { CiLink } from "react-icons/ci";
 import linkIcon from "../../../assets/images/users/linkIcon.png";
 
 const Step2 = ({ formik, onBack, onNext }) => {
   const baseURL = "https://franchisehub.com/opportunities/";
+
+  useEffect(() => {
+    const fetchFlsNumber = async () => {
+      try {
+        const res = await axios.get(
+          "https://dev.franchiselistings.com/franchise_backend/api/fls/latest"
+        );
+        formik.setFieldValue("flsNumber", res.data.nextNumber);
+      } catch (err) {
+        console.error("Error fetching FLS number:", err);
+      }
+    };
+
+    // Only fetch if not already set (prevents overwriting when editing)
+    if (!formik.values.flsNumber) {
+      fetchFlsNumber();
+    }
+  }, [formik.values.flsNumber]);
+
+  // useEffect(() => {
+  //   const fetchFlsNumber = async () => {
+  //     try {
+  //       const res = await axios.get("http://localhost:5000/api/fls/latest");
+  //       formik.setFieldValue("flsNumber", res.data.nextNumber);
+  //     } catch (err) {
+  //       console.error("Error fetching FLS number:", err);
+  //     }
+  //   };
+
+  //   console.log(formik.values.flsNumber);
+
+  //   // Only fetch if not already set (prevents overwriting when editing)
+  //   if (!formik.values.flsNumber) {
+  //     fetchFlsNumber();
+  //   }
+  // }, []);
 
   return (
     <Paper
@@ -91,7 +128,7 @@ const Step2 = ({ formik, onBack, onNext }) => {
           <TextField
             fullWidth
             name="flsNumber"
-            value={formik.values.flsNumber}
+            value={formik.values.flsNumber || ""}
             InputProps={{ readOnly: true }}
             disabled
           />
