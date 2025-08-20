@@ -119,7 +119,14 @@ const Step8 = ({ formik, onBack, onNext }) => {
             name="openingsupport"
             value={formik.values.openingsupport}
             onChange={formik.handleChange}
+            SelectProps={{
+              displayEmpty: true, // 👈 this makes the placeholder visible in the box
+            }}
           >
+            {/* Placeholder */}
+            <MenuItem value="" disabled>
+              Select Option
+            </MenuItem>
             {yesNoOptions.map((option) => (
               <MenuItem key={option.value} value={option.value}>
                 {option.label}
@@ -144,7 +151,7 @@ const Step8 = ({ formik, onBack, onNext }) => {
             name="trainingDescription"
             value={formik.values.trainingDescription}
             onChange={formik.handleChange}
-            placeholder="Input Character"
+            placeholder="Input Characters"
           />
         </Grid>
       </Grid>

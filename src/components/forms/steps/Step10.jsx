@@ -66,7 +66,14 @@ const Step10 = ({ formik, onBack, onNext }) => {
             name="trademarkStatus"
             value={formik.values.trademarkStatus}
             onChange={formik.handleChange}
+            SelectProps={{
+              displayEmpty: true, // 👈 this makes the placeholder visible in the box
+            }}
           >
+            {/* Placeholder */}
+            <MenuItem value="" disabled>
+              Select Status
+            </MenuItem>
             {trademarkStatuses.map((option) => (
               <MenuItem key={option.value} value={option.value}>
                 {option.label}

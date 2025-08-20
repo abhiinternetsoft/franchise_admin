@@ -103,7 +103,14 @@ const Step7 = ({ formik, onBack, onNext }) => {
             name="locationType"
             value={formik.values.locationType}
             onChange={formik.handleChange}
+            SelectProps={{
+              displayEmpty: true, // 👈 this makes the placeholder visible in the box
+            }}
           >
+            {/* Placeholder */}
+            <MenuItem value="" disabled>
+              Select Location Type
+            </MenuItem>
             {locationTypes.map((loc) => (
               <MenuItem key={loc.value} value={loc.value}>
                 {loc.label}
@@ -125,6 +132,7 @@ const Step7 = ({ formik, onBack, onNext }) => {
             value={formik.values.spaceLow}
             onChange={formik.handleChange}
             type="number"
+            placeholder="Input Min. Square Footage"
           />
         </Grid>
         <Grid item sx={{ flexBasis: { xs: "100%", md: "30%" } }}>
@@ -140,6 +148,7 @@ const Step7 = ({ formik, onBack, onNext }) => {
             value={formik.values.spaceHigh}
             onChange={formik.handleChange}
             type="number"
+            placeholder="Input Max. Square Footage"
           />
         </Grid>
 
@@ -162,12 +171,19 @@ const Step7 = ({ formik, onBack, onNext }) => {
             Owner Operator Required
           </label>
           <TextField
-            Select
+            select
             fullWidth
             name="ownerOperatorRequired"
             value={formik.values.ownerOperatorRequired}
             onChange={formik.handleChange}
+            SelectProps={{
+              displayEmpty: true, // 👈 this makes the placeholder visible in the box
+            }}
           >
+            {/* Placeholder */}
+            <MenuItem value="" disabled>
+              Select Option
+            </MenuItem>
             {yesNoOptions.map((option) => (
               <MenuItem key={option.value} value={option.value}>
                 {option.label}
@@ -188,7 +204,14 @@ const Step7 = ({ formik, onBack, onNext }) => {
             name="absenteeOwnershipAllowed"
             value={formik.values.absenteeOwnershipAllowed}
             onChange={formik.handleChange}
+            SelectProps={{
+              displayEmpty: true, // 👈 this makes the placeholder visible in the box
+            }}
           >
+            {/* Placeholder */}
+            <MenuItem value="" disabled>
+              Select Option
+            </MenuItem>
             {yesNoOptions.map((option) => (
               <MenuItem key={option.value} value={option.value}>
                 {option.label}
@@ -219,7 +242,14 @@ const Step7 = ({ formik, onBack, onNext }) => {
             name="staffRequirements"
             value={formik.values.staffRequirements}
             onChange={formik.handleChange}
+            SelectProps={{
+              displayEmpty: true, // 👈 this makes the placeholder visible in the box
+            }}
           >
+            {/* Placeholder */}
+            <MenuItem value="" disabled>
+              Select Time
+            </MenuItem>
             {stafftime.map((time) => (
               <MenuItem key={time.value} value={time.value}>
                 {time.label}
@@ -263,11 +293,17 @@ const Step7 = ({ formik, onBack, onNext }) => {
             Training Program Description
           </label>
           <FormControl fullWidth>
-            <InputLabel>Select Hour</InputLabel>
             <Select
               value={formik.values.operationalHour}
               onChange={(e) => setFieldValue("operationalHour", e.target.value)}
+              SelectProps={{
+                displayEmpty: true, // 👈 this makes the placeholder visible in the box
+              }}
             >
+              {/* Placeholder */}
+              <MenuItem value="" disabled>
+                Select Hour
+              </MenuItem>
               {hourOptions.map((hour, index) => (
                 <MenuItem key={index} value={hour}>
                   {hour}

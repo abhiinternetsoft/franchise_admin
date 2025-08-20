@@ -109,7 +109,8 @@ const Step5 = ({ formik, onBack, onNext }) => {
             value={formik.values.entityName}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            helperText="Official legal business name"
+            // helperText="Official legal business name"
+            placeholder="Input Characters"
           />
         </Grid>
 
@@ -181,6 +182,7 @@ const Step5 = ({ formik, onBack, onNext }) => {
             value={formik.values.corporateLocations}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
+            placeholder="Input Numericals Characters"
           />
         </Grid>
 
@@ -198,7 +200,7 @@ const Step5 = ({ formik, onBack, onNext }) => {
             value={formik.values.franchiseLocations}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            helperText="Franchised locations"
+            placeholder="Input Numericals Characters"
           />
         </Grid>
 
@@ -230,7 +232,15 @@ const Step5 = ({ formik, onBack, onNext }) => {
             value={formik.values.Country}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
+            SelectProps={{
+              displayEmpty: true, // 👈 this makes the placeholder visible in the box
+            }}
           >
+            {/* Placeholder */}
+            <MenuItem value="" disabled>
+              Select Country
+            </MenuItem>
+
             {countries
               .sort((a, b) => a.name.common.localeCompare(b.name.common))
               .map((country) => (
@@ -251,6 +261,7 @@ const Step5 = ({ formik, onBack, onNext }) => {
             value={formik.values.CorporateAddress1}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
+            placeholder="Input Address"
           />
         </Grid>
 
@@ -264,6 +275,7 @@ const Step5 = ({ formik, onBack, onNext }) => {
             value={formik.values.CorporateAddress2}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
+            placeholder="Input Address"
           />
         </Grid>
       </Grid>

@@ -137,11 +137,20 @@ const Step4 = ({ formik, onBack, onNext }) => {
             select
             fullWidth
             name="category"
+            placeholder="test"
             value={formik.values.category}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             error={formik.touched.category && Boolean(formik.errors.category)}
+            SelectProps={{
+              displayEmpty: true, // 👈 this makes the placeholder visible in the box
+            }}
           >
+            {/* Placeholder */}
+            <MenuItem value="" disabled>
+              Select Industry
+            </MenuItem>
+
             {categories.map((cat) => (
               <MenuItem key={cat} value={cat}>
                 {cat}
@@ -166,7 +175,15 @@ const Step4 = ({ formik, onBack, onNext }) => {
             error={
               formik.touched.subcategory && Boolean(formik.errors.subcategory)
             }
+            SelectProps={{
+              displayEmpty: true, // 👈 this makes the placeholder visible in the box
+            }}
           >
+            {/* Placeholder */}
+            <MenuItem value="" disabled>
+              Select Category
+            </MenuItem>
+
             {selectedSubcategories.map((sub) => (
               <MenuItem key={sub} value={sub}>
                 {sub}
@@ -176,7 +193,7 @@ const Step4 = ({ formik, onBack, onNext }) => {
         </Grid>
 
         {/* Business Model */}
-        <Grid sx={{ flexBasis: { xs: "100%", md: "32%" } }}>
+        {/* <Grid sx={{ flexBasis: { xs: "100%", md: "32%" } }}>
           <label htmlFor="Business Model" className="listing-form-label">
             Business Model
           </label>
@@ -191,14 +208,22 @@ const Step4 = ({ formik, onBack, onNext }) => {
               formik.touched.businessModel &&
               Boolean(formik.errors.businessModel)
             }
+            SelectProps={{
+              displayEmpty: true, 
+            }}
           >
+            
+            <MenuItem value="" disabled>
+              Business Model
+            </MenuItem>
+
             {businessModels.map((model) => (
               <MenuItem key={model} value={model}>
                 {model}
               </MenuItem>
             ))}
           </TextField>
-        </Grid>
+        </Grid> */}
 
         {/* Keywords */}
         {/* <Grid sx={{ flexBasis: { xs: "100%", md: "100%" } }}>
@@ -254,7 +279,7 @@ const Step4 = ({ formik, onBack, onNext }) => {
 
             <TextField
               variant="standard"
-              placeholder="Type and press Enter"
+              placeholder="Enter keywords"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               onKeyDown={(e) => {

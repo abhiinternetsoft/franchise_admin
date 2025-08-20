@@ -88,14 +88,24 @@ const dashboard = {
       icon: icons.Dashboard,
       breadcrumbs: false,
     },
+    // {
+    //   id: "franchise-opportunities",
+    //   title: "Franchise Opportunities",
+    //   type: "item",
+    //   url: "/franchiseopportunities", // ✅ fixed path
+    //   icon: icons.Franchise,
+    //   breadcrumbs: false,
+    // },
+
     {
       id: "franchise-opportunities",
       title: "Franchise Opportunities",
       type: "item",
-      url: "/franchiseopportunities", // ✅ fixed path
+      url: "/AllFranchiseListing", // ✅ fixed path
       icon: icons.Franchise,
       breadcrumbs: false,
     },
+
     {
       id: "franchise-disclosures",
       title: "Franchise Disclosures",

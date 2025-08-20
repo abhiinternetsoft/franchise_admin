@@ -22,6 +22,8 @@ const amountTypeOptions = [
   { label: "Percentage", value: "percentage" },
 ];
 
+const businessModels = ["Franchise", "License", "Partnership", "Direct Sales"];
+
 const Step6 = ({ formik, onBack, onNext }) => {
   return (
     <Paper
@@ -75,6 +77,7 @@ const Step6 = ({ formik, onBack, onNext }) => {
             value={formik.values.investmentLow}
             onChange={formik.handleChange}
             type="number"
+            placeholder="Input Dollar Amount"
           />
         </Grid>
         <Grid item sx={{ flexBasis: { xs: "100%", md: "23%" } }}>
@@ -85,6 +88,7 @@ const Step6 = ({ formik, onBack, onNext }) => {
             value={formik.values.investmentHigh}
             onChange={formik.handleChange}
             type="number"
+            placeholder="Input Dollar Amount"
           />
         </Grid>
         <Grid item sx={{ flexBasis: { xs: "100%", md: "23%" } }}>
@@ -97,6 +101,7 @@ const Step6 = ({ formik, onBack, onNext }) => {
             value={formik.values.liquidCapital}
             onChange={formik.handleChange}
             type="number"
+            placeholder="Input Dollar Amount"
           />
         </Grid>
         <Grid item sx={{ flexBasis: { xs: "100%", md: "23%" } }}>
@@ -109,7 +114,14 @@ const Step6 = ({ formik, onBack, onNext }) => {
             name="thirdPartyFinancing"
             value={formik.values.thirdPartyFinancing}
             onChange={formik.handleChange}
+            SelectProps={{
+              displayEmpty: true, // 👈 this makes the placeholder visible in the box
+            }}
           >
+            {/* Placeholder */}
+            <MenuItem value="" disabled>
+              Select Option
+            </MenuItem>
             {yesNoOptions.map((opt) => (
               <MenuItem key={opt.value} value={opt.value}>
                 {opt.label}
@@ -136,7 +148,40 @@ const Step6 = ({ formik, onBack, onNext }) => {
             value={formik.values.ongoingfranchisefee}
             onChange={formik.handleChange}
             type="number"
+            placeholder="Input Dollar Amount"
           />
+        </Grid>
+        {/* Business Model */}
+        <Grid sx={{ flexBasis: { xs: "100%", md: "23%" } }}>
+          <label htmlFor="Business Model" className="listing-form-label">
+            Business Model
+          </label>
+          <TextField
+            select
+            fullWidth
+            name="businessModel"
+            value={formik.values.businessModel}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            error={
+              formik.touched.businessModel &&
+              Boolean(formik.errors.businessModel)
+            }
+            SelectProps={{
+              displayEmpty: true, // 👈 this makes the placeholder visible in the box
+            }}
+          >
+            {/* Placeholder */}
+            <MenuItem value="" disabled>
+              Business Model
+            </MenuItem>
+
+            {businessModels.map((model) => (
+              <MenuItem key={model} value={model}>
+                {model}
+              </MenuItem>
+            ))}
+          </TextField>
         </Grid>
         <Grid item sx={{ flexBasis: { xs: "100%", md: "23%" } }}>
           <label className="listing-form-label">Royalty Fee Type</label>
@@ -146,7 +191,14 @@ const Step6 = ({ formik, onBack, onNext }) => {
             name="ongoingtype"
             value={formik.values.ongoingtype}
             onChange={formik.handleChange}
+            SelectProps={{
+              displayEmpty: true, // 👈 this makes the placeholder visible in the box
+            }}
           >
+            {/* Placeholder */}
+            <MenuItem value="" disabled>
+              Select Type
+            </MenuItem>
             {amountTypeOptions.map((opt) => (
               <MenuItem key={opt.value} value={opt.value}>
                 {opt.label}
@@ -163,6 +215,7 @@ const Step6 = ({ formik, onBack, onNext }) => {
               value={formik.values.ongoingPercentage}
               onChange={formik.handleChange}
               type="number"
+              placeholder="Input Dollar Amount"
             />
           </Grid>
         )}
@@ -175,6 +228,7 @@ const Step6 = ({ formik, onBack, onNext }) => {
               value={formik.values.ongoingFlatFee}
               onChange={formik.handleChange}
               type="number"
+              placeholder="Input Dollar Amount"
             />
           </Grid>
         )}
@@ -193,7 +247,14 @@ const Step6 = ({ formik, onBack, onNext }) => {
             name="localAdType"
             value={formik.values.localAdType}
             onChange={formik.handleChange}
+            SelectProps={{
+              displayEmpty: true, // 👈 this makes the placeholder visible in the box
+            }}
           >
+            {/* Placeholder */}
+            <MenuItem value="" disabled>
+              Select Type
+            </MenuItem>
             {amountTypeOptions.map((opt) => (
               <MenuItem key={opt.value} value={opt.value}>
                 {opt.label}
@@ -210,6 +271,7 @@ const Step6 = ({ formik, onBack, onNext }) => {
               value={formik.values.localAdpercentage}
               onChange={formik.handleChange}
               type="number"
+              placeholder="Input Dollar Amount"
             />
           </Grid>
         )}
@@ -222,6 +284,7 @@ const Step6 = ({ formik, onBack, onNext }) => {
               value={formik.values.localAdflatfee}
               onChange={formik.handleChange}
               type="number"
+              placeholder="Input Dollar Amount"
             />
           </Grid>
         )}
@@ -240,7 +303,14 @@ const Step6 = ({ formik, onBack, onNext }) => {
             name="nationalAdType"
             value={formik.values.nationalAdType}
             onChange={formik.handleChange}
+            SelectProps={{
+              displayEmpty: true, // 👈 this makes the placeholder visible in the box
+            }}
           >
+            {/* Placeholder */}
+            <MenuItem value="" disabled>
+              Select Type
+            </MenuItem>
             {amountTypeOptions.map((opt) => (
               <MenuItem key={opt.value} value={opt.value}>
                 {opt.label}
@@ -257,6 +327,7 @@ const Step6 = ({ formik, onBack, onNext }) => {
               value={formik.values.nationalAdpercentage}
               onChange={formik.handleChange}
               type="number"
+              placeholder="Input Dollar Amount"
             />
           </Grid>
         )}
@@ -269,6 +340,7 @@ const Step6 = ({ formik, onBack, onNext }) => {
               value={formik.values.nationalAdflatfee}
               onChange={formik.handleChange}
               type="number"
+              placeholder="Input Dollar Amount"
             />
           </Grid>
         )}

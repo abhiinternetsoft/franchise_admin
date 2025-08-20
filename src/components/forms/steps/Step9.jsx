@@ -150,8 +150,14 @@ const Step9 = ({ formik, onBack, onNext }) => {
             name="exclusiveterritory"
             value={formik.values.exclusiveterritory}
             onChange={formik.handleChange}
-            helperText="Level of territory protection offered"
+            SelectProps={{
+              displayEmpty: true, // 👈 this makes the placeholder visible in the box
+            }}
           >
+            {/* Placeholder */}
+            <MenuItem value="" disabled>
+              Select Option
+            </MenuItem>
             {yesNoOptions.map((option) => (
               <MenuItem key={option.value} value={option.value}>
                 {option.label}
@@ -189,7 +195,14 @@ const Step9 = ({ formik, onBack, onNext }) => {
             name="singleunitfranchise"
             value={formik.values.singleunitfranchise}
             onChange={formik.handleChange}
+            SelectProps={{
+              displayEmpty: true, // 👈 this makes the placeholder visible in the box
+            }}
           >
+            {/* Placeholder */}
+            <MenuItem value="" disabled>
+              Select Option
+            </MenuItem>
             {yesNoOptions.map((option) => (
               <MenuItem key={option.value} value={option.value}>
                 {option.label}
@@ -211,7 +224,14 @@ const Step9 = ({ formik, onBack, onNext }) => {
             name="multiunitfranchise"
             value={formik.values.multiunitfranchise}
             onChange={formik.handleChange}
+            SelectProps={{
+              displayEmpty: true, // 👈 this makes the placeholder visible in the box
+            }}
           >
+            {/* Placeholder */}
+            <MenuItem value="" disabled>
+              Select Option
+            </MenuItem>
             {yesNoOptions.map((option) => (
               <MenuItem key={option.value} value={option.value}>
                 {option.label}
@@ -233,7 +253,14 @@ const Step9 = ({ formik, onBack, onNext }) => {
             name="masterunitfranchise"
             value={formik.values.masterunitfranchise}
             onChange={formik.handleChange}
+            SelectProps={{
+              displayEmpty: true, // 👈 this makes the placeholder visible in the box
+            }}
           >
+            {/* Placeholder */}
+            <MenuItem value="" disabled>
+              Select Option
+            </MenuItem>
             {yesNoOptions.map((option) => (
               <MenuItem key={option.value} value={option.value}>
                 {option.label}
@@ -255,7 +282,14 @@ const Step9 = ({ formik, onBack, onNext }) => {
             name="internationalexpansion"
             value={formik.values.internationalexpansion}
             onChange={formik.handleChange}
+            SelectProps={{
+              displayEmpty: true, // 👈 this makes the placeholder visible in the box
+            }}
           >
+            {/* Placeholder */}
+            <MenuItem value="" disabled>
+              Select Option
+            </MenuItem>
             {yesNoOptions.map((option) => (
               <MenuItem key={option.value} value={option.value}>
                 {option.label}

@@ -14,6 +14,7 @@ import Vector from "../../../assets/images/users/Vector.svg";
 import brandBanner from "../../../assets/images/users/brandbanner.svg";
 import { useState } from "react";
 import { IoAdd } from "react-icons/io5";
+import { red } from "@ant-design/colors";
 
 const Step14 = ({ formik, onBack, onNext }) => {
   // const handleFileChange = (e, fieldName) => {
@@ -251,7 +252,7 @@ const Step14 = ({ formik, onBack, onNext }) => {
           </Box>
         </Grid>
 
-        <Grid
+        {/* <Grid
           item
           sx={{ flexBasis: { xs: "100%", md: "49%" } }}
           className="upload-brochure"
@@ -279,6 +280,97 @@ const Step14 = ({ formik, onBack, onNext }) => {
             id="uploadbrocure"
             onChange={(e) => handleFileChange(e, "marketingBrochure")}
           />
+        </Grid> */}
+
+        <Grid
+          item
+          sx={{ flexBasis: { xs: "100%", md: "49%" } }}
+          className="upload-brochure"
+          onClick={() => document.getElementById("uploadbrocure").click()}
+        >
+          <img src={Vector} alt="Upload pdf Brochure" />
+          <Typography
+            variant="subtitle2"
+            gutterBottom
+            className="fs-14 my-3 upload-title"
+          >
+            Drag your file(s) or <span className="upload-blue">browse</span>
+          </Typography>
+          <Typography
+            variant="subtitle2"
+            gutterBottom
+            className="fs-12 my-2 upload-description"
+          >
+            Max 10 MB PDF files
+          </Typography>
+          <input
+            type="file"
+            accept="application/pdf"
+            className="upload-button"
+            id="uploadbrocure"
+            onChange={(e) => handleFileChange(e, "marketingBrochure")}
+          />
+
+          {/* ✅ PDF Preview Section */}
+          {formik.values.marketingBrochure && (
+            <Box
+              mt={2}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 2,
+                border: "1px dashed #ccc",
+                borderRadius: 2,
+                padding: "8px 12px",
+              }}
+            >
+              <img
+                src={Document}
+                alt="PDF Icon"
+                style={{ width: 40, height: 40 }}
+              />
+              <Typography
+                variant="body2"
+                sx={{
+                  flex: 1,
+                  whiteSpace: "nowrap",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                }}
+                style={{ color: "#6D758F" }}
+              >
+                {formik.values.marketingBrochure.name}
+              </Typography>
+
+              {/* Download / Open PDF */}
+              <Button
+                size="small"
+                onClick={() => {
+                  const fileURL = URL.createObjectURL(
+                    formik.values.marketingBrochure
+                  );
+                  window.open(fileURL, "_blank");
+                }}
+              >
+                View
+              </Button>
+
+              {/* Delete PDF */}
+              <Button
+                size="small"
+                color="error"
+                onClick={() => formik.setFieldValue("marketingBrochure", null)}
+                style={{
+                  minWidth: "20px",
+                  height: "20px",
+                  borderRadius: "30px",
+                  backgroundColor: red,
+                }}
+              >
+                X
+              </Button>
+            </Box>
+          )}
         </Grid>
       </Grid>
 

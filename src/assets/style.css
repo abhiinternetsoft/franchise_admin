@@ -256,9 +256,24 @@
 }
 
 .css-fhjy21-MuiTableCell-root {
-  line-height: 3;
+  line-height: 5;
   font-size: 14px;
   color: #535364;
+}
+
+.listing-pagination .Mui-selected {
+  background-color: #6D758F !important;
+  color: #fff;
+  border-radius: 10px;
+  width: 38px;
+  height: 38px;
+}
+
+.listing-pagination .MuiPaginationItem-text {
+  width: 38px;
+  height: 38px;
+  /* border: 1px solid #E1E4ED; */
+  border-radius: 10px;
 }
 
 .css-run3j7-MuiTypography-root{
@@ -595,6 +610,18 @@
 .table-main-heading span {
   font-weight: 400;
   font-size: 16px;
+  color: #535364;
+}
+
+.css-1bctktr-MuiTypography-root {
+  font-size: 14px;
+  font-family: "Inter";
+  color: #0DA2FF;
+  font-weight: 400 !important;
+}
+
+a {
+  text-decoration: none;
 }
 
 .export-file-btn {
@@ -604,7 +631,11 @@
   font-family: "Inter";
   background-color: #fff;
   border-radius: 10px;
-  padding: 10px 24px;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  width: 146px;
+  justify-content: center;
 }
 
 .new-listing-btn {
@@ -614,7 +645,11 @@
   font-family: "Inter";
   background: linear-gradient(to right, #00DB62, #0DA2FF);
   border-radius: 10px;
-  padding: 10px 24px;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  width: 146px;
+  justify-content: center;
 }
 
 .w-15 {
@@ -629,8 +664,24 @@ Select {
   border-radius: 10px !important;
 }
 
-.Listingtable-head {
+.Listingtable-head, .css-pxsn4d-MuiInputBase-root-MuiOutlinedInput-root {
   border-radius: 10px !important;
+}
+
+.Listingtable-head tr {
+  width: 97%;
+  margin: auto;
+}
+
+.Listingtable-head .actions-head {
+  padding: 0px 50px;
+}
+
+.activate-button {
+  font-size: 14px;
+  font-family: "Inter";
+  border-radius: 10px;
+  padding: 2px 14px;
 }
 
 .mobile-content span {
@@ -877,4 +928,9 @@ button.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-colorSecondary.MuiIco
 
 .MuiBox-root .css-15o9cg1 .sidebar-close-logo {
   margin-left: 3px !important;
+}
+
+.step-save-button {
+      color: #00b4db;
+    border: 1px solid #00b4db !important;
 }

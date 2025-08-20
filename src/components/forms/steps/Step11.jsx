@@ -11,8 +11,8 @@ import {
 import Chart from "../../../assets/images/users/chart.svg";
 
 const financialDisclosureOptions = [
-  { label: "Yes", value: "yes" },
-  { label: "No", value: "no" },
+  { label: "Yes - We Provide Item 19", value: "yes" },
+  { label: "yes - We do Not Provide Item 19", value: "no" },
 ];
 
 const Step11 = ({ formik, onBack, onNext }) => {
@@ -68,7 +68,14 @@ const Step11 = ({ formik, onBack, onNext }) => {
             value={formik.values.financialDisclosure}
             onChange={formik.handleChange}
             placeholder="Select Option"
+            SelectProps={{
+              displayEmpty: true, // 👈 this makes the placeholder visible in the box
+            }}
           >
+            {/* Placeholder */}
+            <MenuItem value="" disabled>
+              Select Option
+            </MenuItem>
             {financialDisclosureOptions.map((option) => (
               <MenuItem key={option.value} value={option.value}>
                 {option.label}

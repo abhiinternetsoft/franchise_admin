@@ -13,6 +13,7 @@ import { CheckCircle } from "@mui/icons-material";
 import brandLogo from "../../../assets/images/users/brandLogo.svg";
 import brandBanner from "../../../assets/images/users/brandbanner.svg";
 import Branding from "../../../assets/images/users/Branding.svg";
+import { IconButton } from "@mui/material";
 // ======================
 
 const Step3 = ({ formik }) => {
@@ -108,16 +109,34 @@ const Step3 = ({ formik }) => {
               gap={2}
               flexDirection="column"
             >
-              <img
-                src={URL.createObjectURL(formik.values.brandLogo)}
-                alt="Brand Logo"
-                style={{
-                  width: 200,
-                  height: 200,
-                  borderRadius: "50%",
-                  border: "1px solid #000",
-                }}
-              />
+              <Box sx={{ position: "relative", display: "inline-block" }}>
+                <img
+                  src={URL.createObjectURL(formik.values.brandLogo)}
+                  alt="Brand Logo"
+                  style={{
+                    width: 200,
+                    height: 200,
+                    borderRadius: "50%",
+                    border: "1px solid #000",
+                    objectFit: "cover",
+                  }}
+                />
+                <IconButton
+                  size="small"
+                  onClick={() => formik.setFieldValue("brandLogo", null)}
+                  sx={{
+                    position: "absolute",
+                    top: 8,
+                    right: 8,
+                    backgroundColor: "rgba(0,0,0,0.6)",
+                    color: "#fff",
+                    "&:hover": { backgroundColor: "rgba(0,0,0,0.8)" },
+                  }}
+                >
+                  ✕
+                </IconButton>
+              </Box>
+
               <Typography
                 variant="subtitle1"
                 color="success.main"
@@ -182,16 +201,32 @@ const Step3 = ({ formik }) => {
               gap={2}
               flexDirection="column"
             >
-              <img
-                src={URL.createObjectURL(formik.values.brandBanner)}
-                alt="Brand Banner"
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  objectFit: "cover",
-                  borderRadius: 8,
-                }}
-              />
+              <Box sx={{ position: "relative", display: "inline-block" }}>
+                <img
+                  src={URL.createObjectURL(formik.values.brandBanner)}
+                  alt="Brand Banner"
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                    objectFit: "cover",
+                    borderRadius: 8,
+                  }}
+                />
+                <IconButton
+                  size="small"
+                  onClick={() => formik.setFieldValue("brandBanner  ", null)}
+                  sx={{
+                    position: "absolute",
+                    top: 8,
+                    right: 8,
+                    backgroundColor: "rgba(0,0,0,0.6)",
+                    color: "#fff",
+                    "&:hover": { backgroundColor: "rgba(0,0,0,0.8)" },
+                  }}
+                >
+                  ✕
+                </IconButton>
+              </Box>
               <Typography
                 variant="subtitle1"
                 color="success.main"

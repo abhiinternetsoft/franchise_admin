@@ -68,7 +68,14 @@ const Step12 = ({ formik, onBack, onNext }) => {
             name="brokerReferrals"
             value={formik.values.brokerReferrals}
             onChange={formik.handleChange}
+            SelectProps={{
+              displayEmpty: true, // 👈 this makes the placeholder visible in the box
+            }}
           >
+            {/* Placeholder */}
+            <MenuItem value="" disabled>
+              Select Option
+            </MenuItem>
             {brokerReferralOptions.map((option) => (
               <MenuItem key={option.value} value={option.value}>
                 {option.label}
@@ -91,7 +98,14 @@ const Step12 = ({ formik, onBack, onNext }) => {
             name="commissionType"
             value={formik.values.commissionType}
             onChange={formik.handleChange}
+            SelectProps={{
+              displayEmpty: true, // 👈 this makes the placeholder visible in the box
+            }}
           >
+            {/* Placeholder */}
+            <MenuItem value="" disabled>
+              Select Type
+            </MenuItem>
             {commissionTypes.map((type) => (
               <MenuItem key={type.value} value={type.value}>
                 {type.label}

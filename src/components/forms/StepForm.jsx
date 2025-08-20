@@ -164,7 +164,7 @@ const StepForm = ({ step, setStep, steps }) => {
         .required("About Us is required"),
       category: Yup.string().required("Category is required"),
       subcategory: Yup.string().required("Subcategory is required"),
-      businessModel: Yup.string().required("Business Model is required"),
+
       keywords: Yup.array()
         .min(1, "At least one keyword is required")
         .of(Yup.string().trim()),
@@ -197,6 +197,7 @@ const StepForm = ({ step, setStep, steps }) => {
       thirdPartyFinancing: Yup.string().required("Required"),
       ongoingPercentage: Yup.number().required("Required"),
       ongoingFlatFee: Yup.number().required("Required"),
+      businessModel: Yup.string().required("Business Model is required"),
       royaltyType: Yup.string(),
       localAdType: Yup.string(),
       localAdpercentage: Yup.number(),
@@ -610,7 +611,7 @@ const StepForm = ({ step, setStep, steps }) => {
                   <Button
                     variant="outlined"
                     color="secondary"
-                    className="outline-btn border gap-10"
+                    className="outline-btn border gap-10 step-save-button"
                   >
                     Save <IoSaveOutline />
                   </Button>
