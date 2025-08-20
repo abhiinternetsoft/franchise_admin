@@ -127,7 +127,7 @@ export default function Profile() {
                       <ListItemIcon>
                         <LuUserRound />
                       </ListItemIcon>
-                      <ListItemText primary="support staff" />
+                      <ListItemText primary="Support staff" />
                     </ListItemButton>
                     <hr className="m-0" />
                     <ListItemButton onClick={handleLogout}>

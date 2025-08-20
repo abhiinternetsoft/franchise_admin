@@ -624,6 +624,14 @@ a {
   text-decoration: none;
 }
 
+.sidebar-close-logo {
+  background-color: #fff;
+}
+
+.sidebar-close-logo:hover {
+  background-color: #fff;
+}
+
 .export-file-btn {
   border: 1px solid #0DA2FF;
   color: #0DA2FF;

@@ -155,12 +155,12 @@ const SignIn = () => {
                   Sign In
                 </button>
                 <div className="text-start">
-                  <Link
+                  {/* <Link
                     to="/forgot-password"
                     className="forget-pass text-decoration-none"
                   >
                     Forgot your password?
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             ) : (
