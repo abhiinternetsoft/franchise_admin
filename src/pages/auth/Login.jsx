@@ -131,7 +131,12 @@ const SignIn = () => {
 
             {/* Form */}
             {tab === "signin" ? (
-              <div className="signin-form">
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault(); // prevent page reload
+                  handleLogin();
+                }}
+              >
                 <label>Email</label>
                 <input
                   type="email"
@@ -149,20 +154,12 @@ const SignIn = () => {
                   onChange={(e) => setPassword(e.target.value)}
                 />
                 <button
+                  type="submit"
                   className="btn btn-primary w-100 mb-3 signin-btn"
-                  onClick={handleLogin}
                 >
                   Sign In
                 </button>
-                <div className="text-start">
-                  {/* <Link
-                    to="/forgot-password"
-                    className="forget-pass text-decoration-none"
-                  >
-                    Forgot your password?
-                  </Link> */}
-                </div>
-              </div>
+              </form>
             ) : (
               <div className="signup-form">
                 {/* <label>Select Role</label> */}
