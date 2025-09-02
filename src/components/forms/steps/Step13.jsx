@@ -49,6 +49,10 @@ const Step13 = ({ formik, onBack, onNext }) => {
             value={formik.values.facebookUrl}
             onChange={formik.handleChange}
             placeholder="https://facebook.com/yourbrand"
+            error={
+              formik.touched.facebookUrl && Boolean(formik.errors.facebookUrl)
+            }
+            helperText={formik.touched.facebookUrl && formik.errors.facebookUrl}
           />
         </Grid>
 
@@ -63,6 +67,12 @@ const Step13 = ({ formik, onBack, onNext }) => {
             value={formik.values.instagramUrl}
             onChange={formik.handleChange}
             placeholder="https://instagram.com/yourbrand"
+            error={
+              formik.touched.instagramUrl && Boolean(formik.errors.instagramUrl)
+            }
+            helperText={
+              formik.touched.instagramUrl && formik.errors.instagramUrl
+            }
           />
         </Grid>
 
@@ -77,6 +87,10 @@ const Step13 = ({ formik, onBack, onNext }) => {
             value={formik.values.twitterUrl}
             onChange={formik.handleChange}
             placeholder="https://twitter.com/yourbrand"
+            error={
+              formik.touched.twitterUrl && Boolean(formik.errors.twitterUrl)
+            }
+            helperText={formik.touched.twitterUrl && formik.errors.twitterUrl}
           />
         </Grid>
       </Grid>
@@ -93,6 +107,10 @@ const Step13 = ({ formik, onBack, onNext }) => {
             value={formik.values.linkedinUrl}
             onChange={formik.handleChange}
             placeholder="https://linkedin.com/company/yourbrand"
+            error={
+              formik.touched.linkedinUrl && Boolean(formik.errors.linkedinUrl)
+            }
+            helperText={formik.touched.linkedinUrl && formik.errors.linkedinUrl}
           />
         </Grid>
 
@@ -107,6 +125,10 @@ const Step13 = ({ formik, onBack, onNext }) => {
             value={formik.values.youtubeUrl}
             onChange={formik.handleChange}
             placeholder="https://youtube.com/channel/yourbrand"
+            error={
+              formik.touched.youtubeUrl && Boolean(formik.errors.youtubeUrl)
+            }
+            helperText={formik.touched.youtubeUrl && formik.errors.youtubeUrl}
           />
         </Grid>
       </Grid>

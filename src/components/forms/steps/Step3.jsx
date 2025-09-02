@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import {
   Box,
   Typography,
@@ -8,18 +8,27 @@ import {
   Dialog,
   DialogContent,
   Button,
+  Slider,
 } from "@mui/material";
 import { CheckCircle } from "@mui/icons-material";
 import brandLogo from "../../../assets/images/users/brandLogo.svg";
 import brandBanner from "../../../assets/images/users/brandbanner.svg";
 import Branding from "../../../assets/images/users/Branding.svg";
 import { IconButton } from "@mui/material";
-// ======================
+
+import Cropper from "react-easy-crop";
+import getCroppedImg from "./getCroppedImg";
+
+// You might need to import a CSS file or define styles for react-easy-crop
+// import 'react-easy-crop/react-easy-crop.css'; // If you're using default styles, ensure this is imported
 
 const Step3 = ({ formik }) => {
   const [previewImage, setPreviewImage] = useState(null);
   const [previewField, setPreviewField] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
+  const [crop, setCrop] = useState({ x: 0, y: 0 });
+  const [zoom, setZoom] = useState(1);
+  const [croppedAreaPixels, setCroppedAreaPixels] = useState(null);
 
   const handleFileChange = (e, field) => {
     const file = e.currentTarget.files[0];
@@ -27,34 +36,33 @@ const Step3 = ({ formik }) => {
       setPreviewImage(URL.createObjectURL(file));
       setPreviewField(field);
       setSelectedFile(file);
+      setCrop({ x: 0, y: 0 });
+      setZoom(1);
+      setCroppedAreaPixels(null);
     }
   };
 
-  const confirmUpload = () => {
-    formik.setFieldValue(previewField, selectedFile);
+  const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
+    setCroppedAreaPixels(croppedAreaPixels);
+  }, []);
+
+  const confirmUpload = async () => {
+    if (previewImage && croppedAreaPixels) {
+      const croppedImageBlob = await getCroppedImg(
+        previewImage,
+        croppedAreaPixels
+      );
+      const croppedFile = new File([croppedImageBlob], selectedFile.name, {
+        type: selectedFile.type,
+      });
+      formik.setFieldValue(previewField, croppedFile);
+    } else {
+      formik.setFieldValue(previewField, selectedFile);
+    }
     setPreviewImage(null);
     setPreviewField(null);
     setSelectedFile(null);
   };
-
-  // Replace ONLY the part where you save file in confirmUpload
-  // const confirmUpload = async () => {
-  //   if (previewImage && croppedAreaPixels) {
-  //     const croppedImageBlob = await getCroppedImg(
-  //       previewImage,
-  //       croppedAreaPixels
-  //     );
-  //     const croppedFile = new File([croppedImageBlob], selectedFile.name, {
-  //       type: selectedFile.type,
-  //     });
-  //     formik.setFieldValue(previewField, croppedFile);
-  //   } else {
-  //     formik.setFieldValue(previewField, selectedFile);
-  //   }
-  //   setPreviewImage(null);
-  //   setPreviewField(null);
-  //   setSelectedFile(null);
-  // };
 
   const closePreview = () => {
     setPreviewImage(null);
@@ -68,7 +76,6 @@ const Step3 = ({ formik }) => {
       sx={{ p: 4, borderRadius: 2 }}
       className="shadow-none border mb-4 "
     >
-      {/* Step Info */}
       <Box mb={3} display="flex" alignItems="center" gap="10px">
         <img src={Branding} alt="Branding Image" />
         <Box>
@@ -84,7 +91,6 @@ const Step3 = ({ formik }) => {
       </Box>
 
       <Grid container spacing={3}>
-        {/* Brand Name */}
         <Grid sx={{ flexBasis: "50%" }}>
           <label htmlFor="Brand Name" className="listing-form-label">
             Brand Name
@@ -100,7 +106,6 @@ const Step3 = ({ formik }) => {
           />
         </Grid>
 
-        {/* Brand Logo */}
         <Grid sx={{ flexBasis: { xs: "100%", md: "49%" } }}>
           {formik.values.brandLogo ? (
             <Box
@@ -192,7 +197,6 @@ const Step3 = ({ formik }) => {
           )}
         </Grid>
 
-        {/* Brand Banner */}
         <Grid sx={{ flexBasis: { xs: "100%", md: "49%" } }}>
           {formik.values.brandBanner ? (
             <Box
@@ -214,7 +218,7 @@ const Step3 = ({ formik }) => {
                 />
                 <IconButton
                   size="small"
-                  onClick={() => formik.setFieldValue("brandBanner  ", null)}
+                  onClick={() => formik.setFieldValue("brandBanner", null)}
                   sx={{
                     position: "absolute",
                     top: 8,
@@ -284,7 +288,7 @@ const Step3 = ({ formik }) => {
         </Grid>
       </Grid>
 
-      {/* Preview Popup */}
+      {/* Preview and Cropping Popup */}
       <Dialog
         open={Boolean(previewImage)}
         onClose={closePreview}
@@ -307,59 +311,63 @@ const Step3 = ({ formik }) => {
             p: 4,
           }}
         >
-          {/* Image Preview */}
-          {previewField === "brandLogo" && (
+          {/* Image Cropper */}
+          {previewImage && (
             <Box
               sx={{
-                width: 200,
-                height: 200,
-                borderRadius: "50%",
-                overflow: "hidden",
+                position: "relative",
+                width: "100%",
+                height: previewField === "brandLogo" ? 200 : 250,
                 mb: 3,
+                // Add these styles to remove the grey background
+                backgroundColor: "transparent", // Or match DialogContent background
+                "& .react-easy-crop-container": {
+                  backgroundColor: "transparent !important", // Override default
+                },
+                "& .react-easy-crop-image": {
+                  objectFit:
+                    previewField === "brandLogo" ? "contain" : "contain", // Use 'contain' to ensure full image is visible
+                },
               }}
             >
-              <img
-                src={previewImage}
-                alt="Logo Preview"
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                }}
+              <Cropper
+                image={previewImage}
+                crop={crop}
+                zoom={zoom}
+                aspect={previewField === "brandLogo" ? 1 / 1 : 12 / 4}
+                onCropChange={setCrop}
+                onZoomChange={setZoom}
+                onCropComplete={onCropComplete}
+                cropShape={previewField === "brandLogo" ? "round" : "rect"}
+                showGrid={true} // Keep grid for better alignment
+                // containerStyle={{ backgroundColor: 'transparent' }} // This might not be necessary with the above, but can be an alternative
               />
             </Box>
           )}
 
-          {previewField === "brandBanner" && (
-            <Box
-              sx={{
-                width: "100%",
-                height: 250,
-                borderRadius: 3,
-                overflow: "hidden",
-                mb: 3,
-              }}
-            >
-              <img
-                src={previewImage}
-                alt="Banner Preview"
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                }}
-              />
-            </Box>
-          )}
+          {/* Zoom Slider */}
+          <Box sx={{ width: "80%", mb: 3 }}>
+            <Typography variant="body2" sx={{ textAlign: "center", mb: 1 }}>
+              Zoom
+            </Typography>
+            <Slider
+              value={zoom}
+              min={1}
+              max={3}
+              step={0.1}
+              aria-labelledby="zoom-slider"
+              onChange={(e, newZoom) => setZoom(newZoom)}
+            />
+          </Box>
 
           {/* Text */}
           <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>
             {previewField === "brandLogo"
-              ? "Preview Brand Logo"
-              : "Preview Brand Banner"}
+              ? "Adjust Brand Logo"
+              : "Adjust Brand Banner"}
           </Typography>
           <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
-            Use the <strong>“✚”</strong> tool and position the image
+            Drag and zoom to select the perfect area.
           </Typography>
 
           {/* Upload Button */}

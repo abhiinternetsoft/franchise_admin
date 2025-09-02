@@ -15,6 +15,7 @@ import Setting from "../../../assets/images/users/setting.svg";
 import Space from "../../../assets/images/users/space.svg";
 import Ownership from "../../../assets/images/users/ownership.svg";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import NumberField from "./NumberField";
 
 const yesNoOptions = [
   { label: "Yes", value: "yes" },
@@ -126,7 +127,7 @@ const Step7 = ({ formik, onBack, onNext }) => {
           >
             Min. Space Requirement
           </label>
-          <TextField
+          <NumberField
             fullWidth
             name="spaceLow"
             value={formik.values.spaceLow}
@@ -142,7 +143,7 @@ const Step7 = ({ formik, onBack, onNext }) => {
           >
             Max. Space Requirement
           </label>
-          <TextField
+          <NumberField
             fullWidth
             name="spaceHigh"
             value={formik.values.spaceHigh}

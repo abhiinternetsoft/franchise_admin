@@ -9,6 +9,7 @@ import {
   Paper,
 } from "@mui/material";
 import Like from "../../../assets/images/users/like.svg";
+import CurrencyInput from "./CurrencyInput";
 
 const brokerReferralOptions = [
   { label: "Yes", value: "yes" },
@@ -123,12 +124,12 @@ const Step12 = ({ formik, onBack, onNext }) => {
           >
             Single Unit Referral Fee?
           </label>
-          <TextField
+          <CurrencyInput
             fullWidth
             name="singleunitreferral"
             value={formik.values.singleunitreferral}
             onChange={formik.handleChange}
-            type="number"
+            type="text"
             placeholder="Input Percentage or Doller Amount"
           />
         </Grid>
@@ -140,12 +141,12 @@ const Step12 = ({ formik, onBack, onNext }) => {
           >
             Multi Unit Referral Fee?
           </label>
-          <TextField
+          <CurrencyInput
             fullWidth
             name="multiunitreferral"
             value={formik.values.multiunitreferral}
             onChange={formik.handleChange}
-            type="number"
+            type="text"
             placeholder="Input Percentage or Doller Amount"
           />
         </Grid>
@@ -154,12 +155,12 @@ const Step12 = ({ formik, onBack, onNext }) => {
           <label htmlFor="Master Franchise Fee?" className="listing-form-label">
             Master Franchise Fee?
           </label>
-          <TextField
+          <CurrencyInput
             fullWidth
             name="masterunitreferral"
             value={formik.values.masterunitreferral}
             onChange={formik.handleChange}
-            type="number"
+            type="text"
             placeholder="Input Percentage or Doller Amount"
           />
         </Grid>

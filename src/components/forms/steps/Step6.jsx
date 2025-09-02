@@ -11,6 +11,7 @@ import {
 import moneys from "../../../assets/images/users/moneys.svg";
 import Percentage from "../../../assets/images/users/percentage.svg";
 import Dollar from "../../../assets/images/users/dollar.svg";
+import CurrencyInput from "./CurrencyInput";
 
 const yesNoOptions = [
   { label: "Yes", value: "yes" },
@@ -22,7 +23,13 @@ const amountTypeOptions = [
   { label: "Percentage", value: "percentage" },
 ];
 
-const businessModels = ["Franchise", "License", "Partnership", "Direct Sales"];
+const businessModels = [
+  "Home Based",
+  "Industrial/Warehouse Based",
+  "Mobile Operation",
+  "Office Based",
+  "Retail Based",
+];
 
 const Step6 = ({ formik, onBack, onNext }) => {
   return (
@@ -71,23 +78,23 @@ const Step6 = ({ formik, onBack, onNext }) => {
         </Grid>
         <Grid item sx={{ flexBasis: { xs: "100%", md: "23%" } }}>
           <label className="listing-form-label">Investment Range Low</label>
-          <TextField
+          <CurrencyInput
             fullWidth
             name="investmentLow"
             value={formik.values.investmentLow}
             onChange={formik.handleChange}
-            type="number"
+            type="text"
             placeholder="Input Dollar Amount"
           />
         </Grid>
         <Grid item sx={{ flexBasis: { xs: "100%", md: "23%" } }}>
           <label className="listing-form-label">Investment Range High</label>
-          <TextField
+          <CurrencyInput
             fullWidth
             name="investmentHigh"
             value={formik.values.investmentHigh}
             onChange={formik.handleChange}
-            type="number"
+            type="text"
             placeholder="Input Dollar Amount"
           />
         </Grid>
@@ -95,12 +102,12 @@ const Step6 = ({ formik, onBack, onNext }) => {
           <label className="listing-form-label">
             Minimum Liquid Capital Requirement
           </label>
-          <TextField
+          <CurrencyInput
             fullWidth
             name="liquidCapital"
             value={formik.values.liquidCapital}
             onChange={formik.handleChange}
-            type="number"
+            type="text"
             placeholder="Input Dollar Amount"
           />
         </Grid>
@@ -142,12 +149,12 @@ const Step6 = ({ formik, onBack, onNext }) => {
         </Grid>
         <Grid item sx={{ flexBasis: { xs: "100%", md: "23%" } }}>
           <label className="listing-form-label">Franchise Fee</label>
-          <TextField
+          <CurrencyInput
             fullWidth
             name="ongoingfranchisefee"
             value={formik.values.ongoingfranchisefee}
             onChange={formik.handleChange}
-            type="number"
+            type="text"
             placeholder="Input Dollar Amount"
           />
         </Grid>
@@ -222,12 +229,12 @@ const Step6 = ({ formik, onBack, onNext }) => {
         {formik.values.ongoingtype === "amount" && (
           <Grid item sx={{ flexBasis: { xs: "100%", md: "23%" } }}>
             <label className="listing-form-label">Flat Fee</label>
-            <TextField
+            <CurrencyInput
               fullWidth
               name="ongoingFlatFee"
               value={formik.values.ongoingFlatFee}
               onChange={formik.handleChange}
-              type="number"
+              type="text"
               placeholder="Input Dollar Amount"
             />
           </Grid>
@@ -278,12 +285,12 @@ const Step6 = ({ formik, onBack, onNext }) => {
         {formik.values.localAdType === "amount" && (
           <Grid item sx={{ flexBasis: { xs: "100%", md: "32%" } }}>
             <label className="listing-form-label">Flat Fee</label>
-            <TextField
+            <CurrencyInput
               fullWidth
               name="localAdflatfee"
               value={formik.values.localAdflatfee}
               onChange={formik.handleChange}
-              type="number"
+              type="text"
               placeholder="Input Dollar Amount"
             />
           </Grid>
@@ -334,12 +341,12 @@ const Step6 = ({ formik, onBack, onNext }) => {
         {formik.values.nationalAdType === "amount" && (
           <Grid item sx={{ flexBasis: { xs: "100%", md: "32%" } }}>
             <label className="listing-form-label">Flat Fee</label>
-            <TextField
+            <CurrencyInput
               fullWidth
               name="nationalAdflatfee"
               value={formik.values.nationalAdflatfee}
               onChange={formik.handleChange}
-              type="number"
+              type="text"
               placeholder="Input Dollar Amount"
             />
           </Grid>

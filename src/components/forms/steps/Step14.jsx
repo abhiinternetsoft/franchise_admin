@@ -85,6 +85,14 @@ const Step14 = ({ formik, onBack, onNext }) => {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             placeholder="https://youtube.com/watch?v=..."
+            error={
+              formik.touched.marketingVideoUrl &&
+              Boolean(formik.errors.marketingVideoUrl)
+            }
+            helperText={
+              formik.touched.marketingVideoUrl &&
+              formik.errors.marketingVideoUrl
+            }
           />
         </Grid>
 
@@ -102,6 +110,14 @@ const Step14 = ({ formik, onBack, onNext }) => {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             placeholder="https://youtube.com/watch?v=..."
+            error={
+              formik.touched.testimonialVideoUrl &&
+              Boolean(formik.errors.testimonialVideoUrl)
+            }
+            helperText={
+              formik.touched.testimonialVideoUrl &&
+              formik.errors.testimonialVideoUrl
+            }
           />
         </Grid>
 
